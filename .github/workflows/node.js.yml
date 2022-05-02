@@ -9,6 +9,12 @@ jobs:
     steps:
     - name: 迁出代码
       uses: actions/checkout@v3
+    - name: 启动 clash 
+      run: |
+        cd src/speedtest/clash 
+        chmod +x ./clash
+        nohup ./clash -d . &
+        cd /home/runner/work/wally/wally
     - name: 安装node
       uses: actions/setup-node@v3
       with:
@@ -16,10 +22,10 @@ jobs:
         cache: 'npm'
     - name: 安装依赖
       run: npm i
-    # - name: 升级geoip-lite数据库
-    #   run: npm run updatedb
-    - name: 执行任务
+    - name: 下载订阅并合并
       run: node src
+    - name: 测速
+      run: node src/speedtest
     - name: 提交更改
       run: |                 
          git config --local user.email "action@workflows.com"
