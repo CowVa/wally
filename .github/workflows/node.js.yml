@@ -22,13 +22,14 @@ jobs:
       run: node src
     - name: 提交更改
       run: |                 
-         git config --local user.email "wally94@163.com"
-         git config --local user.name "wally94"
+         git config --local user.email "action@workflows.com"
+         git config --local user.name "action@workflows"
          git add ./
-         git commit -m "更新订阅链接"
+         git commit -m "啥也不是"
     - name: 推送更改
       uses:  ad-m/github-push-action@master
       with:
+         github_token: ${{ github.token }}
          branch: main
 
 
