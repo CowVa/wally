@@ -1,16 +1,8 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: 啥也不是
-
+name: 自动抓取
 on:
  workflow_dispatch:
  schedule:
-    # - cron: '*/5 * * * *'
-    # 表达式生成  https://crontab.guru/
-    # 每120分钟运行一次
     - cron: '*/120 * * * *'
-
 jobs:
   Spider:
     runs-on: ubuntu-latest
@@ -22,19 +14,22 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-    
     - name: 安装依赖
       run: npm i
-   
+    # - name: 升级geoip-lite数据库
+    #   run: npm run updatedb
     - name: 执行任务
       run: node src
     - name: 提交更改
       run: |                 
-         git config --local user.email "actions@workflows.com"
-         git config --local user.name "actions@workflows"
+         git config --local user.email "wally94@163.com"
+         git config --local user.name "wally94"
          git add ./
-         git commit -m "啥也不是"
+         git commit -m "更新订阅链接"
     - name: 推送更改
-      uses:  ad-m/github-push-action@master
+      uses: ad-m/github-push-action
       with:
          branch: main
+
+
+
