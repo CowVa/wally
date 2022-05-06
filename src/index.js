@@ -59,11 +59,6 @@ function getSub(url) {
 
 async function start() {
 
-
-    sublist.forEach((sub, index) => {
-        queue.push(getSub(sub.url))
-    });
-    await queue.drain()
     try {
         const res = await axios({
             url: `https://api.github.com/repos/changfengoss/pub/contents/data/${dayjs().format('YYYY_MM_DD')}?ref=main`,
@@ -79,8 +74,11 @@ async function start() {
     }
     await queue.drain()
 
-
-
+    sublist.forEach((sub, index) => {
+        queue.push(getSub(sub.url))
+    });
+    await queue.drain()
+  
     for (const key in proxies_map) {
         nodes.proxies.push(proxies_map[key])
         nodes["proxy-groups"][0].proxies.push(proxies_map[key].name)
