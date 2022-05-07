@@ -59,7 +59,12 @@ function getSub(url) {
 }
 
 async function start() {
-
+    const { proxies } = yaml.parse(fs.readFileSync("./nodes.yaml", "utf8"))
+    proxies.forEach(proxie => {
+        const { server, port, type } = proxie
+        proxie.name = `${type}-${server}-${port}`
+        proxies_map[proxie.name] = proxie;
+    });
     try {
         const res = await axios({
             url: `https://api.github.com/repos/changfengoss/pub/contents/data/${dayjs().format('YYYY_MM_DD')}?ref=main`,
