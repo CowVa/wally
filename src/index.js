@@ -46,6 +46,7 @@ function getSub(url) {
             try {
                 const proxies = yaml.parse(data.replace(/!<str>/g, '')).proxies
                 proxies.forEach(proxie => {
+                    if(proxie.type=="vless") return false
                     const { server, port, type } = proxie
                     proxie.name = `${type}-${server}-${port}`
                     proxies_map[proxie.name] = proxie;
