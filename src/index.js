@@ -65,6 +65,7 @@ async function start() {
         proxie.name = `${type}-${server}-${port}`
         proxies_map[proxie.name] = proxie;
     });
+    console.log(`获取上一次抓取的节点，共${proxies.length}个`);
     try {
         const res = await axios({
             url: `https://api.github.com/repos/changfengoss/pub/contents/data/${dayjs().format('YYYY_MM_DD')}?ref=main`,
