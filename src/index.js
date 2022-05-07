@@ -39,6 +39,15 @@ async function download(url) {
 
 
 
+
+
+function addProxieForMap(proxie) {
+    if(proxie.type=="vless") return false
+    if(typeof proxie.port != 'number') return false
+    const { server, port, type } = proxie
+    proxie.name = `${type}-${server}-${port}`
+    proxies_map[proxie.name] = proxie;
+}
 function getSub(url) {
     return async function () {
         const data = await download(url)
@@ -46,10 +55,7 @@ function getSub(url) {
             try {
                 const proxies = yaml.parse(data.replace(/!<str>/g, '')).proxies
                 proxies.forEach(proxie => {
-                    if(proxie.type=="vless") return false
-                    const { server, port, type } = proxie
-                    proxie.name = `${type}-${server}-${port}`
-                    proxies_map[proxie.name] = proxie;
+                    addProxieForMap(proxie)
                 });
             } catch (error) {
                 console.log(error);
@@ -61,9 +67,7 @@ function getSub(url) {
 async function start() {
     const { proxies } = yaml.parse(fs.readFileSync("./nodes.yaml", "utf8"))
     proxies.forEach(proxie => {
-        const { server, port, type } = proxie
-        proxie.name = `${type}-${server}-${port}`
-        proxies_map[proxie.name] = proxie;
+       addProxieForMap(proxie)
     });
     console.log(`获取上一次抓取的节点，共${proxies.length}个`);
     try {
