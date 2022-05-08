@@ -44,7 +44,7 @@ async function download(url) {
 
 function addProxieForMap(proxie) {
     if(proxie.type=="vless") return false
-    if(!validator.isPort(proxie.port)) return false
+    if(typeof proxie.port != 'number') return false
     if(proxie.uuid && !validator.isUUID(proxie.uuid)) return false
     const { server, port, type } = proxie
     proxie.name = `${type}-${server}-${port}`
