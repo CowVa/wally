@@ -97,7 +97,7 @@ async function start() {
         nodes.proxies.push(proxies_map[key])
         nodes["proxy-groups"][0].proxies.push(proxies_map[key].name)
     }
-    console.log(nodes.proxies.length);
+    
     fs.writeFileSync("./nodes.yaml", yaml.stringify(nodes))
 
    async function testConfig() {
@@ -111,14 +111,17 @@ async function start() {
                 nodes.proxies.splice(index,1)
                 nodes["proxy-groups"][0].proxies.splice(index,1)
                 fs.writeFileSync("./nodes.yaml", yaml.stringify(nodes))
-                testConfig()
+                console.log("重新测试配置文件");
+                await testConfig()
                 return
             }
             console.log(error);
         }
     }
-    testConfig()
+    console.log("开始测试配置文件");
 
+    await testConfig()
+    console.log(nodes.proxies.length);
 
 }
 start()
