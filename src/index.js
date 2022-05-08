@@ -100,7 +100,7 @@ async function start() {
     console.log(nodes.proxies.length);
     fs.writeFileSync("./nodes.yaml", yaml.stringify(nodes))
 
-    function testConfig() {
+   async function testConfig() {
         try {
             await clashApi.setConfigs(join(process.cwd(), "./nodes.yaml"))
         } catch (error) {
