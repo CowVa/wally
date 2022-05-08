@@ -109,6 +109,7 @@ async function start() {
                 const index=Number(error.response.data.message.split("proxy ")[1].split(":")[0])
                 console.log(`代理${index}错误,可能是不支持的类型,删除此代理`,error.response.data.message);
                 nodes.proxies.splice(index,1)
+                nodes["proxy-groups"][0].proxies.splice(index,1)
                 fs.writeFileSync("./nodes.yaml", yaml.stringify(nodes))
                 testConfig()
                 return
