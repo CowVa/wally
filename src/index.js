@@ -3,6 +3,7 @@ const yaml = require("yaml")
 const { join } = require("path")
 const async = require("async")
 const dayjs = require("dayjs");
+const clashApi = require("./speedtest/ClashApi")
 const fs = require("fs")
 var validator = require('validator');
 
@@ -98,6 +99,26 @@ async function start() {
     }
     console.log(nodes.proxies.length);
     fs.writeFileSync("./nodes.yaml", yaml.stringify(nodes))
+
+    function testConfig() {
+        try {
+            await clashApi.setConfigs(join(process.cwd(), "./nodes.yaml"))
+        } catch (error) {
+            const pattern = /^proxy \d{1,}/
+            if(error.response&&error.response.data.message&&pattern.test(error.response.data.message)){
+                const index=Number(error.response.data.message.split("proxy ")[1].split(":")[0])
+                console.log(`代理${index}错误,可能是不支持的类型,删除此代理`,error.response.data.message);
+                nodes.proxies.splice(index,1)
+                fs.writeFileSync("./nodes.yaml", yaml.stringify(nodes))
+                testConfig()
+                return
+            }
+            console.log(error);
+        }
+    }
+    testConfig()
+
+
 }
 start()
 
