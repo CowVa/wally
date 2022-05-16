@@ -62,7 +62,7 @@ proxies:
   - name: ss-162.251.61.221-808
     server: 162.251.61.221
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 808
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
@@ -76,7 +76,7 @@ proxies:
   - name: ss-82.145.41.125-6679
     server: 82.145.41.125
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 6679
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
@@ -157,7 +157,7 @@ proxies:
   - name: trojan-s2.upyun.online-12340
     server: s2.upyun.online
     type: trojan
-    country: 🇨🇳CN
+    country: 🇸🇬SG
     port: 12340
     password: 316b40c0-0dab-4ea1-9666-ac1658b033b2
     skip-cert-verify: true
@@ -165,7 +165,7 @@ proxies:
   - name: trojan-s3.upyun.online-12340
     server: s3.upyun.online
     type: trojan
-    country: 🇨🇳CN
+    country: 🇬🇧GB
     port: 12340
     password: 316b40c0-0dab-4ea1-9666-ac1658b033b2
     skip-cert-verify: true
@@ -173,7 +173,7 @@ proxies:
   - name: trojan-s1.upyun.online-12340
     server: s1.upyun.online
     type: trojan
-    country: 🇯🇵JP
+    country: 🇬🇧GB
     port: 12340
     password: 316b40c0-0dab-4ea1-9666-ac1658b033b2
     skip-cert-verify: true
@@ -242,7 +242,7 @@ proxies:
     type: trojan
     country: 🇫🇷FR
     port: 443
-    password: e4307a50-9853-11ec-9b4b-1239d0255272
+    password: 7c9b7560-b0f7-11eb-a397-1239d0255272
     skip-cert-verify: true
     udp: true
   - name: ss-169.197.142.99-6679
@@ -429,7 +429,7 @@ proxies:
   - name: ss-217.30.10.65-9027
     server: 217.30.10.65
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9027
     password: EXN3S3eQpjE7EJu8
     cipher: aes-256-cfb
@@ -443,7 +443,7 @@ proxies:
   - name: ss-217.30.10.67-9031
     server: 217.30.10.67
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9031
     password: BwcAUZk8hUFAkDGN
     cipher: aes-256-cfb
@@ -671,20 +671,17 @@ proxies:
         Host: ru2902.cloudmatrix.xyz
   - name: vmess-sg21101.cloudmatrix.xyz-21101
     server: sg21101.cloudmatrix.xyz
-    type: vmess
-    country: 🇨🇳CN
     port: 21101
+    type: vmess
     uuid: a992be42-bed4-3037-8788-9e860cd635d3
     alterId: 2
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    servername: sg21101.cloudmatrix.xyz
-    ws-headers:
-      HOST: sg21101.cloudmatrix.xyz
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: sg21101.cloudmatrix.xyz
   - name: vmess-jp21301.cloudmatrix.xyz-21301
     server: jp21301.cloudmatrix.xyz
     port: 21301
@@ -700,24 +697,23 @@ proxies:
         Host: jp21301.cloudmatrix.xyz
   - name: vmess-jp2803.cloudmatrix.xyz-2803
     server: jp2803.cloudmatrix.xyz
-    type: vmess
-    country: 🇨🇳 CN
     port: 2803
-    uuid: a992be42-bed4-3037-8788-9e860cd635d3
-    alterId: 2
+    type: vmess
+    uuid: 479a9dbc-b896-3fc7-8f68-c26c92f3ae2a
+    alterId: 0
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    servername: jp2803.cloudmatrix.xyz
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: "%7B%22Host%22:%22telegram.channel.p2psharing%22%7D"
   - name: vmess-us2407.cloudmatrix.xyz-2407
     server: us2407.cloudmatrix.xyz
     type: vmess
-    country: 🇨🇳 CN
+    country: 🇨🇳CN
     port: 2407
-    uuid: a992be42-bed4-3037-8788-9e860cd635d3
+    uuid: 479a9dbc-b896-3fc7-8f68-c26c92f3ae2a
     alterId: 2
     cipher: auto
     network: ws
@@ -846,8 +842,8 @@ proxies:
     uuid: 7c6cd216-0f93-44e8-dabc-fed1308a9bcc
     alterId: 64
     cipher: auto
-    network: tcp
     ws-path: /
+    servername: 43.229.115.134
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -966,8 +962,8 @@ proxies:
     uuid: 930a425e-2fc8-4930-8735-141f6b237755
     alterId: 64
     cipher: auto
-    network: tcp
     ws-path: /
+    servername: 81.90.188.59
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -1019,7 +1015,7 @@ proxies:
     type: trojan
     country: 🇨🇦CA
     port: 443
-    password: bc7593fe-0604-4fbe-a70bYWVzLTI1Ni1nY2ac5a3ef0-b4ab-11eb-b65e-1239d0255272
+    password: bc7593fe-0604-4fbe-a70bYWVzLTI1Ni1nYlWNFc1RmRBNk5NQU5KSnga3fa58ac5a3ef0-b4ab-11eb-b65e-1239d0255272
     skip-cert-verify: true
     udp: true
   - name: ss-217.30.10.65-9014
@@ -1103,7 +1099,7 @@ proxies:
   - name: ss-152.89.210.105-9059
     server: 152.89.210.105
     type: ss
-    country: 🇬🇧GB
+    country: 🇬🇧 GB
     port: 9059
     password: 9XwYyZsK8SNzQDtY
     cipher: aes-256-cfb
@@ -1132,7 +1128,7 @@ proxies:
   - name: ss-152.89.210.105-9056
     server: 152.89.210.105
     type: ss
-    country: 🇬🇧GB
+    country: 🇬🇧 GB
     port: 9056
     password: rNBfNuuANFCAk7KB
     cipher: aes-256-cfb
@@ -1224,7 +1220,7 @@ proxies:
   - name: ss-167.88.61.240-5003
     server: 167.88.61.240
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5003
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
@@ -1313,7 +1309,7 @@ proxies:
   - name: ss-38.114.114.67-8119
     server: 38.114.114.67
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8119
     password: cdBIDV42DCwnfIN
     cipher: aes-256-gcm
@@ -1374,7 +1370,7 @@ proxies:
   - name: vmess-node.774.gs-8443
     server: node.774.gs
     type: vmess
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8443
     uuid: 28f6159e-ed46-4bfe-b893-0e7531c28143
     alterId: 0
@@ -1398,7 +1394,7 @@ proxies:
   - name: ss-134.195.196.155-5500
     server: 134.195.196.155
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5500
     password: KixLvKzwjekG00rm
     cipher: aes-256-gcm
@@ -1452,14 +1448,14 @@ proxies:
   - name: ss-38.91.100.208-5003
     server: 38.91.100.208
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5003
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
   - name: ss-134.195.196.16-7002
     server: 134.195.196.16
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 7002
     password: RexnBgU7EV5ADxG
     cipher: aes-256-gcm
@@ -1480,7 +1476,7 @@ proxies:
   - name: ss-167.88.61.240-5000
     server: 167.88.61.240
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5000
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -1507,7 +1503,7 @@ proxies:
   - name: ss-134.195.196.16-2376
     server: 134.195.196.16
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 2376
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
@@ -1534,7 +1530,7 @@ proxies:
   - name: ss-38.75.136.135-5500
     server: 38.75.136.135
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5500
     password: KixLvKzwjekG00rm
     cipher: aes-256-gcm
@@ -1581,7 +1577,7 @@ proxies:
   - name: ss-38.91.100.208-6697
     server: 38.91.100.208
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6697
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
@@ -1629,7 +1625,7 @@ proxies:
   - name: ss-38.91.101.14-6379
     server: 38.91.101.14
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6379
     password: zDNVedRFPQexG9v
     cipher: aes-256-gcm
@@ -1650,7 +1646,7 @@ proxies:
   - name: ss-167.88.63.59-6697
     server: 167.88.63.59
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6697
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
@@ -1664,7 +1660,7 @@ proxies:
   - name: ss-134.195.196.155-5001
     server: 134.195.196.155
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5001
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -1678,14 +1674,14 @@ proxies:
   - name: ss-134.195.196.155-8008
     server: 134.195.196.155
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 8008
     password: XKFKl2rULjIp74
     cipher: aes-256-gcm
   - name: ss-172.99.190.50-7306
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 7306
     password: FoOiGlkAA9yPEGP
     cipher: aes-256-gcm
@@ -1725,14 +1721,14 @@ proxies:
   - name: ss-134.195.196.64-6379
     server: 134.195.196.64
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 6379
     password: zDNVedRFPQexG9v
     cipher: aes-256-gcm
   - name: ss-134.195.196.206-3306
     server: 134.195.196.206
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -1760,14 +1756,14 @@ proxies:
   - name: ss-134.195.196.64-3389
     server: 134.195.196.64
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 3389
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-134.195.196.64-5000
     server: 134.195.196.64
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5000
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -1795,7 +1791,7 @@ proxies:
   - name: ss-134.195.196.162-5601
     server: 134.195.196.162
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5601
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -1809,7 +1805,7 @@ proxies:
   - name: ss-38.91.100.208-5601
     server: 38.91.100.208
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5601
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -1854,17 +1850,20 @@ proxies:
     port: 9102
     password: e4FCWrgpkji3QY
     cipher: aes-256-gcm
-  - type: vmess
-    ws-opts:
-      path: /getweather
+  - name: vmess-app.ssfree.ru-443
     server: app.ssfree.ru
-    name: vmess-app.ssfree.ru-443
+    type: vmess
+    country: 🇺🇸US
     port: 443
-    uuid: 13fa2362-d468-11ec-9fc8-000017022008
+    uuid: a95bdd60-d4cc-11ec-b7f7-000017022008
     alterId: 64
     cipher: auto
     network: ws
+    ws-path: /getweather
+    http-opts: {}
+    h2-opts: {}
     tls: true
+    skip-cert-verify: true
   - type: ss
     cipher: chacha20-ietf-poly1305
     password: 2e8f2af3-4bec-4adb-b0bf-bb6e503e7003
@@ -1874,14 +1873,14 @@ proxies:
   - name: ss-38.91.101.14-443
     server: 38.91.101.14
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 443
     password: pKEW8JPByTVTLtM
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-7002
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 7002
     password: RexnBgU7EV5ADxG
     cipher: aes-256-gcm
@@ -1925,7 +1924,7 @@ proxies:
   - name: ss-185.167.116.253-9046
     server: 185.167.116.253
     type: ss
-    country: 🇦🇺 AU
+    country: 🇦🇺AU
     port: 9046
     password: NvS8N4Vf8qAGPSCL
     cipher: aes-256-cfb
@@ -1985,12 +1984,10 @@ proxies:
     name: ss-167.88.63.44-7307
   - name: trojan-jgwcc1.gaox.ml-443
     server: jgwcc1.gaox.ml
-    type: trojan
-    country: 🇰🇷 KR
     port: 443
+    type: trojan
     password: 7118b5f4-0ea4-4c11-be7f-11471cb91e4a
     skip-cert-verify: true
-    udp: true
   - name: trojan-fhcamd2.gaox.ml-443
     server: fhcamd2.gaox.ml
     type: trojan
@@ -2021,7 +2018,7 @@ proxies:
   - name: ss-14.29.124.168-25217
     server: 14.29.124.168
     type: ss
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 25217
     password: QazEdcTgb159@$*
     cipher: aes-128-cfb
@@ -2073,7 +2070,7 @@ proxies:
   - name: ss-185.167.116.253-9037
     server: 185.167.116.253
     type: ss
-    country: 🇦🇺 AU
+    country: 🇦🇺AU
     port: 9037
     password: TN2YqghxeFDKZfLU
     cipher: aes-256-cfb
@@ -2111,7 +2108,7 @@ proxies:
   - name: ss-217.30.10.65-9053
     server: 217.30.10.65
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9053
     password: SBM7R883jBmnqe6C
     cipher: aes-256-cfb
@@ -2184,11 +2181,10 @@ proxies:
     cipher: aes-256-cfb
   - name: ss-14.29.124.168-25247
     server: 14.29.124.168
-    type: ss
-    country: 🇨🇳CN
     port: 25247
-    password: QazEdcTgb159@$*
+    type: ss
     cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
   - name: ss-14.29.124.168-25294
     server: 14.29.124.168
     type: ss
@@ -2259,21 +2255,21 @@ proxies:
   - name: ss-134.195.196.19-3306
     server: 134.195.196.19
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-134.195.196.245-5500
     server: 134.195.196.245
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5500
     password: KixLvKzwjekG00rm
     cipher: aes-256-gcm
   - name: ss-134.195.196.64-5001
     server: 134.195.196.64
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5001
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -2293,42 +2289,42 @@ proxies:
   - name: ss-38.75.137.88-5004
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5004
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
   - name: ss-167.88.63.5-2375
     server: 167.88.63.5
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 2375
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-38.75.137.88-6379
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6379
     password: zDNVedRFPQexG9v
     cipher: aes-256-gcm
   - name: ss-134.195.196.162-6379
     server: 134.195.196.162
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 6379
     password: zDNVedRFPQexG9v
     cipher: aes-256-gcm
   - name: ss-167.88.63.44-5004
     server: 167.88.63.44
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5004
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
   - name: ss-38.91.101.99-5500
     server: 38.91.101.99
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5500
     password: KixLvKzwjekG00rm
     cipher: aes-256-gcm
@@ -2341,14 +2337,14 @@ proxies:
   - name: ss-38.91.101.14-6679
     server: 38.91.101.14
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6679
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
   - name: ss-134.195.196.64-5601
     server: 134.195.196.64
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5601
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -2375,14 +2371,14 @@ proxies:
   - name: ss-152.89.210.105-9038
     server: 152.89.210.105
     type: ss
-    country: 🇬🇧GB
+    country: 🇬🇧 GB
     port: 9038
     password: gYCYXfkUQEs2TaJQ
     cipher: aes-256-cfb
   - name: ss-152.89.210.105-9084
     server: 152.89.210.105
     type: ss
-    country: 🇬🇧GB
+    country: 🇬🇧 GB
     port: 9084
     password: c3NtHJ5ujV2tGDfj
     cipher: aes-256-cfb
@@ -2420,7 +2416,7 @@ proxies:
   - name: ss-134.195.196.168-2375
     server: 134.195.196.168
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 2375
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
@@ -2434,14 +2430,14 @@ proxies:
   - name: ss-134.195.196.162-3306
     server: 134.195.196.162
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-38.91.101.14-2375
     server: 38.91.101.14
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 2375
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
@@ -2483,7 +2479,7 @@ proxies:
   - name: ss-167.88.63.44-6679
     server: 167.88.63.44
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6679
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
@@ -2497,7 +2493,7 @@ proxies:
   - name: ss-38.91.101.99-5003
     server: 38.91.101.99
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5003
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
@@ -2518,7 +2514,7 @@ proxies:
   - name: ss-167.88.63.44-6379
     server: 167.88.63.44
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6379
     password: zDNVedRFPQexG9v
     cipher: aes-256-gcm
@@ -2532,7 +2528,7 @@ proxies:
   - name: ss-167.88.63.17-5003
     server: 167.88.63.17
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5003
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
@@ -2546,7 +2542,7 @@ proxies:
   - name: ss-167.88.63.5-5004
     server: 167.88.63.5
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5004
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
@@ -2560,7 +2556,7 @@ proxies:
   - name: ss-134.195.196.206-5601
     server: 134.195.196.206
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5601
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -2604,9 +2600,8 @@ proxies:
     udp: true
   - name: trojan-jgwld4.gaox.ml-443
     server: jgwld4.gaox.ml
-    type: trojan
-    country: 🇬🇧GB
     port: 443
+    type: trojan
     password: 58d32c66-43b1-4561-9951-d87c9123774e
     skip-cert-verify: true
     udp: true
@@ -2621,7 +2616,7 @@ proxies:
   - name: ssr-213.183.53.177-9019
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9019
     password: GA9KzeEgvfxNrgmM
     cipher: aes-256-cfb
@@ -2744,16 +2739,16 @@ proxies:
     port: 8888
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
-  - name: ss-185.126.116.125-9088
-    server: 185.126.116.125
-    port: 9088
-    type: ss
+  - type: ss
     cipher: aes-256-cfb
     password: f8npKgNzdkss2ytn
+    server: 185.126.116.125
+    port: 9088
+    name: ss-185.126.116.125-9088
   - name: ss-167.88.63.44-3306
     server: 167.88.63.44
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -2974,7 +2969,7 @@ proxies:
   - name: vmess-ingress-i1.onebox6.org-38106
     server: ingress-i1.onebox6.org
     type: vmess
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 38106
     uuid: 79386685-16da-327c-9e14-aa6d702d86bc
     alterId: 1
@@ -3156,21 +3151,17 @@ proxies:
     udp: true
   - name: vmess-172.67.140.112-443
     server: 172.67.140.112
-    type: vmess
-    country: 🇺🇸US
     port: 443
+    type: vmess
     uuid: 4ac06183-feca-48f8-9f7d-3355bd950e2a
     alterId: 0
     cipher: auto
-    network: ws
-    ws-path: /
-    servername: yzjd01-ublubeu.koyeb.app
-    ws-headers:
-      HOST: yzjd01-ublubeu.koyeb.app
-    http-opts: {}
-    h2-opts: {}
     tls: true
-    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /
+      headers:
+        Host: yzjd01-ublubeu.koyeb.app
   - name: vmess-155.248.202.203-14564
     server: 155.248.202.203
     type: vmess
@@ -3181,6 +3172,7 @@ proxies:
     cipher: auto
     network: tcp
     ws-path: /
+    servername: 155.248.202.203
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -3390,12 +3382,10 @@ proxies:
     udp: true
   - name: trojan-jgwhdlb1.gaox.ml-443
     server: jgwhdlb1.gaox.ml
-    type: trojan
-    country: 🇺🇸US
     port: 443
+    type: trojan
     password: e05c749b-7c6b-41b8-9c71-9dcf685edf4a
     skip-cert-verify: true
-    udp: true
   - name: trojan-v2cross.com.04.v2ce.com-443
     server: v2cross.com.04.v2ce.com
     type: trojan
@@ -3412,13 +3402,13 @@ proxies:
     password: kGrwqmB1nEKUsDwE
     skip-cert-verify: true
     udp: true
-  - name: trojan-jgwld3.gaox.ml-443
-    server: jgwld3.gaox.ml
-    type: trojan
-    country: 🇬🇧GB
-    port: 443
+  - country: mattkaydiary.com|英国(GB)United+Kiongdom/Slough_27
+    name: trojan-jgwld3.gaox.ml-443
     password: 71b55a84-3fac-4458-abff-eaad79219c91
+    port: 443
+    server: jgwld3.gaox.ml
     skip-cert-verify: true
+    type: trojan
     udp: true
   - type: vmess
     server: 194.87.99.122
@@ -3447,9 +3437,12 @@ proxies:
     skip-cert-verify: true
   - name: trojan-v2cross.com.01.v2ce.com-443
     server: v2cross.com.01.v2ce.com
-    port: 443
     type: trojan
+    country: 🇨🇿 CZ
+    port: 443
     password: mMQ6qJB9xbhiRvgg
+    skip-cert-verify: true
+    udp: true
   - name: trojan-v2cross.com.03.v2ce.com-443
     server: v2cross.com.03.v2ce.com
     type: trojan
@@ -3468,9 +3461,12 @@ proxies:
     tls: false
   - name: trojan-jgwxn4.gaox.ml-443
     server: jgwxn4.gaox.ml
-    port: 443
     type: trojan
+    country: 🇦🇺AU
+    port: 443
     password: e8c1ab3c-89b3-4933-92df-682e6dce7819
+    skip-cert-verify: true
+    udp: true
   - name: trojan-jgwxn2.gaox.ml-443
     server: jgwxn2.gaox.ml
     port: 443
@@ -3478,21 +3474,17 @@ proxies:
     password: c2b60d6a-a2f5-40ff-b7f9-f7658abcbf26
   - name: vmess-asr-farda.ir-49110
     server: asr-farda.ir
-    type: vmess
-    country: 🇮🇷IR
     port: 49110
+    type: vmess
     uuid: 47bce6b8-c260-11ec-b514-000c297a3bfd
     alterId: 0
     cipher: auto
-    network: ws
-    ws-path: /pdOa1847/
-    servername: asr-farda.ir
-    ws-headers:
-      HOST: asr-farda.ir
-    http-opts: {}
-    h2-opts: {}
     tls: true
-    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /pdOa1847/
+      headers:
+        Host: asr-farda.ir
   - name: vmess-0001.hn.genzpn.com-80
     server: 0001.hn.genzpn.com
     type: vmess
@@ -3511,18 +3503,12 @@ proxies:
     skip-cert-verify: true
   - name: vmess-129.154.48.221-37372
     server: 129.154.48.221
-    type: vmess
-    country: 🇦🇺 AU
     port: 37372
+    type: vmess
     uuid: 6f4454a9-e732-46c6-c50f-73f13da31f7b
     alterId: 0
     cipher: auto
-    network: tcp
-    ws-path: /
-    servername: 129.154.48.221
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    tls: false
   - name: vmess-146.56.112.141-17776
     server: 146.56.112.141
     port: 17776
@@ -3725,22 +3711,18 @@ proxies:
     port: 50003
     password: "8460400130"
     cipher: aes-256-cfb
-  - name: trojan-jgwdb3.gaox.ml-443
+  - type: trojan
+    name: trojan-jgwdb3.gaox.ml-443
     server: jgwdb3.gaox.ml
-    type: trojan
-    country: 🇯🇵 JP
-    port: 443
     password: 8d2d5953-d649-4034-94f2-72f2df2623da
-    skip-cert-verify: true
+    port: 443
     udp: true
+    skip-cert-verify: true
   - name: trojan-jgwdb1.gaox.ml-443
     server: jgwdb1.gaox.ml
-    type: trojan
-    country: 🇦🇺AU
     port: 443
+    type: trojan
     password: a580d839-ee41-4df1-bf03-6789dca32e30
-    skip-cert-verify: true
-    udp: true
   - name: trojan-jgwcc2.gaox.ml-443
     server: jgwcc2.gaox.ml
     port: 443
@@ -3835,21 +3817,21 @@ proxies:
   - name: ss-38.68.135.19-5601
     server: 38.68.135.19
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5601
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-2375
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 2375
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-134.195.196.245-3306
     server: 134.195.196.245
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -3935,14 +3917,15 @@ proxies:
     cipher: aes-256-cfb
     protocol: origin
     obfs: plain
-  - type: ssr
+  - name: ssr-185.126.116.125-9043
     server: 185.126.116.125
+    type: ssr
+    country: 🇷🇴RO
     port: 9043
-    protocol: origin
-    cipher: aes-256-cfb
-    obfs: plain
     password: HSZuyJQcWe8dxNdF
-    name: ssr-185.126.116.125-9043
+    cipher: aes-256-cfb
+    protocol: origin
+    obfs: plain
   - name: ss-5.183.179.166-9098
     server: 5.183.179.166
     type: ss
@@ -3967,7 +3950,7 @@ proxies:
   - name: ss-217.30.10.67-9080
     server: 217.30.10.67
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9080
     password: VP8ZPxQpJtZRCjfZ
     cipher: aes-256-cfb
@@ -4036,13 +4019,12 @@ proxies:
     cipher: aes-256-cfb
     protocol: origin
     obfs: plain
-  - name: ss-5.183.179.140-9026
-    server: 5.183.179.140
-    type: ss
-    country: 🇩🇪DE
-    port: 9026
-    password: QWDDvVE9npNurQfA
+  - type: ss
     cipher: aes-256-cfb
+    password: QWDDvVE9npNurQfA
+    server: 5.183.179.140
+    port: 9026
+    name: ss-5.183.179.140-9026
   - name: ss-5.183.179.140-9042
     server: 5.183.179.140
     type: ss
@@ -4070,7 +4052,7 @@ proxies:
   - name: ss-152.89.210.84-9043
     server: 152.89.210.84
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9043
     password: HSZuyJQcWe8dxNdF
     cipher: aes-256-cfb
@@ -4169,13 +4151,12 @@ proxies:
     port: 443
     password: pKEW8JPByTVTLtM
     cipher: aes-256-gcm
-  - name: ss-213.183.63.218-9018
-    server: 213.183.63.218
-    type: ss
-    country: 🇧🇬 BG
-    port: 9018
-    password: fG2artUmHfNT2cX7
+  - type: ss
     cipher: aes-256-cfb
+    password: fG2artUmHfNT2cX7
+    server: 213.183.63.218
+    port: 9018
+    name: ss-213.183.63.218-9018
   - name: ss-217.30.10.67-9059
     server: 217.30.10.67
     type: ss
@@ -4193,7 +4174,7 @@ proxies:
   - name: ss-213.183.51.172-9064
     server: 213.183.51.172
     type: ss
-    country: 🇳🇱 NL
+    country: 🇳🇱NL
     port: 9064
     password: cp8pRSUAyLhTfVWH
     cipher: aes-256-cfb
@@ -4221,7 +4202,7 @@ proxies:
   - name: ss-217.30.10.67-9094
     server: 217.30.10.67
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9094
     password: rpgbNnU9rDDU4aWZ
     cipher: aes-256-cfb
@@ -4235,7 +4216,7 @@ proxies:
   - name: ss-134.195.196.168-5500
     server: 134.195.196.168
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5500
     password: KixLvKzwjekG00rm
     cipher: aes-256-gcm
@@ -4296,7 +4277,7 @@ proxies:
   - name: ss-38.91.101.14-5004
     server: 38.91.101.14
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5004
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
@@ -5027,11 +5008,14 @@ proxies:
     port: 5500
     password: KixLvKzwjekG00rm
     cipher: aes-256-gcm
-  - name: trojan-cp-asus.ml-50275
-    server: cp-asus.ml
-    port: 50275
-    type: trojan
+  - country: mattkaydiary.com|新加坡(SG)Singapore/Singapore_8
+    name: trojan-cp-asus.ml-50275
     password: 7Z29DRr1ts
+    port: 50275
+    server: cp-asus.ml
+    skip-cert-verify: true
+    type: trojan
+    udp: true
   - name: ssr-ssrfree10.free4444.xyz-443
     server: ssrfree10.free4444.xyz
     port: 443
@@ -5378,7 +5362,7 @@ proxies:
   - name: ssr-213.183.53.177-9073
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹LT
+    country: 🇱🇹 LT
     port: 9073
     password: daFYagqDdBdA6VTX
     cipher: aes-256-cfb
@@ -5429,7 +5413,7 @@ proxies:
   - name: ss-213.183.53.177-9084
     server: 213.183.53.177
     type: ss
-    country: 🇷🇺 RU
+    country: 🇱🇹LT
     port: 9084
     password: c3NtHJ5ujV2tGDfj
     cipher: aes-256-cfb
@@ -5442,21 +5426,21 @@ proxies:
   - name: ss-185.167.117.171-9001
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9001
     password: UkXRsXvR6buDMG2Y
     cipher: aes-256-cfb
   - name: ss-185.167.117.171-9020
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9020
     password: BNmAXXxAHYpTRdzu
     cipher: aes-256-cfb
   - name: ss-185.167.117.171-9019
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9019
     password: GA9KzeEgvfxNrgmM
     cipher: aes-256-cfb
@@ -5498,14 +5482,14 @@ proxies:
   - name: ss-152.89.210.84-9046
     server: 152.89.210.84
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9046
     password: NvS8N4Vf8qAGPSCL
     cipher: aes-256-cfb
   - name: ss-185.167.117.171-9038
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9038
     password: gYCYXfkUQEs2TaJQ
     cipher: aes-256-cfb
@@ -5545,7 +5529,7 @@ proxies:
   - name: ss-185.167.117.171-9070
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9070
     password: bf7v334KKDV3YDhH
     cipher: aes-256-cfb
@@ -5566,7 +5550,7 @@ proxies:
   - name: ss-185.167.117.171-9093
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9093
     password: wfLC2y7rzZyCmuyt
     cipher: aes-256-cfb
@@ -5594,14 +5578,14 @@ proxies:
   - name: ss-217.30.10.67-9001
     server: 217.30.10.67
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9001
     password: UkXRsXvR6buDMG2Y
     cipher: aes-256-cfb
   - name: ss-102.130.121.237-50004
     server: 102.130.121.237
     type: ss
-    country: 🇿🇦 ZA
+    country: 🇿🇦ZA
     port: 50004
     password: "4415934295"
     cipher: aes-256-cfb
@@ -5622,7 +5606,7 @@ proxies:
   - name: ss-217.30.10.67-9056
     server: 217.30.10.67
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9056
     password: rNBfNuuANFCAk7KB
     cipher: aes-256-cfb
@@ -5643,7 +5627,7 @@ proxies:
   - name: ss-217.30.10.66-9097
     server: 217.30.10.66
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9097
     password: Sn5B7jTqr76aCJT8
     cipher: aes-256-cfb
@@ -5678,7 +5662,7 @@ proxies:
   - name: ss-217.30.10.67-9043
     server: 217.30.10.67
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9043
     password: HSZuyJQcWe8dxNdF
     cipher: aes-256-cfb
@@ -5692,7 +5676,7 @@ proxies:
   - name: ss-217.30.10.67-9011
     server: 217.30.10.67
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9011
     password: M3t2ZEQcMGRWBjRa
     cipher: aes-256-cfb
@@ -5733,14 +5717,14 @@ proxies:
   - name: ss-5.183.179.140-9015
     server: 5.183.179.140
     type: ss
-    country: 🇩🇪 DE
+    country: 🇩🇪DE
     port: 9015
     password: ZpNDDKRu9MagNvaf
     cipher: aes-256-cfb
   - name: ss-134.195.196.245-3389
     server: 134.195.196.245
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 3389
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -5823,7 +5807,7 @@ proxies:
   - name: ss-213.183.51.172-9088
     server: 213.183.51.172
     type: ss
-    country: 🇳🇱 NL
+    country: 🇳🇱NL
     port: 9088
     password: f8npKgNzdkss2ytn
     cipher: aes-256-cfb
@@ -5837,7 +5821,7 @@ proxies:
   - name: ss-213.183.53.200-9093
     server: 213.183.53.200
     type: ss
-    country: 🇱🇹LT
+    country: 🇷🇺 RU
     port: 9093
     password: wfLC2y7rzZyCmuyt
     cipher: aes-256-cfb
@@ -5850,7 +5834,7 @@ proxies:
   - name: ss-217.30.10.67-9057
     server: 217.30.10.67
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9057
     password: wjTugX3ZtHMB9c3Z
     cipher: aes-256-cfb
@@ -5871,17 +5855,21 @@ proxies:
         host: 3.hk.ld.xxxxx.x-t-fuckword.link
   - name: vmess-v2fly.sab.quest-443
     server: v2fly.sab.quest
-    port: 443
     type: vmess
+    country: 🇺🇸US
+    port: 443
     uuid: 9e6ceeff-2546-3690-ac00-6fcdf31dec94
     alterId: 1
     cipher: auto
-    tls: false
     network: ws
-    ws-opts:
-      path: /chcar
-      headers:
-        Host: v2fly.sab.quest
+    ws-path: /chcar
+    servername: v2fly.samrt.website
+    ws-headers:
+      HOST: v2fly.samrt.website
+    http-opts: {}
+    h2-opts: {}
+    tls: true
+    skip-cert-verify: true
   - name: ss-152.89.210.105-9037
     server: 152.89.210.105
     type: ss
@@ -5905,13 +5893,13 @@ proxies:
     port: 9045
     password: Lp27rqyJq72bZsqX
     cipher: aes-256-cfb
-  - country: mattkaydiary.com|日本(JP)Japan/Tokyo_16
-    name: trojan-jgwdj3.gaox.ml-443
-    password: da777aae-defb-41d0-a183-2c27da2b4677
-    port: 443
+  - name: trojan-jgwdj3.gaox.ml-443
     server: jgwdj3.gaox.ml
-    skip-cert-verify: true
     type: trojan
+    country: 🇺🇸US
+    port: 443
+    password: da777aae-defb-41d0-a183-2c27da2b4677
+    skip-cert-verify: true
     udp: true
   - name: trojan-trojan2.free4444.xyz-443
     server: trojan2.free4444.xyz
@@ -5947,12 +5935,10 @@ proxies:
     udp: true
   - name: trojan-jgwdb4.gaox.ml-443
     server: jgwdb4.gaox.ml
-    type: trojan
-    country: 🇯🇵 JP
     port: 443
-    password: 5c7b33c6-6dd06a3f01-1ff0-4792-9b8e-a5a604bc74a2
+    type: trojan
+    password: d06a3f01-1ff0-4792-9b8e-a5a604bc74a2
     skip-cert-verify: true
-    udp: true
   - name: trojan-0001.hk.genzpn.com-443
     server: 0001.hk.genzpn.com
     type: trojan
@@ -6120,7 +6106,7 @@ proxies:
   - name: ss-217.30.10.65-9046
     server: 217.30.10.65
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9046
     password: NvS8N4Vf8qAGPSCL
     cipher: aes-256-cfb
@@ -6171,7 +6157,7 @@ proxies:
   - name: ss-185.167.117.171-9073
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9073
     password: daFYagqDdBdA6VTX
     cipher: aes-256-cfb
@@ -6296,7 +6282,7 @@ proxies:
   - name: ss-5.183.179.170-9024
     server: 5.183.179.170
     type: ss
-    country: 🇩🇪 DE
+    country: 🇩🇪DE
     port: 9024
     password: BejrQvtu9sqUeNuZ
     cipher: aes-256-cfb
@@ -6978,7 +6964,7 @@ proxies:
   - name: ssr-213.183.53.177-9020
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9020
     password: BNmAXXxAHYpTRdzu
     cipher: aes-256-cfb
@@ -6987,7 +6973,7 @@ proxies:
   - name: ssr-213.183.53.200-9027
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9027
     password: EXN3S3eQpjE7EJu8
     cipher: aes-256-cfb
@@ -9596,7 +9582,7 @@ proxies:
   - name: ss-152.89.210.84-9060
     server: 152.89.210.84
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9060
     password: ueLXVkvh4hckhErQ
     cipher: aes-256-cfb
@@ -9723,7 +9709,7 @@ proxies:
   - name: ss-172.99.190.153-443
     server: 172.99.190.153
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 443
     password: pKEW8JPByTVTLtM
     cipher: aes-256-gcm
@@ -10995,7 +10981,7 @@ proxies:
   - name: ss-185.160.24.217-808
     server: 185.160.24.217
     type: ss
-    country: 🇯🇵 JP
+    country: 🇯🇵JP
     port: 808
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
@@ -11107,7 +11093,7 @@ proxies:
   - name: ss-213.183.59.185-9046
     server: 213.183.59.185
     type: ss
-    country: 🇳🇱 NL
+    country: 🇳🇱NL
     port: 9046
     password: NvS8N4Vf8qAGPSCL
     cipher: aes-256-cfb
@@ -11191,7 +11177,7 @@ proxies:
   - name: ss-196.196.156.122-808
     server: 196.196.156.122
     type: ss
-    country: 🇧🇪 BE
+    country: 🇧🇪BE
     port: 808
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
@@ -11226,7 +11212,7 @@ proxies:
   - name: ss-212.68.55.11-18760
     server: 212.68.55.11
     type: ss
-    country: 🇹🇷 TR
+    country: 🇹🇷TR
     port: 18760
     password: hg49$WH8943g3
     cipher: aes-256-gcm
@@ -11247,7 +11233,7 @@ proxies:
   - name: ss-77.120.115.235-444
     server: 77.120.115.235
     type: ss
-    country: 🇺🇦 UA
+    country: 🇺🇦UA
     port: 444
     password: Fowwipho
     cipher: chacha20-ietf-poly1305
@@ -11310,7 +11296,7 @@ proxies:
   - name: ss-38.64.138.145-5601
     server: 38.64.138.145
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5601
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -11352,7 +11338,7 @@ proxies:
   - name: ss-38.68.135.123-7002
     server: 38.68.135.123
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 7002
     password: RexnBgU7EV5ADxG
     cipher: aes-256-gcm
@@ -11436,7 +11422,7 @@ proxies:
   - name: ss-38.91.107.43-7307
     server: 38.91.107.43
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 7307
     password: FoOiGlkAA9yPEGP
     cipher: aes-256-gcm
@@ -11471,7 +11457,7 @@ proxies:
   - name: ss-38.91.100.102-8000
     server: 38.91.100.102
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8000
     password: KixLvKzwjekG00rm
     cipher: aes-256-gcm
@@ -11611,7 +11597,7 @@ proxies:
   - name: ss-38.143.66.87-3389
     server: 38.143.66.87
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 3389
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -11674,7 +11660,7 @@ proxies:
   - name: ss-38.143.66.55-8091
     server: 38.143.66.55
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8091
     password: PCnnH6SQSnfoS27
     cipher: aes-256-gcm
@@ -11812,7 +11798,7 @@ proxies:
   - name: vmess-104.166.135.10-443
     server: 104.166.135.10
     type: vmess
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 443
     uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
     alterId: 4
@@ -11829,7 +11815,7 @@ proxies:
   - name: vmess-ahdaeph8.com-443
     server: ahdaeph8.com
     type: vmess
-    country: 🇫🇷FR
+    country: 🇺🇸US
     port: 443
     uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
     alterId: 4
@@ -11866,6 +11852,9 @@ proxies:
     cipher: auto
     network: ws
     ws-path: /ws
+    servername: usa-washington.lvuft.com
+    ws-headers:
+      HOST: usa-washington.lvuft.com
     http-opts: {}
     h2-opts: {}
     tls: true
@@ -12188,7 +12177,7 @@ proxies:
     type: trojan
     country: 🇭🇰HK
     port: 443
-    password: 5c7b33c6-6d83-11eb-b77b-f23c913c8d2b
+    password: 283695dc-fcc8-11ea-8684-f23c913c8d2b
     skip-cert-verify: true
     udp: true
   - name: ss-aflzz-us.yixuedianzishu.com-38005
@@ -12285,7 +12274,7 @@ proxies:
   - name: ss-38.68.135.18-9101
     server: 38.68.135.18
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 9101
     password: e4FCWrgpkji3QY
     cipher: aes-256-gcm
@@ -12359,17 +12348,17 @@ proxies:
     server: uscera.moonfree.top
     port: 443
     type: vmess
-    uuid: 122f166c-537e-4e8f-9310-4e50652fa7e9
+    uuid: d80a8c26-c6c4-403a-b2a6-649ee3673707
     alterId: 0
     cipher: auto
-    tls: true
+    country: 🇺🇸_US_美国_40
     skip-cert-verify: true
+    tls: true
     network: ws
     ws-opts:
       path: /
       headers:
-        Host: uscera.moonfree.top
-    udp: true
+        host: uscera.moonfree.top
   - name: ss-169.197.143.157-8000
     server: 169.197.143.157
     type: ss
@@ -12387,7 +12376,7 @@ proxies:
   - name: ss-172.99.190.153-3389
     server: 172.99.190.153
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 3389
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -12696,8 +12685,8 @@ proxies:
     uuid: b41303b4-e2c8-4771-cb6c-ef62244a7621
     alterId: 64
     cipher: auto
-    network: tcp
     ws-path: /
+    servername: 78.46.244.34
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -12722,8 +12711,8 @@ proxies:
     uuid: 5b00bd34-a2a7-4471-8b17-3f4768ac0330
     alterId: 64
     cipher: auto
-    network: tcp
     ws-path: /
+    servername: 8.210.127.214
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -12819,8 +12808,8 @@ proxies:
     uuid: 4a4c96c5-7b8b-4612-c715-6b91a9c34d07
     alterId: 64
     cipher: auto
-    network: tcp
     ws-path: /
+    servername: 23.94.120.19
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -13085,10 +13074,9 @@ proxies:
     tls: false
     skip-cert-verify: true
     network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        Host: aweikeji-YouTube-TG
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: ingress-i1.onebox6.org
     udp: true
   - name: vmess-120.240.48.20-38106
     server: 120.240.48.20
@@ -13139,7 +13127,7 @@ proxies:
     server: 330tw.fans8.xyz
     name: vmess-330tw.fans8.xyz-443
     port: 443
-    uuid: 5aa41373-82d1-31cd-b47a-425cc698ad2e
+    uuid: d491afce-402f-3e5b-806e-51ad8b432fd9
     alterId: 2
     cipher: auto
     network: ws
@@ -13154,10 +13142,9 @@ proxies:
     tls: false
     skip-cert-verify: true
     network: ws
-    ws-opts:
-      path: /fastssh/ntmdq/6267584ee4988/
-      headers:
-        Host: aweikeji-YouTube-TG
+    ws-path: /fastssh/ntmdq/6267584ee4988/
+    ws-headers:
+      Host: sg3.31vpn.com
     udp: true
   - name: vmess-kr4.mayiyun.vip-80
     server: kr4.mayiyun.vip
@@ -13223,6 +13210,7 @@ proxies:
     cipher: auto
     network: tcp
     ws-path: /
+    servername: sg.guiqing.ml
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -13981,6 +13969,9 @@ proxies:
     cipher: auto
     network: ws
     ws-path: /ws
+    servername: ycgyg.com
+    ws-headers:
+      HOST: ycgyg.com
     http-opts: {}
     h2-opts: {}
     tls: true
@@ -14737,7 +14728,7 @@ proxies:
   - name: ss-14.29.124.168-25238
     server: 14.29.124.168
     type: ss
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 25238
     password: QazEdcTgb159@$*
     cipher: aes-128-cfb
@@ -14831,7 +14822,7 @@ proxies:
   - name: trojan-qwanck.xyz-443
     server: qwanck.xyz
     type: trojan
-    country: 🇮🇷IR
+    country: 🇮🇷 IR
     port: 443
     password: 57aa53f3afbd
     skip-cert-verify: true
@@ -14909,14 +14900,15 @@ proxies:
     obfs: plain
     password: SBM7R883jBmnqe6C
     name: ssr-213.183.53.177-9053
-  - type: ssr
+  - name: ssr-213.183.53.177-9003
     server: 213.183.53.177
+    type: ssr
+    country: 🇱🇹LT
     port: 9003
-    protocol: origin
-    cipher: aes-256-cfb
-    obfs: plain
     password: JdmRK9gMEqFgs8nP
-    name: ssr-213.183.53.177-9003
+    cipher: aes-256-cfb
+    protocol: origin
+    obfs: plain
   - name: ssr-213.183.53.177-9079
     server: 213.183.53.177
     type: ssr
@@ -14926,19 +14918,18 @@ proxies:
     cipher: aes-256-cfb
     protocol: origin
     obfs: plain
-  - name: ssr-213.183.53.177-9040
+  - type: ssr
     server: 213.183.53.177
-    type: ssr
-    country: 🇱🇹 LT
     port: 9040
-    password: p9z5BVADH2YFs3MN
-    cipher: aes-256-cfb
     protocol: origin
+    cipher: aes-256-cfb
     obfs: plain
+    password: p9z5BVADH2YFs3MN
+    name: ssr-213.183.53.177-9040
   - name: ssr-213.183.53.177-9010
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9010
     password: f63gg8EruDnUrmz4
     cipher: aes-256-cfb
@@ -14953,15 +14944,14 @@ proxies:
     cipher: aes-256-cfb
     protocol: origin
     obfs: plain
-  - name: ssr-213.183.53.177-9000
+  - type: ssr
     server: 213.183.53.177
-    type: ssr
-    country: 🇱🇹 LT
     port: 9000
-    password: a3GFYt36Sm82Vys9
-    cipher: aes-256-cfb
     protocol: origin
+    cipher: aes-256-cfb
     obfs: plain
+    password: a3GFYt36Sm82Vys9
+    name: ssr-213.183.53.177-9000
   - name: ssr-213.183.53.200-9056
     server: 213.183.53.200
     type: ssr
@@ -15016,19 +15006,18 @@ proxies:
     cipher: aes-256-cfb
     protocol: origin
     obfs: plain
-  - name: ssr-213.183.53.177-9057
+  - type: ssr
     server: 213.183.53.177
-    type: ssr
-    country: 🇱🇹 LT
     port: 9057
-    password: wjTugX3ZtHMB9c3Z
-    cipher: aes-256-cfb
     protocol: origin
+    cipher: aes-256-cfb
     obfs: plain
+    password: wjTugX3ZtHMB9c3Z
+    name: ssr-213.183.53.177-9057
   - name: trojan-www.tokyo2023.ga-443
     server: www.tokyo2023.ga
     type: trojan
-    country: 🇺🇸US
+    country: 🇳🇱NL
     port: 443
     password: 4f7dc540-d244-4e64-af21-4b5bb300add3
     skip-cert-verify: true
@@ -15351,7 +15340,7 @@ proxies:
     type: trojan
     country: 🇺🇸US
     port: 443
-    password: 36ebef7d1b1d6205fd0c55f28800e674
+    password: a3fa58b581353bb375d2ddad0f327938
     skip-cert-verify: true
     udp: true
   - name: trojan-v2losdmit1.doubledou.win-6674
@@ -15365,7 +15354,7 @@ proxies:
   - name: trojan-s228.s2022.xyz-42406
     server: s228.s2022.xyz
     type: trojan
-    country: 🇺🇸US
+    country: 🇺🇸 US
     port: 42406
     password: 3b43ffda-8b5c-3480-87f9-d4b069d7457a
     skip-cert-verify: true
@@ -15677,7 +15666,7 @@ proxies:
     type: trojan
     country: 🇺🇸US
     port: 443
-    password: 36ebef7d1b1d6205fd0c55f28800e674
+    password: a3fa58b581353bb375d2ddad0f327938
     skip-cert-verify: true
     udp: true
   - name: trojan-jp-server-02.selfupay.com-443
@@ -17050,7 +17039,7 @@ proxies:
   - name: ss-118.193.179.2-36923
     server: 118.193.179.2
     type: ss
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 36923
     password: koko666
     cipher: chacha20-ietf-poly1305
@@ -17080,7 +17069,7 @@ proxies:
     password: hGkQ6915tD
     cipher: aes-256-cfb
     protocol: auth_aes128_md5
-    protocol-param: 32381:C2pHyiQfgm
+    protocol-param: 37380:k4VJ9SyAu3
     obfs: tls1.2_ticket_auth
     obfs-param: ajax.microsoft.com
   - name: ssr-iepl-gz.yyuuii.cyou-64112
@@ -17113,7 +17102,7 @@ proxies:
   - name: ssr-jx-002.yyuuii.cyou-10019
     server: jx-002.yyuuii.cyou
     type: ssr
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 10019
     password: hGkQ6915tD
     cipher: aes-256-cfb
@@ -17124,7 +17113,7 @@ proxies:
   - name: ssr-ieplszhk-sz.qqgg.work-59058
     server: ieplszhk-sz.qqgg.work
     type: ssr
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 59058
     password: hGkQ6915tD
     cipher: aes-256-cfb
@@ -17135,7 +17124,7 @@ proxies:
   - name: ssr-ieplszhk-sz.qqgg.work-56326
     server: ieplszhk-sz.qqgg.work
     type: ssr
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 56326
     password: hGkQ6915tD
     cipher: aes-256-cfb
@@ -17146,7 +17135,7 @@ proxies:
   - name: ssr-iepl-hn01.qqgg.work-26563
     server: iepl-hn01.qqgg.work
     type: ssr
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 26563
     password: hGkQ6915tD
     cipher: aes-256-cfb
@@ -17162,7 +17151,7 @@ proxies:
     password: hGkQ6915tD
     cipher: aes-256-cfb
     protocol: auth_aes128_md5
-    protocol-param: 32381:C2pHyiQfgm
+    protocol-param: 37380:k4VJ9SyAu3
     obfs: tls1.2_ticket_auth
     obfs-param: ajax.microsoft.com
   - name: ssr-iepl-gz.yyuuii.cyou-49853
@@ -17179,7 +17168,7 @@ proxies:
   - name: ssr-iepl-hn01.qqgg.work-19563
     server: iepl-hn01.qqgg.work
     type: ssr
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 19563
     password: hGkQ6915tD
     cipher: aes-256-cfb
@@ -17201,7 +17190,7 @@ proxies:
   - name: ssr-iepl-hn01.qqgg.work-48293
     server: iepl-hn01.qqgg.work
     type: ssr
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 48293
     password: hGkQ6915tD
     cipher: aes-256-cfb
@@ -17212,7 +17201,7 @@ proxies:
   - name: ssr-iepl-hn01.qqgg.work-21637
     server: iepl-hn01.qqgg.work
     type: ssr
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 21637
     password: hGkQ6915tD
     cipher: aes-256-cfb
@@ -17245,7 +17234,7 @@ proxies:
   - name: ssr-iepl-hn01.qqgg.work-14261
     server: iepl-hn01.qqgg.work
     type: ssr
-    country: 🇨🇳CN
+    country: 🇨🇳 CN
     port: 14261
     password: hGkQ6915tD
     cipher: aes-256-cfb
@@ -17362,7 +17351,7 @@ proxies:
   - name: trojan-80.78.132.177-28443
     server: 80.78.132.177
     type: trojan
-    country: 🇩🇪DE
+    country: 🇩🇪 DE
     port: 28443
     password: 72e9af0c-83b4-4069-8406-7fd8ee3e474a
     skip-cert-verify: true
@@ -17370,9 +17359,9 @@ proxies:
   - name: trojan-165.22.93.103-28443
     server: 165.22.93.103
     type: trojan
-    country: 🇩🇪DE
+    country: 🇩🇪 DE
     port: 28443
-    password: 486dd7e4-24bc-498a-b4f0-ecd704f8d8cd
+    password: 72e9af0c-83b4-4069-8406-7fd8ee3e474a
     skip-cert-verify: true
     udp: true
   - name: ss-54.38.72.170-8090
@@ -17401,7 +17390,7 @@ proxies:
   - name: trojan-210.0.159.90-38443
     server: 210.0.159.90
     type: trojan
-    country: 🇭🇰HK
+    country: 🇭🇰 HK
     port: 38443
     password: 486dd7e4-24bc-498a-b4f0-ecd704f8d8cd
     skip-cert-verify: true
@@ -17419,7 +17408,7 @@ proxies:
     type: trojan
     country: 🇭🇰HK
     port: 443
-    password: 5c7b33c6-6d83-11eb-b77b-f23c913c8d2b
+    password: 08d178d4-ec8b-11eb-a8bf-f23c91cfbbc9
     skip-cert-verify: true
     udp: true
   - name: trojan-hgc1.tcpbbr.net-443
@@ -17440,14 +17429,13 @@ proxies:
     udp: true
   - name: ssr-in-am2.eqnode.net-8080
     server: in-am2.eqnode.net
-    port: 8080
     type: ssr
-    cipher: aes-256-cfb
+    country: 🇮🇳 IN
+    port: 8080
     password: fD0KP8PWA
+    cipher: aes-256-cfb
     protocol: origin
     obfs: tls1.2_ticket_auth
-    protocol-param: ""
-    obfs-param: ""
   - name: ss-158.58.173.240-806
     server: 158.58.173.240
     type: ss
@@ -17471,7 +17459,7 @@ proxies:
   - name: trojan-172.104.96.170-28443
     server: 172.104.96.170
     type: trojan
-    country: 🇯🇵JP
+    country: 🇯🇵 JP
     port: 28443
     password: 486dd7e4-24bc-498a-b4f0-ecd704f8d8cd
     skip-cert-verify: true
@@ -17495,15 +17483,15 @@ proxies:
   - name: trojan-139.162.124.250-28443
     server: 139.162.124.250
     type: trojan
-    country: 🇯🇵JP
+    country: 🇯🇵 JP
     port: 28443
-    password: 486dd7e4-24bc-498a-b4f0-ecd704f8d8cd
+    password: 72e9af0c-83b4-4069-8406-7fd8ee3e474a
     skip-cert-verify: true
     udp: true
   - name: trojan-jgw4.gaox.ml-443
     server: jgw4.gaox.ml
     type: trojan
-    country: 🇯🇵JP
+    country: 🇯🇵 JP
     port: 443
     password: b7e0e71f-070c-437a-9826-6e23caeb0307
     skip-cert-verify: true
@@ -17634,16 +17622,17 @@ proxies:
   - name: ss-213.183.53.200-9098
     server: 213.183.53.200
     type: ss
-    country: 🇱🇹LT
+    country: 🇷🇺 RU
     port: 9098
     password: aLpQtfEZe445QyHk
     cipher: aes-256-cfb
-  - type: ss
-    cipher: aes-256-cfb
-    password: rpgbNnU9rDDU4aWZ
+  - name: ss-217.30.10.64-9094
     server: 217.30.10.64
+    type: ss
+    country: 🇷🇺RU
     port: 9094
-    name: ss-217.30.10.64-9094
+    password: rpgbNnU9rDDU4aWZ
+    cipher: aes-256-cfb
   - name: ss-217.30.10.64-9040
     server: 217.30.10.64
     type: ss
@@ -17714,7 +17703,7 @@ proxies:
   - name: ss-213.183.53.200-9043
     server: 213.183.53.200
     type: ss
-    country: 🇱🇹LT
+    country: 🇷🇺 RU
     port: 9043
     password: HSZuyJQcWe8dxNdF
     cipher: aes-256-cfb
@@ -17728,7 +17717,7 @@ proxies:
   - name: ss-213.183.53.200-9046
     server: 213.183.53.200
     type: ss
-    country: 🇱🇹LT
+    country: 🇷🇺 RU
     port: 9046
     password: NvS8N4Vf8qAGPSCL
     cipher: aes-256-cfb
@@ -17777,16 +17766,17 @@ proxies:
   - name: ss-217.30.10.64-9003
     server: 217.30.10.64
     type: ss
-    country: 🇷🇺RU
+    country: 🇷🇺 RU
     port: 9003
     password: JdmRK9gMEqFgs8nP
     cipher: aes-256-cfb
-  - type: ss
-    cipher: aes-256-cfb
-    password: UkXRsXvR6buDMG2Y
+  - name: ss-217.30.10.64-9001
     server: 217.30.10.64
+    type: ss
+    country: 🇷🇺 RU
     port: 9001
-    name: ss-217.30.10.64-9001
+    password: UkXRsXvR6buDMG2Y
+    cipher: aes-256-cfb
   - name: ss-217.30.10.68-9064
     server: 217.30.10.68
     type: ss
@@ -17823,30 +17813,29 @@ proxies:
   - name: ss-217.30.10.64-9015
     server: 217.30.10.64
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9015
     password: ZpNDDKRu9MagNvaf
     cipher: aes-256-cfb
+  - name: ss-217.30.10.64-9043
+    server: 217.30.10.64
+    type: ss
+    country: 🇷🇺 RU
+    port: 9043
+    password: HSZuyJQcWe8dxNdF
+    cipher: aes-256-cfb
   - type: ss
     cipher: aes-256-cfb
-    password: HSZuyJQcWe8dxNdF
-    server: 217.30.10.64
-    port: 9043
-    name: ss-217.30.10.64-9043
-  - name: ss-217.30.10.64-9057
-    server: 217.30.10.64
-    type: ss
-    country: 🇷🇺 RU
-    port: 9057
     password: wjTugX3ZtHMB9c3Z
-    cipher: aes-256-cfb
-  - name: ss-217.30.10.64-9005
     server: 217.30.10.64
-    type: ss
-    country: 🇷🇺 RU
-    port: 9005
-    password: ZET59LF6DvCC8KVt
+    port: 9057
+    name: ss-217.30.10.64-9057
+  - type: ss
     cipher: aes-256-cfb
+    password: ZET59LF6DvCC8KVt
+    server: 217.30.10.64
+    port: 9005
+    name: ss-217.30.10.64-9005
   - name: ss-217.30.10.64-9037
     server: 217.30.10.64
     type: ss
@@ -17867,12 +17856,13 @@ proxies:
     server: 217.30.10.64
     port: 9045
     name: ss-217.30.10.64-9045
-  - type: ss
-    cipher: aes-256-cfb
-    password: QWDDvVE9npNurQfA
+  - name: ss-217.30.10.64-9026
     server: 217.30.10.64
+    type: ss
+    country: 🇷🇺RU
     port: 9026
-    name: ss-217.30.10.64-9026
+    password: QWDDvVE9npNurQfA
+    cipher: aes-256-cfb
   - type: ss
     cipher: aes-256-cfb
     password: FAdUvMJUq5vDgKEq
@@ -18066,7 +18056,7 @@ proxies:
   - name: trojan-206.189.156.88-28443
     server: 206.189.156.88
     type: trojan
-    country: 🇸🇬SG
+    country: 🇸🇬 SG
     port: 28443
     password: 486dd7e4-24bc-498a-b4f0-ecd704f8d8cd
     skip-cert-verify: true
@@ -18074,9 +18064,9 @@ proxies:
   - name: trojan-165.22.53.6-28443
     server: 165.22.53.6
     type: trojan
-    country: 🇸🇬SG
+    country: 🇸🇬 SG
     port: 28443
-    password: 486dd7e4-24bc-498a-b4f0-ecd704f8d8cd
+    password: 72e9af0c-83b4-4069-8406-7fd8ee3e474a
     skip-cert-verify: true
     udp: true
   - name: trojan-2.58.242.43-443
@@ -18090,9 +18080,9 @@ proxies:
   - name: trojan-hinet.xxcv.cc-38443
     server: hinet.xxcv.cc
     type: trojan
-    country: 🇹🇼TW
+    country: 🇹🇼 TW
     port: 38443
-    password: 486dd7e4-24bc-498a-b4f0-ecd704f8d8cd
+    password: 72e9af0c-83b4-4069-8406-7fd8ee3e474a
     skip-cert-verify: true
     udp: true
   - name: ss-167.88.62.24-8882
@@ -19015,9 +19005,9 @@ proxies:
   - name: trojan-159.223.29.152-28443
     server: 159.223.29.152
     type: trojan
-    country: 🇺🇸US
+    country: 🇺🇸 US
     port: 28443
-    password: 486dd7e4-24bc-498a-b4f0-ecd704f8d8cd
+    password: 72e9af0c-83b4-4069-8406-7fd8ee3e474a
     skip-cert-verify: true
     udp: true
   - name: trojan-us-trojan.bonds.id-443
@@ -19025,7 +19015,7 @@ proxies:
     type: trojan
     country: 🇺🇸US
     port: 443
-    password: 38239dd0-902b-11eb-afc1-1239d0255272
+    password: ccf1ee40-b4ab-11eb-b421-1239d0255272
     skip-cert-verify: true
     udp: true
   - name: trojan-a2.centaur.network-8081
@@ -19292,7 +19282,7 @@ proxies:
   - name: ss-103.172.116.10-9027
     server: 103.172.116.10
     type: ss
-    country: 🏁ZZ
+    country: 🏁 ZZ
     port: 9027
     password: EXN3S3eQpjE7EJu8
     cipher: aes-256-cfb
@@ -19320,14 +19310,14 @@ proxies:
   - name: ss-103.172.116.7-9010
     server: 103.172.116.7
     type: ss
-    country: 🏁ZZ
+    country: 🏁 ZZ
     port: 9010
     password: f63gg8EruDnUrmz4
     cipher: aes-256-cfb
   - name: ss-103.172.116.10-9032
     server: 103.172.116.10
     type: ss
-    country: 🏁ZZ
+    country: 🏁 ZZ
     port: 9032
     password: UWZQeLRWnkqgkseq
     cipher: aes-256-cfb
@@ -19355,10 +19345,9 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    ws-opts:
-      path: /fastssh/ntmdq/6267584ee4988/
-      headers:
-        Host: sg3.31vpn.com
+    ws-path: /fastssh/ntmdq/6267584ee4988/
+    ws-headers:
+      Host: sg3.31vpn.com
     udp: true
   - name: vmess-x.laoyouv2.top-10080
     server: x.laoyouv2.top
@@ -19408,17 +19397,17 @@ proxies:
     tls: true
     skip-cert-verify: true
     network: ws
-    ws-opts:
-      path: /ray
-      headers:
-        Host: 331tw.fans8.xyz
+    ws-path: /ray
+    ws-headers:
+      Host: 331tw.fans8.xyz
     udp: true
   - name: ss-cn1.relay.iepl.pw-50300
     server: cn1.relay.iepl.pw
     port: 50300
     type: ss
     cipher: aes-128-gcm
-    password: 40825843-2e84-4433-a4c0-829948eb620b
+    password: df87f3f2-f2a7-4fae-ae7d-507cea790c95
+    udp: true
   - name: vmess-jp03-vm0.ikuuu.casa-449
     server: jp03-vm0.ikuuu.casa
     port: 449
@@ -19777,7 +19766,8 @@ proxies:
     port: 50600
     type: ss
     cipher: aes-128-gcm
-    password: 40825843-2e84-4433-a4c0-829948eb620b
+    password: df87f3f2-f2a7-4fae-ae7d-507cea790c95
+    udp: true
   - name: vmess-34.125.239.135-64609
     server: 34.125.239.135
     port: 64609
@@ -19933,7 +19923,8 @@ proxies:
     port: 50200
     type: ss
     cipher: aes-128-gcm
-    password: 40825843-2e84-4433-a4c0-829948eb620b
+    password: df87f3f2-f2a7-4fae-ae7d-507cea790c95
+    udp: true
   - name: ss-cn1.relay.iepl.pw-50500
     server: cn1.relay.iepl.pw
     port: 50500
@@ -20236,7 +20227,7 @@ proxies:
   - name: ss-103.172.116.6-9014
     server: 103.172.116.6
     type: ss
-    country: 🏁ZZ
+    country: 🏁 ZZ
     port: 9014
     password: KnJGad3FqTvjqbaX
     cipher: aes-256-cfb
@@ -20520,14 +20511,14 @@ proxies:
   - name: ss-185.167.117.171-9094
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9094
     password: rpgbNnU9rDDU4aWZ
     cipher: aes-256-cfb
   - name: ss-185.167.117.171-9060
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9060
     password: ueLXVkvh4hckhErQ
     cipher: aes-256-cfb
@@ -20607,12 +20598,13 @@ proxies:
     udp: true
     password: Lp27rqyJq72bZsqX
     cipher: aes-256-cfb
-  - type: ss
-    cipher: aes-256-cfb
-    password: SBM7R883jBmnqe6C
+  - name: ss-213.183.59.229-9053
     server: 213.183.59.229
+    type: ss
     port: 9053
-    name: ss-213.183.59.229-9053
+    udp: true
+    password: SBM7R883jBmnqe6C
+    cipher: aes-256-cfb
   - name: ss-213.183.63.219-9042
     server: 213.183.63.219
     type: ss
@@ -20737,7 +20729,7 @@ proxies:
   - name: ss-14.29.124.168-25267
     server: 14.29.124.168
     type: ss
-    country: 🇨🇳 CN
+    country: 🇨🇳CN
     port: 25267
     password: QazEdcTgb159@$*
     cipher: aes-128-cfb
@@ -20751,7 +20743,7 @@ proxies:
   - name: ss-14.29.124.168-25233
     server: 14.29.124.168
     type: ss
-    country: 🇨🇳 CN
+    country: 🇨🇳CN
     port: 25233
     password: QazEdcTgb159@$*
     cipher: aes-128-cfb
@@ -20845,13 +20837,12 @@ proxies:
     udp: true
     password: rpgbNnU9rDDU4aWZ
     cipher: aes-256-cfb
-  - name: ss-213.183.63.218-9031
-    server: 213.183.63.218
-    type: ss
-    country: 🇱🇹LT
-    port: 9031
-    password: BwcAUZk8hUFAkDGN
+  - type: ss
     cipher: aes-256-cfb
+    password: BwcAUZk8hUFAkDGN
+    server: 213.183.63.218
+    port: 9031
+    name: ss-213.183.63.218-9031
   - name: ss-213.183.63.219-9057
     server: 213.183.63.219
     type: ss
@@ -20937,7 +20928,7 @@ proxies:
   - name: ss-185.167.116.253-9059
     server: 185.167.116.253
     type: ss
-    country: 🇦🇺 AU
+    country: 🇦🇺AU
     port: 9059
     password: 9XwYyZsK8SNzQDtY
     cipher: aes-256-cfb
@@ -20985,7 +20976,7 @@ proxies:
   - name: ss-185.167.116.253-9014
     server: 185.167.116.253
     type: ss
-    country: 🇦🇺 AU
+    country: 🇦🇺AU
     port: 9014
     password: KnJGad3FqTvjqbaX
     cipher: aes-256-cfb
@@ -21020,7 +21011,7 @@ proxies:
   - name: ss-185.167.116.253-9061
     server: 185.167.116.253
     type: ss
-    country: 🇦🇺 AU
+    country: 🇦🇺AU
     port: 9061
     password: 4R3hUfZ2FHhDmNcP
     cipher: aes-256-cfb
@@ -21083,7 +21074,7 @@ proxies:
   - name: ss-185.167.116.253-9031
     server: 185.167.116.253
     type: ss
-    country: 🇦🇺 AU
+    country: 🇦🇺AU
     port: 9031
     password: BwcAUZk8hUFAkDGN
     cipher: aes-256-cfb
@@ -21117,14 +21108,14 @@ proxies:
   - name: ss-185.167.116.253-9088
     server: 185.167.116.253
     type: ss
-    country: 🇦🇺 AU
+    country: 🇦🇺AU
     port: 9088
     password: f8npKgNzdkss2ytn
     cipher: aes-256-cfb
   - name: ss-152.89.210.84-9027
     server: 152.89.210.84
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9027
     password: EXN3S3eQpjE7EJu8
     cipher: aes-256-cfb
@@ -21261,7 +21252,7 @@ proxies:
   - name: ss-185.167.117.171-9010
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9010
     password: f63gg8EruDnUrmz4
     cipher: aes-256-cfb
@@ -21281,7 +21272,7 @@ proxies:
   - name: ss-185.167.117.171-9000
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9000
     password: a3GFYt36Sm82Vys9
     cipher: aes-256-cfb
@@ -21316,7 +21307,7 @@ proxies:
   - name: ss-185.167.116.253-9050
     server: 185.167.116.253
     type: ss
-    country: 🇦🇺 AU
+    country: 🇦🇺AU
     port: 9050
     password: FG5ddLsMPbV5CutE
     cipher: aes-256-cfb
@@ -21775,7 +21766,7 @@ proxies:
   - name: ss-134.195.196.245-443
     server: 134.195.196.245
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 443
     password: pKEW8JPByTVTLtM
     cipher: aes-256-gcm
@@ -21789,7 +21780,7 @@ proxies:
   - name: ss-134.195.196.245-5004
     server: 134.195.196.245
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5004
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
@@ -22091,14 +22082,15 @@ proxies:
     h2-opts: {}
     tls: true
     skip-cert-verify: true
-  - type: ssr
+  - name: ssr-14.29.124.168-24044
     server: 14.29.124.168
+    type: ssr
+    country: 🇨🇳 CN
     port: 24044
-    protocol: origin
-    cipher: aes-128-cfb
-    obfs: plain
     password: QazEdcTgb159@$*
-    name: ssr-14.29.124.168-24044
+    cipher: aes-128-cfb
+    protocol: origin
+    obfs: plain
   - name: vmess-qinton002.bmbai.buzz-733
     server: qinton002.bmbai.buzz
     type: vmess
@@ -22462,7 +22454,7 @@ proxies:
   - name: ss-152.89.210.105-9098
     server: 152.89.210.105
     type: ss
-    country: 🇬🇧GB
+    country: 🇬🇧 GB
     port: 9098
     password: aLpQtfEZe445QyHk
     cipher: aes-256-cfb
@@ -22483,7 +22475,7 @@ proxies:
   - name: ss-152.89.210.105-9042
     server: 152.89.210.105
     type: ss
-    country: 🇬🇧GB
+    country: 🇬🇧 GB
     port: 9042
     password: S7KwUu7yBy58S3Ga
     cipher: aes-256-cfb
@@ -22727,7 +22719,7 @@ proxies:
   - name: ssr-213.183.53.177-9005
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9005
     password: ZET59LF6DvCC8KVt
     cipher: aes-256-cfb
@@ -22736,7 +22728,7 @@ proxies:
   - name: ssr-213.183.53.200-9097
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9097
     password: Sn5B7jTqr76aCJT8
     cipher: aes-256-cfb
@@ -22745,7 +22737,7 @@ proxies:
   - name: ssr-213.183.53.177-9007
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9007
     password: kSPmvwdFzGMMW5pY
     cipher: aes-256-cfb
@@ -22754,7 +22746,7 @@ proxies:
   - name: ssr-213.183.53.200-9011
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9011
     password: M3t2ZEQcMGRWBjRa
     cipher: aes-256-cfb
@@ -22763,7 +22755,7 @@ proxies:
   - name: ssr-213.183.53.177-9033
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9033
     password: UTJA57ypk2XKQpnm
     cipher: aes-256-cfb
@@ -22772,7 +22764,7 @@ proxies:
   - name: ssr-213.183.53.200-9060
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9060
     password: ueLXVkvh4hckhErQ
     cipher: aes-256-cfb
@@ -22781,7 +22773,7 @@ proxies:
   - name: ssr-213.183.53.177-9041
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9041
     password: U6qnYRhfyDmn8sgn
     cipher: aes-256-cfb
@@ -22790,7 +22782,7 @@ proxies:
   - name: ssr-213.183.53.177-9014
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9014
     password: KnJGad3FqTvjqbaX
     cipher: aes-256-cfb
@@ -22827,17 +22819,17 @@ proxies:
         Host: shoutingtoutiao3.10010.com
   - name: vmess-180.215.196.10-39043
     server: 180.215.196.10
-    type: vmess
-    country: 🇸🇬新加坡阿伟科技atTG*油管_1216
     port: 39043
+    type: vmess
     uuid: 1b2f44e4-a810-48a8-b620-a4567b46c9b7
     alterId: 0
     cipher: auto
+    tls: false
     network: ws
-    http-opts: {}
-    h2-opts: {}
-    tls: true
-    skip-cert-verify: true
+    ws-opts:
+      path: /
+      headers:
+        Host: 180.215.196.10
   - name: vmess-43.156.7.182-443
     server: 43.156.7.182
     port: 443
@@ -26187,20 +26179,17 @@ proxies:
         host: www.msn.cn
   - name: vmess-us24054.cloudmatrix.xyz-24054
     server: us24054.cloudmatrix.xyz
-    type: vmess
-    country: 🇨🇳CN
     port: 24054
+    type: vmess
     uuid: a992be42-bed4-3037-8788-9e860cd635d3
     alterId: 2
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    servername: us24054.cloudmatrix.xyz
-    ws-headers:
-      HOST: us24054.cloudmatrix.xyz
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /
+      headers:
+        Host: us24054.cloudmatrix.xyz
   - name: vmess-3.35.149.54-59482
     server: 3.35.149.54
     port: 59482
@@ -26957,7 +26946,7 @@ proxies:
   - name: ss-185.167.117.171-9046
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9046
     password: NvS8N4Vf8qAGPSCL
     cipher: aes-256-cfb
@@ -26992,7 +26981,7 @@ proxies:
   - name: ss-185.167.117.171-9088
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9088
     password: f8npKgNzdkss2ytn
     cipher: aes-256-cfb
@@ -28891,12 +28880,13 @@ proxies:
     port: 8090
     password: PCnnH6SQSnfoS27
     cipher: aes-256-gcm
-  - type: ss
-    cipher: aes-256-cfb
-    password: daFYagqDdBdA6VTX
+  - name: ss-5.183.179.139-9073
     server: 5.183.179.139
+    type: ss
+    country: 🇩🇪 DE
     port: 9073
-    name: ss-5.183.179.139-9073
+    password: daFYagqDdBdA6VTX
+    cipher: aes-256-cfb
   - name: ss-93.186.201.124-805
     server: 93.186.201.124
     type: ss
@@ -29100,7 +29090,7 @@ proxies:
   - name: ss-193.108.117.75-8080
     server: 193.108.117.75
     type: ss
-    country: 🇩🇪 DE
+    country: 🇩🇪DE
     port: 8080
     password: KixLvKzwjekG00rm
     cipher: aes-256-gcm
@@ -29131,12 +29121,13 @@ proxies:
     server: 5.183.179.139
     port: 9046
     name: ss-5.183.179.139-9046
-  - type: ss
-    cipher: aes-256-cfb
-    password: M3t2ZEQcMGRWBjRa
+  - name: ss-5.183.179.139-9011
     server: 5.183.179.139
+    type: ss
+    country: 🇩🇪 DE
     port: 9011
-    name: ss-5.183.179.139-9011
+    password: M3t2ZEQcMGRWBjRa
+    cipher: aes-256-cfb
   - name: ss-5.183.179.148-9010
     server: 5.183.179.148
     type: ss
@@ -29228,7 +29219,7 @@ proxies:
   - name: ss-5.183.179.148-9015
     server: 5.183.179.148
     type: ss
-    country: 🇩🇪 DE
+    country: 🇩🇪DE
     port: 9015
     password: ZpNDDKRu9MagNvaf
     cipher: aes-256-cfb
@@ -29256,7 +29247,7 @@ proxies:
   - name: ss-5.183.179.148-9056
     server: 5.183.179.148
     type: ss
-    country: 🇩🇪 DE
+    country: 🇩🇪DE
     port: 9056
     password: rNBfNuuANFCAk7KB
     cipher: aes-256-cfb
@@ -29291,7 +29282,7 @@ proxies:
   - name: ss-5.183.179.141-9045
     server: 5.183.179.141
     type: ss
-    country: 🇩🇪 DE
+    country: 🇩🇪DE
     port: 9045
     password: Lp27rqyJq72bZsqX
     cipher: aes-256-cfb
@@ -30535,7 +30526,7 @@ proxies:
   - name: ssr-213.183.53.177-9006
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9006
     password: FAdUvMJUq5vDgKEq
     cipher: aes-256-cfb
@@ -30544,7 +30535,7 @@ proxies:
   - name: ssr-213.183.53.200-9064
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9064
     password: cp8pRSUAyLhTfVWH
     cipher: aes-256-cfb
@@ -30553,7 +30544,7 @@ proxies:
   - name: ssr-213.183.53.200-9079
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9079
     password: TPqX8edgbAURcAMb
     cipher: aes-256-cfb
@@ -30571,7 +30562,7 @@ proxies:
   - name: ssr-213.183.53.177-9037
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9037
     password: TN2YqghxeFDKZfLU
     cipher: aes-256-cfb
@@ -30580,7 +30571,7 @@ proxies:
   - name: ssr-213.183.53.200-9037
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9037
     password: TN2YqghxeFDKZfLU
     cipher: aes-256-cfb
@@ -30589,7 +30580,7 @@ proxies:
   - name: ssr-213.183.53.177-9060
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9060
     password: ueLXVkvh4hckhErQ
     cipher: aes-256-cfb
@@ -30598,7 +30589,7 @@ proxies:
   - name: ssr-213.183.53.200-9020
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9020
     password: BNmAXXxAHYpTRdzu
     cipher: aes-256-cfb
@@ -30607,7 +30598,7 @@ proxies:
   - name: ssr-213.183.53.200-9050
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9050
     password: FG5ddLsMPbV5CutE
     cipher: aes-256-cfb
@@ -30616,7 +30607,7 @@ proxies:
   - name: ssr-213.183.53.200-9046
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9046
     password: NvS8N4Vf8qAGPSCL
     cipher: aes-256-cfb
@@ -30652,7 +30643,7 @@ proxies:
   - name: ssr-213.183.53.200-9070
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9070
     password: bf7v334KKDV3YDhH
     cipher: aes-256-cfb
@@ -30661,7 +30652,7 @@ proxies:
   - name: ssr-213.183.53.177-9031
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9031
     password: BwcAUZk8hUFAkDGN
     cipher: aes-256-cfb
@@ -30670,7 +30661,7 @@ proxies:
   - name: ssr-213.183.53.200-9014
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9014
     password: KnJGad3FqTvjqbaX
     cipher: aes-256-cfb
@@ -30679,7 +30670,7 @@ proxies:
   - name: ssr-213.183.53.177-9064
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9064
     password: cp8pRSUAyLhTfVWH
     cipher: aes-256-cfb
@@ -30697,7 +30688,7 @@ proxies:
   - name: ssr-213.183.53.200-9007
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9007
     password: kSPmvwdFzGMMW5pY
     cipher: aes-256-cfb
@@ -30706,7 +30697,7 @@ proxies:
   - name: ssr-213.183.53.200-9006
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9006
     password: FAdUvMJUq5vDgKEq
     cipher: aes-256-cfb
@@ -30715,7 +30706,7 @@ proxies:
   - name: ssr-213.183.53.200-9018
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9018
     password: fG2artUmHfNT2cX7
     cipher: aes-256-cfb
@@ -30724,25 +30715,24 @@ proxies:
   - name: ssr-213.183.53.200-9000
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9000
     password: a3GFYt36Sm82Vys9
     cipher: aes-256-cfb
     protocol: origin
     obfs: plain
-  - name: ssr-213.183.53.177-9093
+  - type: ssr
     server: 213.183.53.177
-    type: ssr
-    country: 🇱🇹 LT
     port: 9093
-    password: wfLC2y7rzZyCmuyt
-    cipher: aes-256-cfb
     protocol: origin
+    cipher: aes-256-cfb
     obfs: plain
+    password: wfLC2y7rzZyCmuyt
+    name: ssr-213.183.53.177-9093
   - name: ssr-213.183.53.177-9043
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9043
     password: HSZuyJQcWe8dxNdF
     cipher: aes-256-cfb
@@ -30760,7 +30750,7 @@ proxies:
   - name: ssr-213.183.53.200-9005
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9005
     password: ZET59LF6DvCC8KVt
     cipher: aes-256-cfb
@@ -30769,7 +30759,7 @@ proxies:
   - name: ssr-213.183.53.177-9046
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9046
     password: NvS8N4Vf8qAGPSCL
     cipher: aes-256-cfb
@@ -30787,7 +30777,7 @@ proxies:
   - name: ssr-213.183.53.177-9059
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9059
     password: 9XwYyZsK8SNzQDtY
     cipher: aes-256-cfb
@@ -30814,7 +30804,7 @@ proxies:
   - name: ssr-213.183.53.177-9050
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9050
     password: FG5ddLsMPbV5CutE
     cipher: aes-256-cfb
@@ -30823,7 +30813,7 @@ proxies:
   - name: ssr-213.183.53.200-9015
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9015
     password: ZpNDDKRu9MagNvaf
     cipher: aes-256-cfb
@@ -30832,7 +30822,7 @@ proxies:
   - name: ssr-213.183.53.200-9053
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9053
     password: SBM7R883jBmnqe6C
     cipher: aes-256-cfb
@@ -30850,7 +30840,7 @@ proxies:
   - name: ssr-213.183.53.200-9088
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9088
     password: f8npKgNzdkss2ytn
     cipher: aes-256-cfb
@@ -30859,7 +30849,7 @@ proxies:
   - name: ssr-213.183.53.200-9001
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9001
     password: UkXRsXvR6buDMG2Y
     cipher: aes-256-cfb
@@ -30868,7 +30858,7 @@ proxies:
   - name: ssr-213.183.53.177-9032
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9032
     password: UWZQeLRWnkqgkseq
     cipher: aes-256-cfb
@@ -30877,7 +30867,7 @@ proxies:
   - name: ssr-213.183.53.177-9088
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9088
     password: f8npKgNzdkss2ytn
     cipher: aes-256-cfb
@@ -30886,7 +30876,7 @@ proxies:
   - name: ssr-213.183.53.200-9033
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9033
     password: UTJA57ypk2XKQpnm
     cipher: aes-256-cfb
@@ -30904,7 +30894,7 @@ proxies:
   - name: ssr-213.183.53.177-9008
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹LT
+    country: 🇱🇹 LT
     port: 9008
     password: y9VURyNzJWNRYEGQ
     cipher: aes-256-cfb
@@ -30913,7 +30903,7 @@ proxies:
   - name: ssr-213.183.53.200-9098
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9098
     password: aLpQtfEZe445QyHk
     cipher: aes-256-cfb
@@ -30922,7 +30912,7 @@ proxies:
   - name: ssr-213.183.53.177-9011
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9011
     password: M3t2ZEQcMGRWBjRa
     cipher: aes-256-cfb
@@ -30931,7 +30921,7 @@ proxies:
   - name: ssr-213.183.53.200-9040
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9040
     password: p9z5BVADH2YFs3MN
     cipher: aes-256-cfb
@@ -30940,7 +30930,7 @@ proxies:
   - name: ssr-213.183.53.200-9073
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9073
     password: daFYagqDdBdA6VTX
     cipher: aes-256-cfb
@@ -30949,21 +30939,20 @@ proxies:
   - name: ssr-213.183.53.200-9031
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9031
     password: BwcAUZk8hUFAkDGN
     cipher: aes-256-cfb
     protocol: origin
     obfs: plain
-  - name: ssr-213.183.53.177-9024
+  - type: ssr
     server: 213.183.53.177
-    type: ssr
-    country: 🇱🇹 LT
     port: 9024
-    password: BejrQvtu9sqUeNuZ
-    cipher: aes-256-cfb
     protocol: origin
+    cipher: aes-256-cfb
     obfs: plain
+    password: BejrQvtu9sqUeNuZ
+    name: ssr-213.183.53.177-9024
   - name: ssr-213.183.53.177-9094
     server: 213.183.53.177
     type: ssr
@@ -30976,7 +30965,7 @@ proxies:
   - name: ssr-213.183.53.200-9026
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9026
     password: QWDDvVE9npNurQfA
     cipher: aes-256-cfb
@@ -31003,7 +30992,7 @@ proxies:
   - name: ssr-213.183.53.200-9043
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9043
     password: HSZuyJQcWe8dxNdF
     cipher: aes-256-cfb
@@ -31012,7 +31001,7 @@ proxies:
   - name: ssr-213.183.53.200-9003
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9003
     password: JdmRK9gMEqFgs8nP
     cipher: aes-256-cfb
@@ -31083,11 +31072,10 @@ proxies:
     cipher: aes-256-cfb
   - name: ss-213.183.59.185-9042
     server: 213.183.59.185
-    type: ss
-    country: 🇳🇱NL
     port: 9042
-    password: S7KwUu7yBy58S3Ga
+    type: ss
     cipher: aes-256-cfb
+    password: S7KwUu7yBy58S3Ga
   - name: ss-213.183.59.218-9026
     server: 213.183.59.218
     type: ss
@@ -31252,7 +31240,7 @@ proxies:
   - name: ss-37.218.247.88-443
     server: 37.218.247.88
     type: ss
-    country: 🇳🇱 NL
+    country: 🇳🇱NL
     port: 443
     password: YbOE6O1uwbUv
     cipher: chacha20-ietf-poly1305
@@ -31282,7 +31270,7 @@ proxies:
     type: trojan
     country: 🇳🇱NL
     port: 443
-    password: 7e6256a0-b4ab-11eb-bc8f-1239d0255272
+    password: 94af0550-902b-11eb-b135-1239d0255272
     skip-cert-verify: true
     udp: true
   - name: ss-103.62.49.141-801
@@ -31446,12 +31434,12 @@ proxies:
     port: 9053
     password: SBM7R883jBmnqe6C
     cipher: aes-256-cfb
-  - name: ss-188.241.83.130-809
-    server: 188.241.83.130
-    port: 809
-    type: ss
+  - type: ss
     cipher: chacha20-ietf-poly1305
     password: G!yBwPWH3Vao
+    server: 188.241.83.130
+    port: 809
+    name: ss-188.241.83.130-809
   - name: ss-185.126.116.125-9042
     server: 185.126.116.125
     type: ss
@@ -31478,13 +31466,12 @@ proxies:
     type: ss
     cipher: aes-256-cfb
     password: GA9KzeEgvfxNrgmM
-  - name: ss-217.30.10.63-9042
-    server: 217.30.10.63
-    type: ss
-    country: 🇷🇺RU
-    port: 9042
-    password: S7KwUu7yBy58S3Ga
+  - type: ss
     cipher: aes-256-cfb
+    password: S7KwUu7yBy58S3Ga
+    server: 217.30.10.63
+    port: 9042
+    name: ss-217.30.10.63-9042
   - name: ss-217.30.10.63-9053
     server: 217.30.10.63
     type: ss
@@ -31508,7 +31495,7 @@ proxies:
   - name: ss-217.30.10.68-9070
     server: 217.30.10.68
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9070
     password: bf7v334KKDV3YDhH
     cipher: aes-256-cfb
@@ -31538,20 +31525,18 @@ proxies:
     port: 9098
     password: aLpQtfEZe445QyHk
     cipher: aes-256-cfb
-  - name: ss-217.30.10.63-9001
-    server: 217.30.10.63
-    type: ss
-    country: 🇷🇺RU
-    port: 9001
+  - type: ss
+    cipher: aes-256-cfb
     password: UkXRsXvR6buDMG2Y
-    cipher: aes-256-cfb
-  - name: ss-217.30.10.63-9015
     server: 217.30.10.63
-    type: ss
-    country: 🇷🇺RU
-    port: 9015
-    password: ZpNDDKRu9MagNvaf
+    port: 9001
+    name: ss-217.30.10.63-9001
+  - type: ss
     cipher: aes-256-cfb
+    password: ZpNDDKRu9MagNvaf
+    server: 217.30.10.63
+    port: 9015
+    name: ss-217.30.10.63-9015
   - name: ss-217.197.161.138-808
     server: 217.197.161.138
     type: ss
@@ -31818,9 +31803,6 @@ proxies:
     cipher: auto
     network: ws
     ws-path: /ws
-    servername: eeh7iewe.com
-    ws-headers:
-      HOST: eeh7iewe.com
     http-opts: {}
     h2-opts: {}
     tls: true
@@ -31875,7 +31857,7 @@ proxies:
   - name: ss-38.75.136.135-5001
     server: 38.75.136.135
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5001
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -39192,7 +39174,7 @@ proxies:
   - name: trojan-azhk.relay.qchwnd.moe-443
     server: azhk.relay.qchwnd.moe
     type: trojan
-    country: 🇺🇸US
+    country: 🇭🇰HK
     port: 443
     password: 52face98-c4cb-4299-aa38-9546085b0619
     skip-cert-verify: true
@@ -39256,14 +39238,14 @@ proxies:
   - name: ss-134.195.196.155-3306
     server: 134.195.196.155
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-134.195.196.64-2375
     server: 134.195.196.64
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 2375
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
@@ -39869,13 +39851,12 @@ proxies:
     port: 8091
     password: PCnnH6SQSnfoS27
     cipher: aes-256-gcm
-  - name: ss-103.172.116.9-9027
-    server: 103.172.116.9
-    type: ss
-    country: 🏁ZZ
-    port: 9027
-    password: EXN3S3eQpjE7EJu8
+  - type: ss
     cipher: aes-256-cfb
+    password: EXN3S3eQpjE7EJu8
+    server: 103.172.116.9
+    port: 9027
+    name: ss-103.172.116.9-9027
   - name: ss-103.172.116.9-9042
     server: 103.172.116.9
     type: ss
@@ -42341,7 +42322,7 @@ proxies:
   - name: ss-103.172.116.10-9057
     server: 103.172.116.10
     type: ss
-    country: 🏁ZZ
+    country: 🏁 ZZ
     port: 9057
     password: wjTugX3ZtHMB9c3Z
     cipher: aes-256-cfb
@@ -42352,15 +42333,14 @@ proxies:
     port: 8008
     password: XKFKl2rULjIp74
     cipher: aes-256-gcm
-  - name: ssr-103.172.116.9-9070
+  - type: ssr
     server: 103.172.116.9
-    type: ssr
-    country: 🏁ZZ
     port: 9070
-    password: bf7v334KKDV3YDhH
-    cipher: aes-256-cfb
     protocol: origin
+    cipher: aes-256-cfb
     obfs: plain
+    password: bf7v334KKDV3YDhH
+    name: ssr-103.172.116.9-9070
   - name: ss-185.167.116.38-9093
     server: 185.167.116.38
     type: ss
@@ -42673,14 +42653,14 @@ proxies:
   - name: ss-198.57.27.36-9102
     server: 198.57.27.36
     type: ss
-    country: 🇨🇦 CA
+    country: 🇨🇦CA
     port: 9102
     password: e4FCWrgpkji3QY
     cipher: aes-256-gcm
   - name: ss-198.57.27.14-6697
     server: 198.57.27.14
     type: ss
-    country: 🇨🇦 CA
+    country: 🇨🇦CA
     port: 6697
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
@@ -42763,14 +42743,14 @@ proxies:
   - name: ss-212.38.189.174-6379
     server: 212.38.189.174
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 6379
     password: zDNVedRFPQexG9v
     cipher: aes-256-gcm
   - name: ss-185.167.117.171-9003
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9003
     password: JdmRK9gMEqFgs8nP
     cipher: aes-256-cfb
@@ -42833,14 +42813,14 @@ proxies:
   - name: ss-213.183.53.202-9040
     server: 213.183.53.202
     type: ss
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9040
     password: p9z5BVADH2YFs3MN
     cipher: aes-256-cfb
   - name: ssr-213.183.53.177-9018
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9018
     password: fG2artUmHfNT2cX7
     cipher: aes-256-cfb
@@ -42849,7 +42829,7 @@ proxies:
   - name: ssr-213.183.53.200-9093
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9093
     password: wfLC2y7rzZyCmuyt
     cipher: aes-256-cfb
@@ -42858,7 +42838,7 @@ proxies:
   - name: ssr-213.183.53.200-9094
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9094
     password: rpgbNnU9rDDU4aWZ
     cipher: aes-256-cfb
@@ -42867,7 +42847,7 @@ proxies:
   - name: ssr-213.183.53.177-9015
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9015
     password: ZpNDDKRu9MagNvaf
     cipher: aes-256-cfb
@@ -42876,7 +42856,7 @@ proxies:
   - name: ssr-213.183.53.200-9024
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9024
     password: BejrQvtu9sqUeNuZ
     cipher: aes-256-cfb
@@ -42885,7 +42865,7 @@ proxies:
   - name: ssr-213.183.53.200-9025
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9025
     password: XPtzA9sCug3SPR4c
     cipher: aes-256-cfb
@@ -42894,7 +42874,7 @@ proxies:
   - name: ssr-213.183.53.177-9026
     server: 213.183.53.177
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9026
     password: QWDDvVE9npNurQfA
     cipher: aes-256-cfb
@@ -42903,7 +42883,7 @@ proxies:
   - name: ssr-213.183.53.200-9045
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9045
     password: Lp27rqyJq72bZsqX
     cipher: aes-256-cfb
@@ -42912,7 +42892,7 @@ proxies:
   - name: ssr-213.183.53.200-9019
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9019
     password: GA9KzeEgvfxNrgmM
     cipher: aes-256-cfb
@@ -43451,29 +43431,30 @@ proxies:
   - name: ss-217.30.10.68-9005
     server: 217.30.10.68
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9005
     password: ZET59LF6DvCC8KVt
     cipher: aes-256-cfb
   - name: ss-217.30.10.68-9027
     server: 217.30.10.68
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9027
     password: EXN3S3eQpjE7EJu8
     cipher: aes-256-cfb
+  - name: ss-217.30.10.63-9011
+    server: 217.30.10.63
+    type: ss
+    country: 🇷🇺RU
+    port: 9011
+    password: M3t2ZEQcMGRWBjRa
+    cipher: aes-256-cfb
   - type: ss
     cipher: aes-256-cfb
-    password: M3t2ZEQcMGRWBjRa
-    server: 217.30.10.63
-    port: 9011
-    name: ss-217.30.10.63-9011
-  - name: ss-217.30.10.64-9084
+    password: c3NtHJ5ujV2tGDfj
     server: 217.30.10.64
     port: 9084
-    type: ss
-    password: c3NtHJ5ujV2tGDfj
-    cipher: aes-256-cfb
+    name: ss-217.30.10.64-9084
   - name: ss-217.30.10.68-9042
     server: 217.30.10.68
     type: ss
@@ -43543,19 +43524,18 @@ proxies:
     type: ss
     password: rNBfNuuANFCAk7KB
     cipher: aes-256-cfb
-  - type: ss
-    cipher: aes-256-cfb
-    password: 9XwYyZsK8SNzQDtY
+  - name: ss-217.30.10.63-9059
     server: 217.30.10.63
     port: 9059
-    name: ss-217.30.10.63-9059
-  - name: ss-217.30.10.63-9014
-    server: 217.30.10.63
     type: ss
-    country: 🇷🇺 RU
-    port: 9014
-    password: KnJGad3FqTvjqbaX
+    password: 9XwYyZsK8SNzQDtY
     cipher: aes-256-cfb
+  - type: ss
+    cipher: aes-256-cfb
+    password: KnJGad3FqTvjqbaX
+    server: 217.30.10.63
+    port: 9014
+    name: ss-217.30.10.63-9014
   - type: ss
     cipher: aes-256-cfb
     password: BwcAUZk8hUFAkDGN
@@ -43590,12 +43570,13 @@ proxies:
     port: 9033
     password: UTJA57ypk2XKQpnm
     cipher: aes-256-cfb
-  - type: ss
-    cipher: aes-256-cfb
-    password: wjTugX3ZtHMB9c3Z
+  - name: ss-217.30.10.63-9057
     server: 217.30.10.63
+    type: ss
+    country: 🇷🇺RU
     port: 9057
-    name: ss-217.30.10.63-9057
+    password: wjTugX3ZtHMB9c3Z
+    cipher: aes-256-cfb
   - type: ss
     cipher: aes-256-cfb
     password: rpgbNnU9rDDU4aWZ
@@ -43621,12 +43602,12 @@ proxies:
     port: 9046
     password: NvS8N4Vf8qAGPSCL
     cipher: aes-256-cfb
-  - name: ss-217.30.10.63-9027
+  - type: ss
+    cipher: aes-256-cfb
+    password: EXN3S3eQpjE7EJu8
     server: 217.30.10.63
     port: 9027
-    type: ss
-    password: EXN3S3eQpjE7EJu8
-    cipher: aes-256-cfb
+    name: ss-217.30.10.63-9027
   - name: ss-217.30.10.63-9006
     server: 217.30.10.63
     type: ss
@@ -43676,14 +43657,14 @@ proxies:
   - name: ss-38.86.135.36-3306
     server: 38.86.135.36
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-167.88.61.175-3306
     server: 167.88.61.175
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -43986,7 +43967,7 @@ proxies:
   - name: ssr-103.172.116.10-9057
     server: 103.172.116.10
     type: ssr
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 9057
     password: wjTugX3ZtHMB9c3Z
     cipher: aes-256-cfb
@@ -43995,7 +43976,7 @@ proxies:
   - name: ssr-103.172.116.10-9032
     server: 103.172.116.10
     type: ssr
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 9032
     password: UWZQeLRWnkqgkseq
     cipher: aes-256-cfb
@@ -44004,7 +43985,7 @@ proxies:
   - name: ssr-103.172.116.7-9010
     server: 103.172.116.7
     type: ssr
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 9010
     password: f63gg8EruDnUrmz4
     cipher: aes-256-cfb
@@ -44013,7 +43994,7 @@ proxies:
   - name: ssr-103.172.116.9-9018
     server: 103.172.116.9
     type: ssr
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 9018
     password: fG2artUmHfNT2cX7
     cipher: aes-256-cfb
@@ -44031,7 +44012,7 @@ proxies:
   - name: ssr-103.172.116.9-9003
     server: 103.172.116.9
     type: ssr
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 9003
     password: JdmRK9gMEqFgs8nP
     cipher: aes-256-cfb
@@ -44262,7 +44243,7 @@ proxies:
   - name: ss-82.145.41.125-9101
     server: 82.145.41.125
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9101
     password: e4FCWrgpkji3QY
     cipher: aes-256-gcm
@@ -44455,21 +44436,21 @@ proxies:
   - name: ss-185.167.117.171-9037
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9037
     password: TN2YqghxeFDKZfLU
     cipher: aes-256-cfb
   - name: ss-185.167.117.171-9079
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9079
     password: TPqX8edgbAURcAMb
     cipher: aes-256-cfb
   - name: ss-185.167.117.171-9084
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9084
     password: c3NtHJ5ujV2tGDfj
     cipher: aes-256-cfb
@@ -44522,7 +44503,7 @@ proxies:
   - name: ss-217.30.10.67-9098
     server: 217.30.10.67
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9098
     password: aLpQtfEZe445QyHk
     cipher: aes-256-cfb
@@ -44657,7 +44638,7 @@ proxies:
   - name: ss-185.167.116.252-9003
     server: 185.167.116.252
     type: ss
-    country: 🇦🇺 AU
+    country: 🇦🇺AU
     port: 9003
     password: JdmRK9gMEqFgs8nP
     cipher: aes-256-cfb
@@ -44748,7 +44729,7 @@ proxies:
   - name: ss-72.140.224.195-802
     server: 72.140.224.195
     type: ss
-    country: 🇨🇦 CA
+    country: 🇨🇦CA
     port: 802
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
@@ -44769,7 +44750,7 @@ proxies:
   - name: ss-72.140.224.195-805
     server: 72.140.224.195
     type: ss
-    country: 🇨🇦 CA
+    country: 🇨🇦CA
     port: 805
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
@@ -44930,14 +44911,14 @@ proxies:
   - name: ss-72.140.224.195-803
     server: 72.140.224.195
     type: ss
-    country: 🇨🇦 CA
+    country: 🇨🇦CA
     port: 803
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
   - name: ss-72.140.224.195-800
     server: 72.140.224.195
     type: ss
-    country: 🇨🇦 CA
+    country: 🇨🇦CA
     port: 800
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
@@ -44986,21 +44967,21 @@ proxies:
   - name: ss-72.140.224.195-801
     server: 72.140.224.195
     type: ss
-    country: 🇨🇦 CA
+    country: 🇨🇦CA
     port: 801
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
   - name: ss-72.140.224.195-809
     server: 72.140.224.195
     type: ss
-    country: 🇨🇦 CA
+    country: 🇨🇦CA
     port: 809
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
   - name: ss-72.140.224.195-810
     server: 72.140.224.195
     type: ss
-    country: 🇨🇦 CA
+    country: 🇨🇦CA
     port: 810
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
@@ -45230,7 +45211,7 @@ proxies:
   - name: ss-212.38.189.174-5600
     server: 212.38.189.174
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 5600
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -45244,7 +45225,7 @@ proxies:
   - name: ss-212.38.189.174-6679
     server: 212.38.189.174
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 6679
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
@@ -45279,7 +45260,7 @@ proxies:
   - name: ss-185.167.117.171-9032
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9032
     password: UWZQeLRWnkqgkseq
     cipher: aes-256-cfb
@@ -45687,7 +45668,7 @@ proxies:
   - name: ss-213.183.51.171-9032
     server: 213.183.51.171
     type: ss
-    country: 🇳🇱 NL
+    country: 🇳🇱NL
     port: 9032
     password: UWZQeLRWnkqgkseq
     cipher: aes-256-cfb
@@ -45722,7 +45703,7 @@ proxies:
   - name: ss-213.183.51.171-9064
     server: 213.183.51.171
     type: ss
-    country: 🇳🇱 NL
+    country: 🇳🇱NL
     port: 9064
     password: cp8pRSUAyLhTfVWH
     cipher: aes-256-cfb
@@ -45904,7 +45885,7 @@ proxies:
   - name: ss-217.30.10.68-9019
     server: 217.30.10.68
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9019
     password: GA9KzeEgvfxNrgmM
     cipher: aes-256-cfb
@@ -46797,7 +46778,7 @@ proxies:
   - name: ss-92.38.169.196-826
     server: 92.38.169.196
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 826
     password: sF43Xt2gONqcgFX563
     cipher: chacha20-ietf-poly1305
@@ -47070,7 +47051,7 @@ proxies:
   - name: ss-167.88.62.34-6379
     server: 167.88.62.34
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6379
     password: zDNVedRFPQexG9v
     cipher: aes-256-gcm
@@ -47595,7 +47576,7 @@ proxies:
   - name: ss-167.88.63.117-8090
     server: 167.88.63.117
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8090
     password: PCnnH6SQSnfoS27
     cipher: aes-256-gcm
@@ -48120,7 +48101,7 @@ proxies:
   - name: ss-38.68.135.123-443
     server: 38.68.135.123
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 443
     password: pKEW8JPByTVTLtM
     cipher: aes-256-gcm
@@ -48281,7 +48262,7 @@ proxies:
   - name: ss-104.249.173.240-50003
     server: 104.249.173.240
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 50003
     password: "8460400130"
     cipher: aes-256-cfb
@@ -48372,14 +48353,14 @@ proxies:
   - name: ss-38.68.134.69-5000
     server: 38.68.134.69
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5000
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-38.68.134.191-8881
     server: 38.68.134.191
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8881
     password: kDWvXYZoTBcGkC4
     cipher: aes-256-gcm
@@ -48414,7 +48395,7 @@ proxies:
   - name: ss-38.68.134.191-5000
     server: 38.68.134.191
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5000
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -48805,7 +48786,7 @@ proxies:
   - name: ss-38.68.134.190-5601
     server: 38.68.134.190
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5601
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -49085,7 +49066,7 @@ proxies:
   - name: ss-167.88.61.175-6679
     server: 167.88.61.175
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6679
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
@@ -49127,7 +49108,7 @@ proxies:
   - name: ss-167.88.61.14-9102
     server: 167.88.61.14
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 9102
     password: e4FCWrgpkji3QY
     cipher: aes-256-gcm
@@ -49426,7 +49407,7 @@ proxies:
   - name: ss-38.75.137.187-443
     server: 38.75.137.187
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 443
     password: pKEW8JPByTVTLtM
     cipher: aes-256-gcm
@@ -49482,7 +49463,7 @@ proxies:
   - name: ss-38.68.134.190-7001
     server: 38.68.134.190
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 7001
     password: RexnBgU7EV5ADxG
     cipher: aes-256-gcm
@@ -51034,7 +51015,7 @@ proxies:
   - name: ss-134.195.196.76-5001
     server: 134.195.196.76
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 5001
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -51265,7 +51246,7 @@ proxies:
   - name: ss-134.195.196.76-8080
     server: 134.195.196.76
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 8080
     password: KixLvKzwjekG00rm
     cipher: aes-256-gcm
@@ -51627,9 +51608,12 @@ proxies:
     password: RURaaF9hKW
   - name: trojan-jgwdj4.gaox.ml-443
     server: jgwdj4.gaox.ml
-    port: 443
     type: trojan
+    country: 🇯🇵JP
+    port: 443
     password: c09eb137-bf68-4658-84e0-102d94b74168
+    skip-cert-verify: true
+    udp: true
   - name: trojan-awssg.yeem.cc-21210
     server: awssg.yeem.cc
     port: 21210
@@ -52489,16 +52473,16 @@ proxies:
   - name: vmess-sgaws005.xmrth-node.xyz-13057
     server: sgaws005.xmrth-node.xyz
     type: vmess
-    country: 🇸🇬SG
+    country: 🇸🇬 SG
     port: 13057
-    uuid: f6d03f94-7d51-3ed2-981a-f3298aedd9b5
+    uuid: 53ad95b1-8693-34e3-98d7-2010ad24aaf9
     alterId: 2
     cipher: auto
     network: ws
     ws-path: /index
-    servername: www.baidu.com
+    servername: sgaws005.xmrth-node.xyz
     ws-headers:
-      HOST: www.baidu.com
+      HOST: sgaws005.xmrth-node.xyz
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -53232,7 +53216,7 @@ proxies:
   - name: ss-213.183.53.200-9025
     server: 213.183.53.200
     type: ss
-    country: 🇱🇹LT
+    country: 🇷🇺 RU
     port: 9025
     password: XPtzA9sCug3SPR4c
     cipher: aes-256-cfb
@@ -53507,56 +53491,56 @@ proxies:
   - name: ss-38.75.137.88-6697
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6697
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
   - name: ss-38.75.137.88-3306
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-38.75.137.88-443
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 443
     password: pKEW8JPByTVTLtM
     cipher: aes-256-gcm
   - name: ss-38.75.137.88-9102
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 9102
     password: e4FCWrgpkji3QY
     cipher: aes-256-gcm
   - name: ss-38.75.137.88-2375
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 2375
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-38.75.137.88-2376
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 2376
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-38.75.137.88-5600
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5600
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-38.75.137.88-5003
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5003
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
@@ -53584,7 +53568,7 @@ proxies:
   - name: ss-38.75.137.88-5000
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5000
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -54870,7 +54854,7 @@ proxies:
   - name: ss-38.75.137.88-5601
     server: 38.75.137.88
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5601
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -54920,20 +54904,20 @@ proxies:
     network: tcp
   - name: vmess-43.154.46.228-49930
     server: 43.154.46.228
-    port: 49930
     type: vmess
+    country: 🇦🇺AU
+    port: 49930
     uuid: 051088e3-f62e-4cf6-a199-ab98adcb822b
     alterId: 0
     cipher: auto
-    tls: false
     network: http
+    servername: 43.154.46.228
     http-opts:
       method: GET
       path:
         - /
-      headers:
-        Host:
-          - 43.154.46.228
+    h2-opts: {}
+    skip-cert-verify: true
   - name: ssr-yy02.nfeng6.pp.ua-2705
     server: yy02.nfeng6.pp.ua
     type: ssr
@@ -54977,7 +54961,7 @@ proxies:
   - name: ss-185.167.117.171-9027
     server: 185.167.117.171
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 9027
     password: EXN3S3eQpjE7EJu8
     cipher: aes-256-cfb
@@ -55271,12 +55255,13 @@ proxies:
     port: 10014
     password: c7378697-b358-43cd-bd61-c34907a13dbf
     cipher: aes-256-gcm
-  - type: ss
-    cipher: chacha20-ietf-poly1305
-    password: d3bd4f04-f99b-4905-9916-bac87c728277
+  - name: ss-ss-node-2.gfwairport.net-50001
     server: ss-node-2.gfwairport.net
+    type: ss
+    country: 🇰🇷 KR
     port: 50001
-    name: ss-ss-node-2.gfwairport.net-50001
+    password: d3bd4f04-f99b-4905-9916-bac87c728277
+    cipher: chacha20-ietf-poly1305
   - name: ss-213.183.51.171-9042
     server: 213.183.51.171
     type: ss
@@ -55566,12 +55551,13 @@ proxies:
     server: 5.183.179.170
     port: 9011
     name: ss-5.183.179.170-9011
-  - type: ss
-    cipher: aes-256-cfb
-    password: ueLXVkvh4hckhErQ
+  - name: ss-213.183.59.229-9060
     server: 213.183.59.229
+    type: ss
     port: 9060
-    name: ss-213.183.59.229-9060
+    udp: true
+    password: ueLXVkvh4hckhErQ
+    cipher: aes-256-cfb
   - type: ss
     cipher: aes-256-cfb
     password: FAdUvMJUq5vDgKEq
@@ -56266,7 +56252,7 @@ proxies:
   - name: vmess-ru1.lolvps.xyz-40040
     server: ru1.lolvps.xyz
     type: vmess
-    country: 🇮🇱 IL
+    country: 🇮🇱IL
     port: 40040
     uuid: 2b8e4fc6-0112-4b26-8c17-1bfef9a3ff99
     alterId: 0
@@ -56296,7 +56282,7 @@ proxies:
   - name: ss-217.30.10.67-9008
     server: 217.30.10.67
     type: ss
-    country: 🇷🇺 RU
+    country: 🇷🇺RU
     port: 9008
     password: y9VURyNzJWNRYEGQ
     cipher: aes-256-cfb
@@ -56463,7 +56449,7 @@ proxies:
   - name: ss-213.183.53.200-9010
     server: 213.183.53.200
     type: ss
-    country: 🇱🇹LT
+    country: 🇷🇺 RU
     port: 9010
     password: f63gg8EruDnUrmz4
     cipher: aes-256-cfb
@@ -56494,13 +56480,12 @@ proxies:
     udp: true
     password: HSZuyJQcWe8dxNdF
     cipher: aes-256-cfb
-  - name: ss-213.183.59.229-9018
-    server: 213.183.59.229
-    type: ss
-    port: 9018
-    udp: true
-    password: fG2artUmHfNT2cX7
+  - type: ss
     cipher: aes-256-cfb
+    password: fG2artUmHfNT2cX7
+    server: 213.183.59.229
+    port: 9018
+    name: ss-213.183.59.229-9018
   - type: ss
     cipher: aes-256-cfb
     password: f63gg8EruDnUrmz4
@@ -57340,7 +57325,7 @@ proxies:
   - name: ssr-213.183.53.200-9010
     server: 213.183.53.200
     type: ssr
-    country: 🇱🇹 LT
+    country: 🇱🇹LT
     port: 9010
     password: f63gg8EruDnUrmz4
     cipher: aes-256-cfb
@@ -58919,28 +58904,28 @@ proxies:
   - name: ss-82.145.41.125-2375
     server: 82.145.41.125
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 2375
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-82.145.41.125-2376
     server: 82.145.41.125
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 2376
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-82.145.41.125-3306
     server: 82.145.41.125
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-82.145.41.125-3389
     server: 82.145.41.125
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 3389
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -58968,7 +58953,7 @@ proxies:
   - name: ss-82.145.41.125-5003
     server: 82.145.41.125
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 5003
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
@@ -60049,28 +60034,28 @@ proxies:
   - name: ss-172.99.190.61-443
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 443
     password: pKEW8JPByTVTLtM
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-2376
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 2376
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-3306
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 3306
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-3389
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 3389
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -60084,56 +60069,56 @@ proxies:
   - name: ss-172.99.190.61-5000
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5000
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-5003
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5003
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-5004
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5004
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-5500
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5500
     password: KixLvKzwjekG00rm
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-5600
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5600
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-5601
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5601
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-6379
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6379
     password: zDNVedRFPQexG9v
     cipher: aes-256-gcm
   - name: ss-172.99.190.61-6679
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6679
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
@@ -60210,7 +60195,7 @@ proxies:
   - name: ss-172.99.190.61-8881
     server: 172.99.190.61
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8881
     password: kDWvXYZoTBcGkC4
     cipher: aes-256-gcm
@@ -60275,17 +60260,20 @@ proxies:
         Host: 103.179.187.87
   - name: vmess-us24052.cloudmatrix.xyz-24052
     server: us24052.cloudmatrix.xyz
-    port: 24052
     type: vmess
-    uuid: 479a9dbc-b896-3fc7-8f68-c26c92f3ae2a
-    alterId: 0
+    country: 🇨🇳 CN
+    port: 24052
+    uuid: a992be42-bed4-3037-8788-9e860cd635d3
+    alterId: 2
     cipher: auto
-    tls: false
     network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        Host: "%7B%22Host%22:%22telegram.channel.p2psharing%22%7D"
+    ws-path: /hls/cctv5phd.m3u8
+    servername: us24052.cloudmatrix.xyz
+    ws-headers:
+      HOST: us24052.cloudmatrix.xyz
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
   - name: vmess-us24055.cloudmatrix.xyz-24055
     server: us24055.cloudmatrix.xyz
     port: 24055
@@ -60800,21 +60788,21 @@ proxies:
   - name: ss-82.145.41.125-6379
     server: 82.145.41.125
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 6379
     password: zDNVedRFPQexG9v
     cipher: aes-256-gcm
   - name: ss-172.99.190.50-5001
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5001
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-172.99.190.35-6379
     server: 172.99.190.35
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6379
     password: zDNVedRFPQexG9v
     cipher: aes-256-gcm
@@ -60849,7 +60837,7 @@ proxies:
   - name: ss-82.145.41.125-5600
     server: 82.145.41.125
     type: ss
-    country: 🇬🇧 GB
+    country: 🇬🇧GB
     port: 5600
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -60863,7 +60851,7 @@ proxies:
   - name: ss-172.99.190.50-5003
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5003
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
@@ -60877,7 +60865,7 @@ proxies:
   - name: ss-172.99.190.50-5000
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5000
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -60912,49 +60900,49 @@ proxies:
   - name: ss-172.99.190.35-3389
     server: 172.99.190.35
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 3389
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-172.99.190.50-5601
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5601
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
   - name: ss-172.99.190.50-2375
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 2375
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-172.99.190.50-5004
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5004
     password: g5MeD6Ft3CWlJId
     cipher: aes-256-gcm
   - name: ss-172.99.190.50-6679
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6679
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
   - name: ss-172.99.190.50-6697
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6697
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
   - name: ss-172.99.190.50-5600
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5600
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -60968,14 +60956,14 @@ proxies:
   - name: ss-172.99.190.50-2376
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 2376
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-172.99.190.50-8882
     server: 172.99.190.50
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8882
     password: kDWvXYZoTBcGkC4
     cipher: aes-256-gcm
@@ -61034,21 +61022,21 @@ proxies:
   - name: ss-167.88.61.2-801
     server: 167.88.61.2
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 801
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
   - name: ss-167.88.61.2-803
     server: 167.88.61.2
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 803
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
   - name: ss-167.88.61.2-802
     server: 167.88.61.2
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 802
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
@@ -61131,13 +61119,12 @@ proxies:
     udp: true
     password: gYCYXfkUQEs2TaJQ
     cipher: aes-256-cfb
-  - name: ss-103.172.116.6-9033
-    server: 103.172.116.6
-    type: ss
-    country: 🏁 ZZ
-    port: 9033
-    password: UTJA57ypk2XKQpnm
+  - type: ss
     cipher: aes-256-cfb
+    password: UTJA57ypk2XKQpnm
+    server: 103.172.116.6
+    port: 9033
+    name: ss-103.172.116.6-9033
   - name: ss-103.172.116.6-9070
     server: 103.172.116.6
     type: ss
@@ -64655,12 +64642,12 @@ proxies:
       path: /ws
       headers:
         Host: sg03.linknodes.xyz
-  - name: ss-213.183.53.177-9032
-    server: 213.183.53.177
-    port: 9032
-    type: ss
+  - type: ss
     cipher: aes-256-cfb
     password: UWZQeLRWnkqgkseq
+    server: 213.183.53.177
+    port: 9032
+    name: ss-213.183.53.177-9032
   - name: vmess-s361.snodes.xyz-443
     server: s361.snodes.xyz
     port: 443
@@ -64676,17 +64663,20 @@ proxies:
         Host: s361.snodes.xyz
   - name: vmess-tw21402.cloudmatrix.xyz-21402
     server: tw21402.cloudmatrix.xyz
-    port: 21402
     type: vmess
+    country: 🇨🇳CN
+    port: 21402
     uuid: a992be42-bed4-3037-8788-9e860cd635d3
     alterId: 2
     cipher: auto
-    tls: false
     network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: tw21402.cloudmatrix.xyz
+    ws-path: /hls/cctv5phd.m3u8
+    servername: tw21402.cloudmatrix.xyz
+    ws-headers:
+      HOST: tw21402.cloudmatrix.xyz
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
   - name: ss-185.237.98.69-3212
     server: 185.237.98.69
     type: ss
@@ -65912,7 +65902,7 @@ proxies:
   - name: ss-167.88.63.82-6679
     server: 167.88.63.82
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 6679
     password: TEzjfAYq2IjtuoS
     cipher: aes-256-gcm
@@ -65926,7 +65916,7 @@ proxies:
   - name: ss-167.88.63.82-5001
     server: 167.88.63.82
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5001
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -65940,7 +65930,7 @@ proxies:
   - name: ss-167.88.63.82-443
     server: 167.88.63.82
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 443
     password: pKEW8JPByTVTLtM
     cipher: aes-256-gcm
@@ -65975,7 +65965,7 @@ proxies:
   - name: ss-167.88.63.82-5000
     server: 167.88.63.82
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 5000
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
@@ -66703,12 +66693,13 @@ proxies:
     udp: true
     password: SBM7R883jBmnqe6C
     cipher: aes-256-cfb
-  - type: ss
-    cipher: aes-256-cfb
-    password: c3NtHJ5ujV2tGDfj
+  - name: ss-5.183.179.139-9084
     server: 5.183.179.139
+    type: ss
+    country: 🇩🇪 DE
     port: 9084
-    name: ss-5.183.179.139-9084
+    password: c3NtHJ5ujV2tGDfj
+    cipher: aes-256-cfb
   - name: ss-217.30.10.68-9080
     server: 217.30.10.68
     type: ss
@@ -66767,7 +66758,7 @@ proxies:
   - name: ss-185.167.116.252-9001
     server: 185.167.116.252
     type: ss
-    country: 🇦🇺 AU
+    country: 🇦🇺AU
     port: 9001
     password: UkXRsXvR6buDMG2Y
     cipher: aes-256-cfb
@@ -67232,7 +67223,7 @@ proxies:
   - name: ss-167.88.63.21-7002
     server: 167.88.63.21
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 7002
     password: RexnBgU7EV5ADxG
     cipher: aes-256-gcm
@@ -67497,28 +67488,22 @@ proxies:
     network: ws
   - name: vmess-bai-piao-wang-zhe-iplc.98848.xyz-11459
     server: bai-piao-wang-zhe-iplc.98848.xyz
-    type: vmess
-    country: 🇺🇸US
     port: 11459
+    type: vmess
     uuid: 7ef159a7-2c15-45ca-f5c3-b9798143afaa
     alterId: 0
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /bit.ly/36b6iJh
-    servername: bai-piao-wang-zhe-iplc.98848.xyz
-    ws-headers:
-      HOST: bai-piao-wang-zhe-iplc.98848.xyz
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /bit.ly/36b6iJh
+      headers:
+        Host: bai-piao-wang-zhe-iplc.98848.xyz
   - name: trojan-bai-piao-wang-zhe-iplc.98848.xyz-443
     server: bai-piao-wang-zhe-iplc.98848.xyz
-    type: trojan
-    country: 🇺🇸US
     port: 443
+    type: trojan
     password: a97edd5e-f9c9-4320-a8aa-753dd99d74d4
-    skip-cert-verify: true
-    udp: true
   - type: vmess
     ws-opts:
       path: /tls
@@ -67818,17 +67803,20 @@ proxies:
     skip-cert-verify: true
   - name: vmess-jike-cccn2.jiserver.xyz-39455
     server: jike-cccn2.jiserver.xyz
-    port: 39455
     type: vmess
+    country: 🇨🇳CN
+    port: 39455
     uuid: 221828e0-4192-342c-99fc-9a0af6e06823
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
-    ws-opts:
-      path: /jike1
-      headers:
-        Host: jike-cccn2.jiserver.xyz
+    ws-path: /jike1
+    servername: jike-cccn2.jiserver.xyz
+    ws-headers:
+      HOST: jike-cccn2.jiserver.xyz
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
   - name: vmess-jike1-cccn2.jiserver.xyz-9713
     server: jike1-cccn2.jiserver.xyz
     port: 9713
@@ -68468,7 +68456,7 @@ proxies:
     type: trojan
     country: 🇺🇸US
     port: 443
-    password: 5a3d9b78-cb5b-11ea-82ef-f23c9164ca5d
+    password: 2e5f2a78-14d8-11eb-ad8c-f23c9164ca5d
     skip-cert-verify: true
     udp: true
   - name: ss-158.247.219.68-443
@@ -68720,7 +68708,7 @@ proxies:
   - name: trojan-sol.doubledou.win-4588
     server: sol.doubledou.win
     type: trojan
-    country: 🇳🇱NL
+    country: 🇳🇱 NL
     port: 4588
     password: 3c91d857-2d40-39b9-81c0-f6adde8037ff
     skip-cert-verify: true
@@ -69835,10 +69823,12 @@ proxies:
       path: /wdadebsad
   - name: trojan-hk2.chaoge.cool-58580
     server: hk2.chaoge.cool
-    port: 58580
     type: trojan
+    country: 🇦🇺AU
+    port: 58580
     password: z7bu9klqTI
     skip-cert-verify: true
+    udp: true
   - name: trojan-hk.chaoge.cool-36508
     server: hk.chaoge.cool
     port: 36508
@@ -73974,14 +73964,13 @@ proxies:
       path: /
       headers:
         Host: 5.vip341.xyz
-  - name: trojan-116.129.253.134-3389
+  - type: trojan
+    name: trojan-116.129.253.134-3389
     server: 116.129.253.134
-    type: trojan
-    country: 🇨🇳 CN
+    password: e37c6d7efa845d60
     port: 3389
-    password: a170b44c2dfac9e6
-    skip-cert-verify: true
     udp: true
+    skip-cert-verify: true
   - name: ss-us1.poduv.tk-2375
     server: us1.poduv.tk
     port: 2375
@@ -75781,14 +75770,15 @@ proxies:
     cipher: aes-128-cfb
     protocol: origin
     obfs: plain
-  - type: ssr
+  - name: ssr-14.29.124.168-24057
     server: 14.29.124.168
+    type: ssr
+    country: 🇨🇳 CN
     port: 24057
-    protocol: origin
-    cipher: aes-128-cfb
-    obfs: plain
     password: QazEdcTgb159@$*
-    name: ssr-14.29.124.168-24057
+    cipher: aes-128-cfb
+    protocol: origin
+    obfs: plain
   - name: ssr-14.29.124.168-24063
     server: 14.29.124.168
     type: ssr
@@ -78942,7 +78932,7 @@ proxies:
   - name: ss-97.64.21.214-253
     server: 97.64.21.214
     type: ss
-    country: 🇺🇸US
+    country: 🇺🇸 US
     port: 253
     password: bwhskrskr03
     cipher: aes-256-cfb
@@ -83104,17 +83094,20 @@ proxies:
         Host: "%7B%22Host%22:%22telegram.channel.p2psharing%22%7D"
   - name: vmess-us24053.cloudmatrix.xyz-24053
     server: us24053.cloudmatrix.xyz
-    port: 24053
     type: vmess
+    country: 🇨🇳 CN
+    port: 24053
     uuid: 479a9dbc-b896-3fc7-8f68-c26c92f3ae2a
-    alterId: 0
+    alterId: 2
     cipher: auto
-    tls: false
     network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        Host: "%7B%22Host%22:%22telegram.channel.p2psharing%22%7D"
+    ws-path: /hls/cctv5phd.m3u8
+    servername: us24053.cloudmatrix.xyz
+    ws-headers:
+      HOST: us24053.cloudmatrix.xyz
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
   - type: vmess
     ws-opts:
       path: /
@@ -84264,7 +84257,7 @@ proxies:
   - name: trojan-jp.useanlo.cf-10203
     server: jp.useanlo.cf
     type: trojan
-    country: 🇳🇱NL
+    country: 🇳🇱 NL
     port: 10203
     password: b64b0f9c-23df-3112-a790-d8aa068aa2fe
     skip-cert-verify: true
@@ -84272,7 +84265,7 @@ proxies:
   - name: trojan-jp.useanlo.cf-6523
     server: jp.useanlo.cf
     type: trojan
-    country: 🇳🇱NL
+    country: 🇳🇱 NL
     port: 6523
     password: b64b0f9c-23df-3112-a790-d8aa068aa2fe
     skip-cert-verify: true
@@ -84397,7 +84390,7 @@ proxies:
   - name: trojan-www.anloao.cf-9053
     server: www.anloao.cf
     type: trojan
-    country: 🇺🇸US
+    country: 🇺🇸 US
     port: 9053
     password: b64b0f9c-23df-3112-a790-d8aa068aa2fe
     skip-cert-verify: true
@@ -84405,7 +84398,7 @@ proxies:
   - name: trojan-www.anlot.tk-2352
     server: www.anlot.tk
     type: trojan
-    country: 🇺🇸US
+    country: 🇺🇸 US
     port: 2352
     password: b64b0f9c-23df-3112-a790-d8aa068aa2fe
     skip-cert-verify: true
@@ -84413,7 +84406,7 @@ proxies:
   - name: trojan-www.anlocl.gq-30521
     server: www.anlocl.gq
     type: trojan
-    country: 🇺🇸US
+    country: 🇺🇸 US
     port: 30521
     password: b64b0f9c-23df-3112-a790-d8aa068aa2fe
     skip-cert-verify: true
@@ -84421,7 +84414,7 @@ proxies:
   - name: trojan-www.anlocl.gq-20521
     server: www.anlocl.gq
     type: trojan
-    country: 🇺🇸US
+    country: 🇺🇸 US
     port: 20521
     password: b64b0f9c-23df-3112-a790-d8aa068aa2fe
     skip-cert-verify: true
@@ -84429,7 +84422,7 @@ proxies:
   - name: trojan-www.anloe.ga-9063
     server: www.anloe.ga
     type: trojan
-    country: 🇺🇸US
+    country: 🇺🇸 US
     port: 9063
     password: b64b0f9c-23df-3112-a790-d8aa068aa2fe
     skip-cert-verify: true
@@ -86600,24 +86593,22 @@ proxies:
     cipher: aes-128-cfb
     protocol: origin
     obfs: plain
-  - name: ssr-14.29.124.168-24085
+  - type: ssr
     server: 14.29.124.168
-    type: ssr
-    country: 🇨🇳 CN
     port: 24085
-    password: QazEdcTgb159@$*
-    cipher: aes-128-cfb
     protocol: origin
+    cipher: aes-128-cfb
     obfs: plain
-  - name: ssr-14.29.124.168-24058
+    password: QazEdcTgb159@$*
+    name: ssr-14.29.124.168-24085
+  - type: ssr
     server: 14.29.124.168
-    type: ssr
-    country: 🇨🇳 CN
     port: 24058
-    password: QazEdcTgb159@$*
-    cipher: aes-128-cfb
     protocol: origin
+    cipher: aes-128-cfb
     obfs: plain
+    password: QazEdcTgb159@$*
+    name: ssr-14.29.124.168-24058
   - name: ssr-14.29.124.168-24018
     server: 14.29.124.168
     type: ssr
@@ -86635,14 +86626,15 @@ proxies:
     obfs: plain
     password: QazEdcTgb159@$*
     name: ssr-14.29.124.168-24017
-  - type: ssr
+  - name: ssr-14.29.124.168-24037
     server: 14.29.124.168
+    type: ssr
+    country: 🇨🇳 CN
     port: 24037
-    protocol: origin
-    cipher: aes-128-cfb
-    obfs: plain
     password: QazEdcTgb159@$*
-    name: ssr-14.29.124.168-24037
+    cipher: aes-128-cfb
+    protocol: origin
+    obfs: plain
   - name: ssr-14.29.124.168-24019
     server: 14.29.124.168
     type: ssr
@@ -87596,7 +87588,7 @@ proxies:
     server: hkaz2.xmrth-node.xyz
     port: 14935
     type: vmess
-    uuid: cbf09cd7-f681-3d67-a294-58a6baad70f0
+    uuid: 53ad95b1-8693-34e3-98d7-2010ad24aaf9
     alterId: 0
     cipher: auto
     tls: false
@@ -87604,7 +87596,7 @@ proxies:
     ws-opts:
       path: /index
       headers:
-        Host: www.baidu.com
+        Host: hkaz2.xmrth-node.xyz
   - name: vmess-hkaz5.xmrth-node.xyz-14492
     server: hkaz5.xmrth-node.xyz
     port: 14492
@@ -90198,20 +90190,17 @@ proxies:
         Host: aweikeji-YouTube
   - name: vmess-zzcm08.bdate.xyz-2840
     server: zzcm08.bdate.xyz
-    type: vmess
-    country: 🇨🇳CN
     port: 2840
+    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    servername: zzcm08.bdate.xyz
-    ws-headers:
-      HOST: zzcm08.bdate.xyz
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: zzcm08.bdate.xyz
   - name: vmess-zzcm04.bdate.xyz-1020
     server: zzcm04.bdate.xyz
     port: 1020
@@ -90227,20 +90216,17 @@ proxies:
         Host: aweikeji-YouTube
   - name: vmess-zzcm08.bdate.xyz-1280
     server: zzcm08.bdate.xyz
-    type: vmess
-    country: 🇨🇳 CN
     port: 1280
+    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    servername: aweikeji-YouTube
-    ws-headers:
-      HOST: aweikeji-YouTube
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: aweikeji-YouTube
   - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
@@ -91101,9 +91087,9 @@ proxies:
     cipher: auto
     network: ws
     ws-path: /index
-    servername: www.baidu.com
+    servername: hkaz2.xmrth-node.xyz
     ws-headers:
-      HOST: www.baidu.com
+      HOST: hkaz2.xmrth-node.xyz
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -92677,14 +92663,14 @@ proxies:
   - name: ss-38.114.114.145-2375
     server: 38.114.114.145
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 2375
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-103.172.116.9-9038
     server: 103.172.116.9
     type: ss
-    country: 🏁 ZZ
+    country: 🏁ZZ
     port: 9038
     password: gYCYXfkUQEs2TaJQ
     cipher: aes-256-cfb
@@ -93182,10 +93168,11 @@ proxies:
     password: Sj10bnYDe7w6V29E
   - name: ss-103.172.116.9-9008
     server: 103.172.116.9
-    port: 9008
     type: ss
-    cipher: aes-256-cfb
+    country: 🏁 ZZ
+    port: 9008
     password: y9VURyNzJWNRYEGQ
+    cipher: aes-256-cfb
   - name: ssr-gz1.52168.xyz-11115
     server: gz1.52168.xyz
     port: 11115
@@ -93669,7 +93656,7 @@ proxies:
   - name: ss-103.172.116.9-9020
     server: 103.172.116.9
     type: ss
-    country: 🏁ZZ
+    country: 🏁 ZZ
     port: 9020
     password: BNmAXXxAHYpTRdzu
     cipher: aes-256-cfb
@@ -93729,7 +93716,7 @@ proxies:
   - name: ss-38.75.136.20-9101
     server: 38.75.136.20
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 9101
     password: e4FCWrgpkji3QY
     cipher: aes-256-gcm
@@ -93743,7 +93730,7 @@ proxies:
   - name: ss-38.68.134.191-8090
     server: 38.68.134.191
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8090
     password: PCnnH6SQSnfoS27
     cipher: aes-256-gcm
@@ -93924,7 +93911,7 @@ proxies:
   - name: ss-38.114.114.19-8882
     server: 38.114.114.19
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8882
     password: kDWvXYZoTBcGkC4
     cipher: aes-256-gcm
@@ -94315,7 +94302,7 @@ proxies:
   - name: vmess-aa.houdinix.space-26267
     server: aa.houdinix.space
     type: vmess
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 26267
     uuid: 9757cdba-c75b-4b94-9e31-7956dc7d852a
     alterId: 0
@@ -94388,21 +94375,21 @@ proxies:
   - name: ss-172.99.190.109-8881
     server: 172.99.190.109
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8881
     password: kDWvXYZoTBcGkC4
     cipher: aes-256-gcm
   - name: ss-38.114.114.143-2376
     server: 38.114.114.143
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 2376
     password: faBAoD54k87UJG7
     cipher: aes-256-gcm
   - name: ss-61.111.128.153-8888
     server: 61.111.128.153
     type: ss
-    country: 🇰🇷KR
+    country: 🇰🇷 KR
     port: 8888
     password: Xiongmao@^ios.ss
     cipher: rc4-md5
@@ -94412,12 +94399,12 @@ proxies:
     type: ss
     cipher: aes-256-cfb
     password: 73117962
-  - type: ss
-    cipher: aes-256-cfb
-    password: rNBfNuuANFCAk7KB
+  - name: ss-5.183.179.139-9056
     server: 5.183.179.139
     port: 9056
-    name: ss-5.183.179.139-9056
+    type: ss
+    password: rNBfNuuANFCAk7KB
+    cipher: aes-256-cfb
   - type: ss
     cipher: aes-256-cfb
     password: Sn5B7jTqr76aCJT8
@@ -94516,7 +94503,7 @@ proxies:
   - name: ss-38.114.114.49-8881
     server: 38.114.114.49
     type: ss
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 8881
     password: kDWvXYZoTBcGkC4
     cipher: aes-256-gcm
@@ -94637,7 +94624,7 @@ proxies:
   - name: ss-183.240.124.200-44812
     server: 183.240.124.200
     type: ss
-    country: 🇨🇳 CN
+    country: 🇨🇳CN
     port: 44812
     password: fcae85b5-baf0-4c5a-ba80-5f513e70512a
     cipher: aes-128-gcm
@@ -94729,7 +94716,7 @@ proxies:
   - name: ss-183.240.124.200-44822
     server: 183.240.124.200
     type: ss
-    country: 🇨🇳 CN
+    country: 🇨🇳CN
     port: 44822
     password: fcae85b5-baf0-4c5a-ba80-5f513e70512a
     cipher: aes-128-gcm
@@ -100289,17 +100276,21 @@ proxies:
         Host: jp.sayuri.cf
   - name: vmess-xr-4.herokuapp.com-443
     server: xr-4.herokuapp.com
-    port: 443
     type: vmess
+    country: 🇺🇸US
+    port: 443
     uuid: 17af76e1-a5d7-41ab-ae87-b48f185075d1
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
-    ws-opts:
-      path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
-      headers:
-        Host: xr-4.herokuapp.com
+    ws-path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
+    servername: xr-4.herokuapp.com
+    ws-headers:
+      HOST: xr-4.herokuapp.com
+    http-opts: {}
+    h2-opts: {}
+    tls: true
+    skip-cert-verify: true
   - name: vmess-vr-r.jmxh.ga-443
     server: vr-r.jmxh.ga
     port: 443
@@ -100328,17 +100319,21 @@ proxies:
         Host: xr-1a.fly.dev
   - name: vmess-xr-1.herokuapp.com-443
     server: xr-1.herokuapp.com
-    port: 443
     type: vmess
+    country: 🇺🇸US
+    port: 443
     uuid: 17af76e1-a5d7-41ab-ae87-b48f185075d1
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
-    ws-opts:
-      path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
-      headers:
-        Host: xr-1.herokuapp.com
+    ws-path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
+    servername: xr-1.herokuapp.com
+    ws-headers:
+      HOST: xr-1.herokuapp.com
+    http-opts: {}
+    h2-opts: {}
+    tls: true
+    skip-cert-verify: true
   - name: ss-148.66.56.99-802
     server: 148.66.56.99
     type: ss
@@ -100653,17 +100648,21 @@ proxies:
     udp: true
   - name: vmess-xr-5.herokuapp.com-443
     server: xr-5.herokuapp.com
-    port: 443
     type: vmess
+    country: 🇺🇸US
+    port: 443
     uuid: 17af76e1-a5d7-41ab-ae87-b48f185075d1
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
-    ws-opts:
-      path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
-      headers:
-        Host: xr-5.herokuapp.com
+    ws-path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
+    servername: xr-5.herokuapp.com
+    ws-headers:
+      HOST: xr-5.herokuapp.com
+    http-opts: {}
+    h2-opts: {}
+    tls: true
+    skip-cert-verify: true
   - type: vmess
     ws-opts:
       path: /17af76e1-a5d7-41ab-ae87-b48f185075d1-vmess
@@ -102551,58 +102550,74 @@ proxies:
     server: 103.172.116.9
     port: 9032
     name: ss-103.172.116.9-9032
-  - type: vmess
-    ws-opts:
-      path: /api/v3/download.getFile
-      headers:
-        host: v2.ssrsub.com
+  - name: vmess-v2.ssrsub.com-443
     server: v2.ssrsub.com
-    name: vmess-v2.ssrsub.com-443
+    type: vmess
+    country: 🇺🇸 US
     port: 443
     uuid: 620d82a8-22ba-4945-90ba-a2bed1cde1d2
     alterId: 0
     cipher: auto
     network: ws
+    ws-path: /api/v3/download.getFile
+    servername: v2.ssrsub.com
+    ws-headers:
+      HOST: v2.ssrsub.com
+    http-opts: {}
+    h2-opts: {}
     tls: true
+    skip-cert-verify: true
   - name: vmess-v3.ssrsub.com-443
     server: v3.ssrsub.com
-    port: 443
     type: vmess
+    country: 🇺🇸 US
+    port: 443
     uuid: 620d82a8-22ba-4945-90ba-a2bed1cde1d2
     alterId: 0
     cipher: auto
-    tls: true
     network: ws
-    ws-opts:
-      path: /api/v3/download.getFile
-      headers:
-        Host: v3.ssrsub.com
-  - type: vmess
-    ws-opts:
-      path: /api/v3/download.getFile
-      headers:
-        host: v4.ssrsub.com
+    ws-path: /api/v3/download.getFile
+    servername: v3.ssrsub.com
+    ws-headers:
+      HOST: v3.ssrsub.com
+    http-opts: {}
+    h2-opts: {}
+    tls: true
+    skip-cert-verify: true
+  - name: vmess-v4.ssrsub.com-443
     server: v4.ssrsub.com
-    name: vmess-v4.ssrsub.com-443
+    type: vmess
+    country: 🇺🇸 US
     port: 443
     uuid: 620d82a8-22ba-4945-90ba-a2bed1cde1d2
     alterId: 0
     cipher: auto
     network: ws
+    ws-path: /api/v3/download.getFile
+    servername: v4.ssrsub.com
+    ws-headers:
+      HOST: v4.ssrsub.com
+    http-opts: {}
+    h2-opts: {}
     tls: true
-  - type: vmess
-    ws-opts:
-      path: /api/v3/download.getFile
-      headers:
-        host: v5.ssrsub.com
+    skip-cert-verify: true
+  - name: vmess-v5.ssrsub.com-443
     server: v5.ssrsub.com
-    name: vmess-v5.ssrsub.com-443
+    type: vmess
+    country: 🇺🇸 US
     port: 443
     uuid: 620d82a8-22ba-4945-90ba-a2bed1cde1d2
     alterId: 0
     cipher: auto
     network: ws
+    ws-path: /api/v3/download.getFile
+    servername: v5.ssrsub.com
+    ws-headers:
+      HOST: v5.ssrsub.com
+    http-opts: {}
+    h2-opts: {}
     tls: true
+    skip-cert-verify: true
   - name: trojan-ty2-1.nigirocloud.com-443
     server: ty2-1.nigirocloud.com
     port: 443
@@ -102632,12 +102647,10 @@ proxies:
     password: ruWkGdbUKT4RN7kZ8t
   - name: trojan-ty2-6.nigirocloud.com-443
     server: ty2-6.nigirocloud.com
-    type: trojan
-    country: 🇪🇪 EE
     port: 443
+    type: trojan
     password: ruWkGdbUKT4RN7kZ8t
     skip-cert-verify: true
-    udp: true
   - type: ssr
     server: gdcm-1.onescloud.top
     port: 50005
@@ -102957,9 +102970,9 @@ proxies:
     cipher: auto
     network: ws
     ws-path: /hls/cctv5phd.m3u8
-    servername: ingress-i1.onebox6.org
+    servername: www.ivpnpro.net
     ws-headers:
-      HOST: ingress-i1.onebox6.org
+      HOST: www.ivpnpro.net
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -105875,6 +105888,7 @@ proxies:
     port: 21010
     type: trojan
     password: 118fc04e-fb8c-4154-9092-352cf1958fcd
+    skip-cert-verify: true
   - type: ssr
     server: nd7.boom.party
     port: 17000
@@ -107752,20 +107766,17 @@ proxies:
         Host: zzcm09.bdate.xyz
   - name: vmess-zzcm08.bdate.xyz-1930
     server: zzcm08.bdate.xyz
-    type: vmess
-    country: 🇨🇳 CN
     port: 1930
+    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    servername: zzcm08.bdate.xyz
-    ws-headers:
-      HOST: zzcm08.bdate.xyz
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: zzcm08.bdate.xyz
   - name: vmess-zzcm06.bdate.xyz-1360
     server: zzcm06.bdate.xyz
     port: 1360
@@ -107847,20 +107858,17 @@ proxies:
     network: tcp
   - name: vmess-zzcm08.bdate.xyz-1510
     server: zzcm08.bdate.xyz
-    type: vmess
-    country: 🇨🇳 CN
     port: 1510
+    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    servername: zzcm08.bdate.xyz
-    ws-headers:
-      HOST: zzcm08.bdate.xyz
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: zzcm08.bdate.xyz
   - name: vmess-zzcm04.bdate.xyz-1150
     server: zzcm04.bdate.xyz
     port: 1150
@@ -107935,20 +107943,17 @@ proxies:
         Host: zzcm06.bdate.xyz
   - name: vmess-zzcm08.bdate.xyz-1580
     server: zzcm08.bdate.xyz
-    type: vmess
-    country: 🇨🇳 CN
     port: 1580
+    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    servername: zzcm08.bdate.xyz
-    ws-headers:
-      HOST: zzcm08.bdate.xyz
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: zzcm08.bdate.xyz
   - name: vmess-zzcm09.bdate.xyz-1580
     server: zzcm09.bdate.xyz
     port: 1580
@@ -108193,20 +108198,17 @@ proxies:
         Host: zzcm09.bdate.xyz
   - name: vmess-zzcm08.bdate.xyz-1360
     server: zzcm08.bdate.xyz
-    type: vmess
-    country: 🇨🇳 CN
     port: 1360
+    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    servername: zzcm08.bdate.xyz
-    ws-headers:
-      HOST: zzcm08.bdate.xyz
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: zzcm08.bdate.xyz
   - name: vmess-zzcm08.bdate.xyz-1980
     server: zzcm08.bdate.xyz
     port: 1980
@@ -111017,19 +111019,23 @@ proxies:
     type: ss
     cipher: chacha20-ietf-poly1305
     password: 9d7f6ef0-ed50-4339-a9a1-7d3a3daebeaa
-  - type: vmess
-    ws-opts:
-      path: /igyjvws
-      headers:
-        host: n.nmms.xyz
+  - name: vmess-www.mnn.tw-443
     server: www.mnn.tw
-    name: vmess-www.mnn.tw-443
+    type: vmess
+    country: 🇬🇧 GB
     port: 443
     uuid: bc9d22de-d9c4-444c-8637-bead39ba8674
     alterId: 0
     cipher: auto
     network: ws
+    ws-path: /igyjvws
+    servername: n.nmms.xyz
+    ws-headers:
+      HOST: n.nmms.xyz
+    http-opts: {}
+    h2-opts: {}
     tls: true
+    skip-cert-verify: true
   - type: vmess
     ws-opts:
       path: /rkhsvws
@@ -111058,13 +111064,14 @@ proxies:
         Host: 104.25.74.212
   - name: ssr-120.233.151.134-64112
     server: 120.233.151.134
-    port: 64112
     type: ssr
-    cipher: aes-256-cfb
+    country: 🇨🇳 CN
+    port: 64112
     password: hGkQ6915tD
+    cipher: aes-256-cfb
     protocol: auth_aes128_md5
-    obfs: tls1.2_ticket_auth
     protocol-param: 32381:C2pHyiQfgm
+    obfs: tls1.2_ticket_auth
     obfs-param: ajax.microsoft.com
   - name: ss-38.64.138.145-8882
     server: 38.64.138.145
@@ -111109,13 +111116,14 @@ proxies:
   - name: vmess-s4.mine.com.cn-3333
     server: s4.mine.com.cn
     type: vmess
-    country: 🇨🇳 CN
+    country: 🇨🇳CN
     port: 3333
     uuid: 5eea1f96-6e33-4409-b8b4-a8d3596ec991
     alterId: 0
     cipher: auto
     network: tcp
     ws-path: /
+    servername: s4.mine.com.cn
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
@@ -111135,46 +111143,28 @@ proxies:
     skip-cert-verify: true
   - name: vmess-211.91.243.240-31201
     server: 211.91.243.240
-    type: vmess
-    country: 🇨🇳 CN
     port: 31201
+    type: vmess
     uuid: b8aaa6e1-f0b3-b9ec-3dfc-bb226c167b33
     alterId: 0
     cipher: auto
-    network: tcp
-    ws-path: /
-    http-opts: {}
-    h2-opts: {}
-    tls: true
-    skip-cert-verify: true
+    tls: false
   - name: vmess-211.91.243.240-31203
     server: 211.91.243.240
-    type: vmess
-    country: 🇨🇳 CN
     port: 31203
+    type: vmess
     uuid: b8aaa6e1-f0b3-b9ec-3dfc-bb226c167b33
     alterId: 0
     cipher: auto
-    network: tcp
-    ws-path: /
-    http-opts: {}
-    h2-opts: {}
-    tls: true
-    skip-cert-verify: true
+    tls: false
   - name: vmess-211.91.243.240-31215
     server: 211.91.243.240
-    type: vmess
-    country: 🇨🇳 CN
     port: 31215
+    type: vmess
     uuid: b8aaa6e1-f0b3-b9ec-3dfc-bb226c167b33
     alterId: 0
     cipher: auto
-    network: tcp
-    ws-path: /
-    http-opts: {}
-    h2-opts: {}
-    tls: true
-    skip-cert-verify: true
+    tls: false
   - name: vmess-211.91.243.240-31204
     server: 211.91.243.240
     type: vmess
@@ -111469,12 +111459,17 @@ proxies:
     tls: false
   - name: vmess-172.104.98.41-40056
     server: 172.104.98.41
-    port: 40056
     type: vmess
+    country: 🇯🇵JP
+    port: 40056
     uuid: 46867ec3-7a4d-43d9-cc5f-f14ceeb83a67
     alterId: 0
     cipher: auto
-    tls: false
+    network: tcp
+    ws-path: /
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
   - name: vmess-139.162.51.58-42613
     server: 139.162.51.58
     port: 42613
@@ -111483,14 +111478,19 @@ proxies:
     alterId: 0
     cipher: auto
     tls: false
-  - type: vmess
+  - name: vmess-45.118.133.251-1080
     server: 45.118.133.251
-    name: vmess-45.118.133.251-1080
+    type: vmess
+    country: 🇸🇬SG
     port: 1080
     uuid: 3d6fa91a-6186-4d7f-e0b3-a6d2a23f575e
     alterId: 0
     cipher: auto
     network: tcp
+    ws-path: /
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
   - name: vmess-hcm4.aqvpn.me-80
     server: hcm4.aqvpn.me
     port: 80
@@ -113714,7 +113714,7 @@ proxies:
     server: 6.3.2.2
     name: vmess-6.3.2.2-443
     port: 443
-    uuid: 5aa41373-82d1-31cd-b47a-425cc698ad2e
+    uuid: d491afce-402f-3e5b-806e-51ad8b432fd9
     alterId: 0
     cipher: auto
     network: tcp
@@ -114110,7 +114110,7 @@ proxies:
     server: 422wkl.fans8.xyz
     name: vmess-422wkl.fans8.xyz-443
     port: 443
-    uuid: 5aa41373-82d1-31cd-b47a-425cc698ad2e
+    uuid: d491afce-402f-3e5b-806e-51ad8b432fd9
     alterId: 2
     cipher: auto
     network: ws
@@ -114123,7 +114123,7 @@ proxies:
     server: 331tw.fans8.xyz
     name: vmess-331tw.fans8.xyz-80
     port: 80
-    uuid: 5aa41373-82d1-31cd-b47a-425cc698ad2e
+    uuid: d491afce-402f-3e5b-806e-51ad8b432fd9
     alterId: 2
     cipher: auto
     network: ws
@@ -114136,7 +114136,7 @@ proxies:
     server: 429hk429.fans8.xyz
     name: vmess-429hk429.fans8.xyz-443
     port: 443
-    uuid: 5aa41373-82d1-31cd-b47a-425cc698ad2e
+    uuid: d491afce-402f-3e5b-806e-51ad8b432fd9
     alterId: 2
     cipher: auto
     network: ws
@@ -114149,7 +114149,7 @@ proxies:
     server: 428sg2.fans8.xyz
     name: vmess-428sg2.fans8.xyz-443
     port: 443
-    uuid: 5aa41373-82d1-31cd-b47a-425cc698ad2e
+    uuid: d491afce-402f-3e5b-806e-51ad8b432fd9
     alterId: 2
     cipher: auto
     network: ws
@@ -114162,7 +114162,7 @@ proxies:
     server: 51jp1.fans8.xyz
     name: vmess-51jp1.fans8.xyz-80
     port: 80
-    uuid: 5aa41373-82d1-31cd-b47a-425cc698ad2e
+    uuid: d491afce-402f-3e5b-806e-51ad8b432fd9
     alterId: 2
     cipher: auto
     network: ws
@@ -114175,7 +114175,7 @@ proxies:
     server: 51us.fans8.xyz
     name: vmess-51us.fans8.xyz-80
     port: 80
-    uuid: 5aa41373-82d1-31cd-b47a-425cc698ad2e
+    uuid: d491afce-402f-3e5b-806e-51ad8b432fd9
     alterId: 2
     cipher: auto
     network: ws
@@ -114188,7 +114188,7 @@ proxies:
     server: 511hk.fans8.xyz
     name: vmess-511hk.fans8.xyz-80
     port: 80
-    uuid: 5aa41373-82d1-31cd-b47a-425cc698ad2e
+    uuid: d491afce-402f-3e5b-806e-51ad8b432fd9
     alterId: 2
     cipher: auto
     network: ws
@@ -114201,7 +114201,7 @@ proxies:
     server: 426hk.fans8.xyz
     name: vmess-426hk.fans8.xyz-80
     port: 80
-    uuid: 5aa41373-82d1-31cd-b47a-425cc698ad2e
+    uuid: d491afce-402f-3e5b-806e-51ad8b432fd9
     alterId: 2
     cipher: auto
     network: ws
@@ -115659,13 +115659,13 @@ proxies:
   - name: vmess-shouer.tk15.tk-26122
     server: shouer.tk15.tk
     type: vmess
-    country: 🇺🇸 US
+    country: 🇺🇸US
     port: 26122
     uuid: c19949fe-e5ca-4aa7-b577-f9aed2c97c22
     alterId: 0
     cipher: auto
     network: tcp
-    ws-path: /
+    ws-path: /vpnsieure
     servername: shouer.tk15.tk
     http-opts: {}
     h2-opts: {}
@@ -115723,15 +115723,14 @@ proxies:
     network: ws
     ws-opts:
       path: /wis
-  - name: ssr-14.29.124.168-24021
+  - type: ssr
     server: 14.29.124.168
-    type: ssr
-    country: 🇨🇳 CN
     port: 24021
-    password: QazEdcTgb159@$*
-    cipher: aes-128-cfb
     protocol: origin
+    cipher: aes-128-cfb
     obfs: plain
+    password: QazEdcTgb159@$*
+    name: ssr-14.29.124.168-24021
   - name: trojan-shop-one.defun.us-443
     server: shop-one.defun.us
     type: trojan
@@ -115761,7 +115760,7 @@ proxies:
     type: trojan
     country: 🇺🇸US
     port: 443
-    password: INvx7sPho4PyTLS6
+    password: INvx7sPho8PyTLS6
     skip-cert-verify: true
     udp: true
   - name: trojan-us-03.pickaxe.sh-443
@@ -115991,20 +115990,17 @@ proxies:
     cipher: aes-128-gcm
   - name: vmess-b10.v2.gay-1930
     server: b10.v2.gay
-    type: vmess
-    country: 🇨🇳 CN
     port: 1930
+    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
+    tls: false
     network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    servername: b10.v2.gay
-    ws-headers:
-      HOST: b10.v2.gay
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: b10.v2.gay
   - name: vmess-z-cn2.mceee.xyz-24935
     server: z-cn2.mceee.xyz
     port: 24935
@@ -117352,611 +117348,556 @@ proxies:
     obfs: tls1.2_ticket_auth
     protocol-param: 13370:DqGDfE
     obfs-param: t.me/univstar
-  - name: vmess-120.232.214.119-1030
+  - type: vmess
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1030
     port: 1030
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1040
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1040
     port: 1040
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1150
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1150
     port: 1150
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1260
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1260
     port: 1260
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1350
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1350
     port: 1350
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1360
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1360
     port: 1360
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1370
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1370
     port: 1370
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1420
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1420
     port: 1420
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1510
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1510
     port: 1510
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1580
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1580
     port: 1580
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1930
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1930
     port: 1930
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1980
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1980
     port: 1980
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-2570
     server: 120.232.214.119
+    name: vmess-120.232.214.119-2570
     port: 2570
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-2840
     server: 120.232.214.119
+    name: vmess-120.232.214.119-2840
     port: 2840
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.143-1040
     server: 120.232.214.143
+    name: vmess-120.232.214.143-1040
     port: 1040
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.143-1150
     server: 120.232.214.143
+    name: vmess-120.232.214.143-1150
     port: 1150
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.143-1260
     server: 120.232.214.143
+    name: vmess-120.232.214.143-1260
     port: 1260
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.143-1350
     server: 120.232.214.143
+    name: vmess-120.232.214.143-1350
     port: 1350
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.143-1370
     server: 120.232.214.143
+    name: vmess-120.232.214.143-1370
     port: 1370
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.143-1420
     server: 120.232.214.143
+    name: vmess-120.232.214.143-1420
     port: 1420
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.143-1510
     server: 120.232.214.143
+    name: vmess-120.232.214.143-1510
     port: 1510
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.143-1580
     server: 120.232.214.143
+    name: vmess-120.232.214.143-1580
     port: 1580
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.143-1930
     server: 120.232.214.143
+    name: vmess-120.232.214.143-1930
     port: 1930
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.143-1980
     server: 120.232.214.143
+    name: vmess-120.232.214.143-1980
     port: 1980
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-1030
     server: 120.232.214.248
+    name: vmess-120.232.214.248-1030
     port: 1030
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-1260
     server: 120.232.214.248
+    name: vmess-120.232.214.248-1260
     port: 1260
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-1350
     server: 120.232.214.248
+    name: vmess-120.232.214.248-1350
     port: 1350
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-1360
     server: 120.232.214.248
+    name: vmess-120.232.214.248-1360
     port: 1360
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-1370
     server: 120.232.214.248
+    name: vmess-120.232.214.248-1370
     port: 1370
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-1420
     server: 120.232.214.248
+    name: vmess-120.232.214.248-1420
     port: 1420
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-1510
     server: 120.232.214.248
+    name: vmess-120.232.214.248-1510
     port: 1510
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-1580
     server: 120.232.214.248
+    name: vmess-120.232.214.248-1580
     port: 1580
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-1980
     server: 120.232.214.248
+    name: vmess-120.232.214.248-1980
     port: 1980
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.8-1020
     server: 120.232.214.8
+    name: vmess-120.232.214.8-1020
     port: 1020
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.8-1150
     server: 120.232.214.8
+    name: vmess-120.232.214.8-1150
     port: 1150
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.8-1260
     server: 120.232.214.8
+    name: vmess-120.232.214.8-1260
     port: 1260
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.8-1350
     server: 120.232.214.8
+    name: vmess-120.232.214.8-1350
     port: 1350
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.8-1370
     server: 120.232.214.8
+    name: vmess-120.232.214.8-1370
     port: 1370
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.8-1580
     server: 120.232.214.8
+    name: vmess-120.232.214.8-1580
     port: 1580
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.8-1980
     server: 120.232.214.8
+    name: vmess-120.232.214.8-1980
     port: 1980
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-125.94.37.119-1030
     server: 125.94.37.119
+    name: vmess-125.94.37.119-1030
     port: 1030
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-125.94.37.119-1040
     server: 125.94.37.119
+    name: vmess-125.94.37.119-1040
     port: 1040
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-125.94.37.119-1150
     server: 125.94.37.119
+    name: vmess-125.94.37.119-1150
     port: 1150
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-125.94.37.119-1260
     server: 125.94.37.119
+    name: vmess-125.94.37.119-1260
     port: 1260
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-125.94.37.119-1360
     server: 125.94.37.119
+    name: vmess-125.94.37.119-1360
     port: 1360
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-125.94.37.119-1370
     server: 125.94.37.119
+    name: vmess-125.94.37.119-1370
     port: 1370
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-125.94.37.119-1580
     server: 125.94.37.119
+    name: vmess-125.94.37.119-1580
     port: 1580
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-125.94.37.119-1930
     server: 125.94.37.119
+    name: vmess-125.94.37.119-1930
     port: 1930
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-125.94.37.119-1980
     server: 125.94.37.119
+    name: vmess-125.94.37.119-1980
     port: 1980
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.119-1280
     server: 120.232.214.119
+    name: vmess-120.232.214.119-1280
     port: 1280
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-1280
     server: 120.232.214.248
+    name: vmess-120.232.214.248-1280
     port: 1280
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.248-2000
     server: 120.232.214.248
+    name: vmess-120.232.214.248-2000
     port: 2000
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.8-1280
     server: 120.232.214.8
+    name: vmess-120.232.214.8-1280
     port: 1280
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-120.232.214.8-2000
     server: 120.232.214.8
+    name: vmess-120.232.214.8-2000
     port: 2000
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
+  - type: vmess
     ws-opts:
       path: /hls/cctv5phd.m3u8
-  - name: vmess-125.94.37.119-2000
     server: 125.94.37.119
+    name: vmess-125.94.37.119-2000
     port: 2000
-    type: vmess
     uuid: b9ecdb44-236b-30a7-94f2-f464993d84cf
     alterId: 0
     cipher: auto
-    tls: false
     network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
   - type: ss
     cipher: aes-256-gcm
     password: 7d2aee61-65d6-4ad7-af30-1a6da9bd5857
@@ -118659,6 +118600,23 @@ proxies:
     port: 21011
     type: trojan
     password: 118fc04e-fb8c-4154-9092-352cf1958fcd
+    skip-cert-verify: true
+  - name: vmess-v2-1.godlight.xyz-26943
+    server: v2-1.godlight.xyz
+    type: vmess
+    country: 🇯🇵 JP
+    port: 26943
+    uuid: 719d4cec-82a8-4a65-ad01-32cf08f2c988
+    alterId: 0
+    cipher: auto
+    network: ws
+    ws-path: /j75g1461x
+    servername: v2-1.godlight.xyz
+    ws-headers:
+      HOST: v2-1.godlight.xyz
+    http-opts: {}
+    h2-opts: {}
+    tls: true
     skip-cert-verify: true
 proxy-groups:
   - name: 所有节点
@@ -133339,3 +133297,4 @@ proxy-groups:
       - vmess-35.78.206.86-38842
       - vmess-v2ray.wefuckgfw.tk-8443
       - trojan-free.spcloud.us-21011
+      - vmess-v2-1.godlight.xyz-26943
