@@ -1,9 +1,8 @@
 proxies:
   - name: trojan-138.2.113.84-443
     server: 138.2.113.84
-    type: trojan
-    country: 🇺🇸 US
     port: 443
+    type: trojan
     password: b291d129-ee55-4801-a9b8-b5316e5c37b7
     skip-cert-verify: true
     udp: true
@@ -35,13 +34,12 @@ proxies:
     port: 11003
     cipher: aes-128-cfb
     password: QazEdcTgb159@$*
-  - name: ss-mf02.xmss.vip-18888
+  - type: ss
+    name: ss-mf02.xmss.vip-18888
     server: mf02.xmss.vip
-    type: ss
-    country: 🇫🇷 FR
     port: 18888
-    password: 5595f1cf-d7c0-4121-a3bf-19e423c1f9a1
     cipher: chacha20-ietf-poly1305
+    password: 5595f1cf-d7c0-4121-a3bf-19e423c1f9a1
   - type: vmess
     name: vmess-23.105.199.160-25078
     server: 23.105.199.160
@@ -84,29 +82,33 @@ proxies:
     tls: false
     skip-cert-verify: true
     udp: true
-  - name: vmess-47.243.244.200-51535
+  - type: vmess
+    name: vmess-47.243.244.200-51535
+    http-opts:
+      path:
+        - /
+      headers:
+        Host:
+          - 47.243.244.200
     server: 47.243.244.200
     port: 51535
-    type: vmess
     uuid: 98a2ba95-d179-4563-82be-ea5c897be747
     alterId: 0
     cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
+    network: http
   - name: ss-14.29.124.174-11019
     server: 14.29.124.174
-    port: 11019
     type: ss
-    cipher: aes-128-cfb
+    country: 🇨🇳 CN
+    port: 11019
     password: QazEdcTgb159@$*
-    udp: true
+    cipher: aes-128-cfb
   - name: trojan-s3.hass.win-12340
     server: s3.hass.win
-    port: 12340
     type: trojan
+    country: 🇺🇸 US
+    port: 12340
     password: dfbf0d67-f03d-4184-a224-c2d64a571f99
-    sni: static.dingtalk.com
     skip-cert-verify: true
     udp: true
   - name: vmess-47.243.187.152-61847
@@ -174,23 +176,21 @@ proxies:
     tls: true
   - name: vmess-51.81.223.15-443
     server: 51.81.223.15
-    type: vmess
-    country: 🇺🇸US
     port: 443
+    type: vmess
     uuid: c0156451-4efb-45e2-84fc-8d315c4650db
-    alterId: 32
+    alterId: 0
     cipher: auto
-    network: tcp
-    ws-path: /
-    http-opts: {}
-    h2-opts: {}
+    tls: false
     skip-cert-verify: true
-  - type: ss
-    name: ss-14.29.124.174-11011
+    udp: true
+  - name: ss-14.29.124.174-11011
     server: 14.29.124.174
     port: 11011
+    type: ss
     cipher: aes-128-cfb
     password: QazEdcTgb159@$*
+    udp: true
   - name: ss-14.29.124.174-11020
     server: 14.29.124.174
     type: ss
@@ -198,13 +198,14 @@ proxies:
     port: 11020
     password: QazEdcTgb159@$*
     cipher: aes-128-cfb
-  - type: trojan
-    name: trojan-s4.hazz.win-12340
+  - name: trojan-s4.hazz.win-12340
     server: s4.hazz.win
     port: 12340
+    type: trojan
     password: dfbf0d67-f03d-4184-a224-c2d64a571f99
-    udp: true
+    sni: s4.hazz.win
     skip-cert-verify: true
+    udp: true
   - type: vmess
     name: vmess-dm-us01-direct11.dm-us01.lc-node.com-443
     server: dm-us01-direct11.dm-us01.lc-node.com
@@ -218,18 +219,19 @@ proxies:
     server: kr1.api-aws.com
     port: 443
     type: trojan
-    password: 23103894-eec7-4de1-a05a-c2e11e351287
+    password: 83985788-df3e-4b91-8f5e-a9de66a79cca
     skip-cert-verify: true
     udp: true
-  - type: vmess
-    name: vmess-tw-tb-c.zc20200426.club-39999
+  - name: vmess-tw-tb-c.zc20200426.club-39999
     server: tw-tb-c.zc20200426.club
     port: 39999
+    type: vmess
     uuid: 67c50f6a-816d-3555-89b4-19dd29608f8b
     alterId: 0
     cipher: auto
-    network: tcp
     tls: true
+    skip-cert-verify: true
+    udp: true
   - type: ss
     name: ss-35.87.114.40-443
     server: 35.87.114.40
@@ -249,16 +251,15 @@ proxies:
     ws-opts:
       path: /
     udp: true
-  - name: vmess-94.177.8.87-41443
+  - type: vmess
+    name: vmess-94.177.8.87-41443
     server: 94.177.8.87
     port: 41443
-    type: vmess
     uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
     alterId: 0
     cipher: auto
+    network: tcp
     tls: true
-    skip-cert-verify: true
-    udp: true
   - name: trojan-s4.hass.win-12340
     server: s4.hass.win
     port: 12340
@@ -854,7 +855,6 @@ proxies:
     obfs: plain
     protocol-param: 53920:hjgjuy6t655jjg
     obfs-param: ""
-    udp: true
   - name: ssr-183.232.141.114-562
     server: 183.232.141.114
     port: 562
@@ -5483,11 +5483,11 @@ proxies:
     password: Y6R9pAtvxxzmGC
   - name: ss-139.99.68.21-6379
     server: 139.99.68.21
-    port: 6379
     type: ss
-    cipher: aes-256-gcm
+    country: 🇸🇬 SG
+    port: 6379
     password: zDNVedRFPQexG9v
-    udp: true
+    cipher: aes-256-gcm
   - type: ss
     name: ss-102.219.177.35-989
     server: 102.219.177.35
@@ -9624,6 +9624,7 @@ proxies:
     type: trojan
     password: 02e653c9-7c93-46a9-999d-11834bd0c577
     skip-cert-verify: true
+    udp: true
   - name: vmess-us.naixii.xyz-443
     server: us.naixii.xyz
     port: 443
@@ -9700,6 +9701,211 @@ proxies:
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
+  - name: ss-196.247.59.154-800
+    server: 196.247.59.154
+    type: ss
+    country: 🇨🇦CA
+    port: 800
+    password: G!yBwPWH3Vao
+    cipher: chacha20-ietf-poly1305
+  - name: vmess-4.hk.zz.xxxxx.x-t-fuckword.network-36676
+    server: 4.hk.zz.xxxxx.x-t-fuckword.network
+    type: vmess
+    country: 🇨🇳CN
+    port: 36676
+    uuid: 244effd9-0204-3c4a-8537-0dca4e5fd9b5
+    alterId: 0
+    cipher: auto
+    network: tcp
+    ws-path: /
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
+  - name: ss-145.239.1.100-8888
+    server: 145.239.1.100
+    type: ss
+    country: 🇫🇷 FR
+    port: 8888
+    password: Y6R9pAtvxxzmGC
+    cipher: aes-256-gcm
+  - name: ss-149.202.82.172-6697
+    server: 149.202.82.172
+    type: ss
+    country: 🇫🇷FR
+    port: 6697
+    password: TEzjfAYq2IjtuoS
+    cipher: aes-256-gcm
+  - name: ss-149.202.82.172-8080
+    server: 149.202.82.172
+    type: ss
+    country: 🇫🇷FR
+    port: 8080
+    password: KixLvKzwjekG00rm
+    cipher: aes-256-gcm
+  - name: ss-145.239.1.100-8080
+    server: 145.239.1.100
+    type: ss
+    country: 🇫🇷 FR
+    port: 8080
+    password: KixLvKzwjekG00rm
+    cipher: aes-256-gcm
+  - name: ss-38.75.136.21-5001
+    server: 38.75.136.21
+    type: ss
+    country: 🇺🇸US
+    port: 5001
+    password: Y6R9pAtvxxzmGC
+    cipher: aes-256-gcm
+  - name: ss-38.68.134.85-6679
+    server: 38.68.134.85
+    type: ss
+    country: 🇺🇸US
+    port: 6679
+    password: TEzjfAYq2IjtuoS
+    cipher: aes-256-gcm
+  - name: ss-167.88.63.79-3306
+    server: 167.88.63.79
+    type: ss
+    country: 🇺🇸US
+    port: 3306
+    password: Y6R9pAtvxxzmGC
+    cipher: aes-256-gcm
+  - name: ss-172.99.190.39-5500
+    server: 172.99.190.39
+    type: ss
+    country: 🇺🇸US
+    port: 5500
+    password: KixLvKzwjekG00rm
+    cipher: aes-256-gcm
+  - name: ss-38.114.114.67-6697
+    server: 38.114.114.67
+    type: ss
+    country: 🇺🇸US
+    port: 6697
+    password: TEzjfAYq2IjtuoS
+    cipher: aes-256-gcm
+  - name: ss-167.88.61.175-8080
+    server: 167.88.61.175
+    type: ss
+    country: 🇺🇸US
+    port: 8080
+    password: KixLvKzwjekG00rm
+    cipher: aes-256-gcm
+  - name: ss-38.64.138.145-8080
+    server: 38.64.138.145
+    type: ss
+    country: 🇺🇸US
+    port: 8080
+    password: KixLvKzwjekG00rm
+    cipher: aes-256-gcm
+  - name: ss-38.68.135.18-5500
+    server: 38.68.135.18
+    type: ss
+    country: 🇺🇸US
+    port: 5500
+    password: KixLvKzwjekG00rm
+    cipher: aes-256-gcm
+  - name: ss-38.121.43.71-8882
+    server: 38.121.43.71
+    type: ss
+    country: 🇺🇸US
+    port: 8882
+    password: kDWvXYZoTBcGkC4
+    cipher: aes-256-gcm
+  - name: ss-38.121.43.71-8119
+    server: 38.121.43.71
+    type: ss
+    country: 🇺🇸US
+    port: 8119
+    password: cdBIDV42DCwnfIN
+    cipher: aes-256-gcm
+  - name: ss-38.114.114.19-5601
+    server: 38.114.114.19
+    type: ss
+    country: 🇺🇸US
+    port: 5601
+    password: Y6R9pAtvxxzmGC
+    cipher: aes-256-gcm
+  - name: ss-38.75.136.21-8080
+    server: 38.75.136.21
+    type: ss
+    country: 🇺🇸US
+    port: 8080
+    password: KixLvKzwjekG00rm
+    cipher: aes-256-gcm
+  - name: ss-172.99.190.39-5003
+    server: 172.99.190.39
+    type: ss
+    country: 🇺🇸US
+    port: 5003
+    password: g5MeD6Ft3CWlJId
+    cipher: aes-256-gcm
+  - name: ss-38.75.136.21-5003
+    server: 38.75.136.21
+    type: ss
+    country: 🇺🇸US
+    port: 5003
+    password: g5MeD6Ft3CWlJId
+    cipher: aes-256-gcm
+  - name: vmess-51.81.223.26-443
+    server: 51.81.223.26
+    type: vmess
+    country: 🇺🇸 US
+    port: 443
+    uuid: c0156451-4efb-45e2-84fc-8d315c4650db
+    alterId: 0
+    cipher: auto
+    ws-path: /
+    servername: 51.81.223.26
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
+  - name: vmess-51.81.223.10-443
+    server: 51.81.223.10
+    type: vmess
+    country: 🇺🇸 US
+    port: 443
+    uuid: c0156451-4efb-45e2-84fc-8d315c4650db
+    alterId: 0
+    cipher: auto
+    ws-path: /
+    servername: 51.81.223.10
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
+  - name: vmess-51.81.223.20-443
+    server: 51.81.223.20
+    type: vmess
+    country: 🇺🇸 US
+    port: 443
+    uuid: c0156451-4efb-45e2-84fc-8d315c4650db
+    alterId: 0
+    cipher: auto
+    ws-path: /
+    servername: 51.81.223.20
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
+  - name: vmess-51.81.223.22-443
+    server: 51.81.223.22
+    type: vmess
+    country: 🇺🇸US
+    port: 443
+    uuid: c0156451-4efb-45e2-84fc-8d315c4650db
+    alterId: 32
+    cipher: auto
+    network: tcp
+    ws-path: /
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
+  - name: ss-134.195.196.149-7307
+    server: 134.195.196.149
+    type: ss
+    country: 🏁ZZ
+    port: 7307
+    password: FoOiGlkAA9yPEGP
+    cipher: aes-256-gcm
   - cipher: aes-256-gcm
     name: ss-141.164.39.146-6697
     password: TEzjfAYq2IjtuoS
@@ -10149,13 +10355,6 @@ proxies:
     type: ss
     cipher: aes-256-cfb
     password: ZpNDDKRu9MagNvaf
-  - name: ss-38.68.135.18-5500
-    server: 38.68.135.18
-    type: ss
-    country: 🇺🇸US
-    port: 5500
-    password: KixLvKzwjekG00rm
-    cipher: aes-256-gcm
   - name: ss-38.68.135.18-6697
     server: 38.68.135.18
     type: ss
@@ -10472,14 +10671,18 @@ proxies:
         Host: usa-dallas.lvuft.com
   - name: vmess-chess.magicefire.com-443
     server: chess.magicefire.com
-    port: 443
     type: vmess
+    country: 🇺🇸US
+    port: 443
     uuid: 9aa80017-3427-4165-a522-f5f9a11330d0
     alterId: 0
     cipher: auto
+    network: tcp
+    ws-path: /
+    http-opts: {}
+    h2-opts: {}
     tls: true
     skip-cert-verify: true
-    udp: true
   - name: vmess-20.24.209.70-52229
     server: 20.24.209.70
     port: 52229
@@ -10585,18 +10788,6 @@ proxies:
     alterId: 0
     cipher: auto
     tls: false
-  - name: vmess-51.81.223.10-443
-    server: 51.81.223.10
-    port: 443
-    type: vmess
-    uuid: c0156451-4efb-45e2-84fc-8d315c4650db
-    alterId: 0
-    cipher: auto
-    network: tcp
-    http-opts: {}
-    ws-path: /
-    skip-cert-verify: true
-    servername: 51.81.223.10
   - name: vmess-xr-1.herokuapp.com-443
     server: xr-1.herokuapp.com
     port: 443
@@ -10662,18 +10853,6 @@ proxies:
       path: /
       headers:
         Host: hk15.bp777.buzz
-  - name: vmess-51.81.223.26-443
-    server: 51.81.223.26
-    port: 443
-    type: vmess
-    uuid: c0156451-4efb-45e2-84fc-8d315c4650db
-    alterId: 0
-    cipher: auto
-    network: tcp
-    http-opts: {}
-    ws-path: /
-    skip-cert-verify: true
-    servername: 51.81.223.26
   - name: vmess-powerservice.com-443
     server: powerservice.com
     port: 443
@@ -10758,36 +10937,66 @@ proxies:
     port: 443
     type: trojan
     password: trojan-daozhu-uallen-qbit-azure-hk
-  - name: trojan-jgwxn3.gaox.ml-443
-    server: jgwxn3.gaox.ml
-    type: trojan
-    country: 🇦🇺 AU
+  - name: trojan-cz.v212.fun-443
+    server: cz.v212.fun
     port: 443
-    password: cb43b7c2-b744-41c5-bcc2-fd7467b332cf
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-wangqifei.ga-41477
-    server: wangqifei.ga
     type: trojan
-    country: 🇦🇺 AU
-    port: 41477
-    password: 3oquVrpxPg
+    password: 9c7a49a2-ddff-4654-925b-baa7913dbc56
     skip-cert-verify: true
     udp: true
-  - name: trojan-924hk02.tfzhc.top-44399
-    server: 924hk02.tfzhc.top
-    port: 44399
+  - name: trojan-id2-trojan.bonds.id-443
+    server: id2-trojan.bonds.id
+    port: 443
     type: trojan
-    password: 3ad5547b-609b-4f59-916b-afebd85aba7d
+    password: 8d4ab0f0-79be-11eb-be0b-1239d0255272
     skip-cert-verify: true
     udp: true
-  - name: ss-196.247.59.154-800
-    server: 196.247.59.154
-    type: ss
-    country: 🇨🇦CA
-    port: 800
-    password: G!yBwPWH3Vao
-    cipher: chacha20-ietf-poly1305
+  - name: trojan-185.126.116.235-443
+    server: 185.126.116.235
+    port: 443
+    type: trojan
+    password: 36ebef7d1b1d6205fd0c55f28800e674
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jpa.llbb.cf-8443
+    server: jpa.llbb.cf
+    port: 8443
+    type: trojan
+    password: 5713b236-0e0d-4efd-ad60-eb14e6ff9162
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-141.147.191.85-28443
+    server: 141.147.191.85
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-103.195.236.24-28443
+    server: 103.195.236.24
+    port: 28443
+    type: trojan
+    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
+    sni: glc.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-202.8.9.67-28443
+    server: 202.8.9.67
+    port: 28443
+    type: trojan
+    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
+    sni: glc.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-202.8.9.27-28443
+    server: 202.8.9.27
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
   - name: vmess-527hk1.fans8.xyz-443
     server: 527hk1.fans8.xyz
     port: 443
@@ -10816,26 +11025,18 @@ proxies:
     ws-opts:
       path: /ray
     udp: true
+  - name: trojan-927tw.tfzhc.top-44312
+    server: 927tw.tfzhc.top
+    port: 44312
+    type: trojan
+    password: 3ad5547b-609b-4f59-916b-afebd85aba7d
+    skip-cert-verify: true
+    udp: true
   - name: trojan-165.154.226.108-443
     server: 165.154.226.108
     port: 443
     type: trojan
     password: gb8cLR
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-ca-trojan.bonds.id-443
-    server: ca-trojan.bonds.id
-    port: 443
-    type: trojan
-    password: bc7593fe-0604-4fbe-a70bYWVzLTI1Ni1nY2ac5a3ef0-b4ab-11eb-b65e-1239d0255272
-    sni: ca-trojan.bonds.id
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-51.161.118.38-443
-    server: 51.161.118.38
-    port: 443
-    type: trojan
-    password: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpHIXlCd1BXSDNWYW8
     skip-cert-verify: true
     udp: true
   - name: trojan-cat1.sshocean.net-443
@@ -10845,75 +11046,113 @@ proxies:
     password: 8b6daf15-8342-482d-b894-1239fd98ce7f
     skip-cert-verify: true
     udp: true
-  - name: ss-14.29.124.174-11009
-    server: 14.29.124.174
-    port: 11009
+  - name: ss-14.29.124.168-24005
+    server: 14.29.124.168
+    port: 24005
     type: ss
     cipher: aes-128-cfb
     password: QazEdcTgb159@$*
-    udp: true
-  - name: ss-14.29.124.174-11007
-    server: 14.29.124.174
-    port: 11007
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
-  - name: trojan-bauhinia01.abzoones.xyz-36501
-    server: bauhinia01.abzoones.xyz
-    port: 36501
-    type: trojan
-    password: 9771dfe86
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-bauhinia02.abzoones.xyz-36606
-    server: bauhinia02.abzoones.xyz
-    port: 36606
-    type: trojan
-    password: 1b5eff5a-f36b-4149-8001-7c8c0c4ed2eb
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-jp2.91js.pw-10051
-    server: jp2.91js.pw
-    port: 10051
-    type: trojan
-    password: a13820c547fa34c5c45515c12f0cd576
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-zz6.91js.pw-10051
-    server: zz6.91js.pw
-    port: 10051
-    type: trojan
-    password: a13820c547fa34c5c45515c12f0cd576
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-ct.91js.pw-10051
-    server: ct.91js.pw
-    type: trojan
-    country: 🇨🇳 CN
-    port: 10051
-    password: a13820c547fa34c5c45515c12f0cd576
-    skip-cert-verify: true
     udp: true
   - name: trojan-bauhinia01.abzoones.xyz-36116
     server: bauhinia01.abzoones.xyz
     port: 36116
     type: trojan
-    password: 84796b86-42cb-484796b86-42cb-4b3f-a42b-d74ce2dabbb6
+    password: 7166e17c-286a-4aca-837166e17c-286a-4aca-8383-250506f4e1d3
+    skip-cert-verify: true
+    udp: true
+  - name: ss-14.29.124.168-24004
+    server: 14.29.124.168
+    port: 24004
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: trojan-120.232.132.120-25682
+    server: 120.232.132.120
+    port: 25682
+    type: trojan
+    password: Md530834
+    sni: cdnt24.dt1.fun
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-54.223.72.133-14018
+    server: 54.223.72.133
+    port: 14018
+    type: trojan
+    password: M8ac84c9
+    sni: e15e.ft3.us
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-14.215.107.23-28124
+    server: 14.215.107.23
+    port: 28124
+    type: trojan
+    password: Mb6124ef
+    sni: i23.t3v.fun
+    skip-cert-verify: true
+    udp: true
+  - name: ss-180.101.193.226-10068
+    server: 180.101.193.226
+    port: 10068
+    type: ss
+    cipher: aes-256-cfb
+    password: RsDk3peCSuo76B68
+    udp: true
+  - name: trojan-58.16.188.36-233
+    server: 58.16.188.36
+    port: 233
+    type: trojan
+    password: f62b3d55-66e5-4a2e-9ddc-a294bbce7b13
+    sni: inf-jp2.qchwnd.moe
+    skip-cert-verify: true
+    udp: true
+  - name: ss-14.29.124.168-24000
+    server: 14.29.124.168
+    port: 24000
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: ss-14.29.124.168-24002
+    server: 14.29.124.168
+    port: 24002
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: ss-14.29.124.174-11015
+    server: 14.29.124.174
+    port: 11015
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: ss-14.29.124.174-11050
+    server: 14.29.124.174
+    port: 11050
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: trojan-ffr1.awscn.buzz-35377
+    server: ffr1.awscn.buzz
+    port: 35377
+    type: trojan
+    password: BXE9notY
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-ffr6.awscn.buzz-44651
+    server: ffr6.awscn.buzz
+    port: 44651
+    type: trojan
+    password: JmcedGAn
     skip-cert-verify: true
     udp: true
   - name: trojan-bauhinia01.abzoones.xyz-36401
     server: bauhinia01.abzoones.xyz
     port: 36401
     type: trojan
-    password: b054d1bf-6f82-48a9-ac28-537f6f606721
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-bauhinia01.abzoones.xyz-36201
-    server: bauhinia01.abzoones.xyz
-    port: 36201
-    type: trojan
-    password: bf3abf3a94d3-f87b-44b5-a116-ebf8cb175a8c
+    password: 61c52680-e4b9-46f8-9854-a45d6e5859a1
     skip-cert-verify: true
     udp: true
   - name: trojan-lion02.abzoones.xyz-36206
@@ -10927,28 +11166,49 @@ proxies:
     server: bauhinia01.abzoones.xyz
     port: 36601
     type: trojan
-    password: b054d1bf-6f82-48a9-ac28-537f6f606721
+    password: 089b1ca3-f4f6-4264-a104-696db37306c6
+    skip-cert-verify: true
+    udp: true
+  - name: ss-14.29.124.174-11048
+    server: 14.29.124.174
+    port: 11048
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: trojan-jp2.91js.pw-10051
+    server: jp2.91js.pw
+    port: 10051
+    type: trojan
+    password: a13820c547fa34c5c45515c12f0cd576
     skip-cert-verify: true
     udp: true
   - name: trojan-bauhinia01.abzoones.xyz-36301
     server: bauhinia01.abzoones.xyz
     port: 36301
     type: trojan
-    password: 8655e4b1-f4c4-40e1-a93c-555ae5b47fbe
+    password: 7166e17c-286a-4aca-8383-250506f4e1d3
     skip-cert-verify: true
     udp: true
-  - name: trojan-bauhinia01.abzoones.xyz-36701
+  - name: trojan-bauhinia01.abzoones.xyz-36501
     server: bauhinia01.abzoones.xyz
-    port: 36701
+    port: 36501
     type: trojan
-    password: c6
+    password: 003dd06f-f1fd-43bd-9c89-00fd31d742b1
     skip-cert-verify: true
     udp: true
-  - name: trojan-183.245.146.20-41001
-    server: 183.245.146.20
-    port: 41001
+  - name: trojan-bauhinia01.abzoones.xyz-36201
+    server: bauhinia01.abzoones.xyz
+    port: 36201
     type: trojan
-    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
+    password: d06f-f1fd-43bd-9c89-00fd31d742b1
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-pull-cache-lu01.xyx-xylo.com-19701
+    server: pull-cache-lu01.xyx-xylo.com
+    port: 19701
+    type: trojan
+    password: 79745894-044c-3298-a893-bbfcb6b24a2c
     skip-cert-verify: true
     udp: true
   - name: trojan-sunmoon02.abzoones.xyz-36306
@@ -10965,16 +11225,51 @@ proxies:
     password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
     skip-cert-verify: true
     udp: true
-  - name: trojan-183.245.146.20-21002
-    server: 183.245.146.20
+  - name: trojan-117.164.185.222-21002
+    server: 117.164.185.222
     port: 21002
     type: trojan
     password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
     skip-cert-verify: true
     udp: true
-  - name: trojan-117.164.185.222-21002
+  - name: trojan-117.164.185.222-21003
     server: 117.164.185.222
-    port: 21002
+    port: 21003
+    type: trojan
+    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-183.245.146.20-41001
+    server: 183.245.146.20
+    port: 41001
+    type: trojan
+    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-ct.91js.pw-10051
+    server: ct.91js.pw
+    port: 10051
+    type: trojan
+    password: a13820c547fa34c5c45515c12f0cd576
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-117.164.185.222-21001
+    server: 117.164.185.222
+    port: 21001
+    type: trojan
+    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
+    skip-cert-verify: true
+    udp: true
+  - name: ss-14.29.124.174-11007
+    server: 14.29.124.174
+    port: 11007
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: trojan-117.164.185.222-21004
+    server: 117.164.185.222
+    port: 21004
     type: trojan
     password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
     skip-cert-verify: true
@@ -10986,32 +11281,32 @@ proxies:
     password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
     skip-cert-verify: true
     udp: true
-  - name: trojan-bauhinia01.abzoones.xyz-36611
+  - name: trojan-183.245.146.20-21002
+    server: 183.245.146.20
+    port: 21002
+    type: trojan
+    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-bauhinia01.abzoones.xyz-36701
     server: bauhinia01.abzoones.xyz
-    port: 36611
+    port: 36701
     type: trojan
-    password: 7166e17c-286a-4aca-8383-250506f4e1d3
+    password: 84796b86-42cb-4b3f-a42b-d74ce2dabbb6
     skip-cert-verify: true
     udp: true
-  - name: trojan-117.164.185.222-21003
-    server: 117.164.185.222
-    port: 21003
+  - name: trojan-bauhinia02.abzoones.xyz-36606
+    server: bauhinia02.abzoones.xyz
+    port: 36606
     type: trojan
-    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
+    password: 1b5eff5a-f36b-4149-8001-7c8c0c4ed2eb
     skip-cert-verify: true
     udp: true
-  - name: trojan-117.164.185.222-21001
-    server: 117.164.185.222
-    port: 21001
+  - name: trojan-fujimount02.abzoones.xyz-36106
+    server: fujimount02.abzoones.xyz
+    port: 36106
     type: trojan
-    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-117.164.185.222-21004
-    server: 117.164.185.222
-    port: 21004
-    type: trojan
-    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
+    password: 1b5eff5a-f36b-4149-8001-7c8c0c4ed2eb
     skip-cert-verify: true
     udp: true
   - name: trojan-117.164.185.222-11002
@@ -11028,62 +11323,234 @@ proxies:
     password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
     skip-cert-verify: true
     udp: true
-  - name: trojan-fujimount02.abzoones.xyz-36106
-    server: fujimount02.abzoones.xyz
-    port: 36106
+  - name: trojan-bauhinia01.abzoones.xyz-36611
+    server: bauhinia01.abzoones.xyz
+    port: 36611
     type: trojan
-    password: 1b5eff5a-f36b-4149-8001-7c8c0c4ed2eb
+    password: 7166e17c-286a-4aca-8383-250506f4e1d3
     skip-cert-verify: true
     udp: true
-  - name: trojan-cz.v212.fun-443
-    server: cz.v212.fun
+  - name: ss-14.29.124.174-11004
+    server: 14.29.124.174
+    port: 11004
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: ss-14.29.124.174-11038
+    server: 14.29.124.174
+    port: 11038
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: ss-14.29.124.174-11036
+    server: 14.29.124.174
+    port: 11036
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: ss-14.29.124.174-11044
+    server: 14.29.124.174
+    port: 11044
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: trojan-cn2hn.sub-nthu.com-35002
+    server: cn2hn.sub-nthu.com
+    port: 35002
+    type: trojan
+    password: 87d5ee80-9dfa-4cb5-b644-062803bd0c19
+    skip-cert-verify: true
+    udp: true
+  - name: ss-14.29.124.174-11008
+    server: 14.29.124.174
+    port: 11008
+    type: ss
+    cipher: aes-128-cfb
+    password: QazEdcTgb159@$*
+    udp: true
+  - name: trojan-117.164.185.220-61001
+    server: 117.164.185.220
+    port: 61001
+    type: trojan
+    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-ygzyd.sub-nthu.com-35005
+    server: ygzyd.sub-nthu.com
+    port: 35005
+    type: trojan
+    password: 87d5ee80-9dfa-4cb5-b644-062803bd0c19
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-ygzyd.sub-nthu.com-35001
+    server: ygzyd.sub-nthu.com
+    port: 35001
+    type: trojan
+    password: 87d5ee80-9dfa-4cb5-b644-062803bd0c19
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-117.164.185.220-11002
+    server: 117.164.185.220
+    port: 11002
+    type: trojan
+    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-cn2hn.sub-nthu.com-35007
+    server: cn2hn.sub-nthu.com
+    port: 35007
+    type: trojan
+    password: eda8a8e5-1076-4d7b-b1d0-5003a0350073
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-ygzyd.sub-nthu.com-35003
+    server: ygzyd.sub-nthu.com
+    port: 35003
+    type: trojan
+    password: 87d5ee80-9dfa-4cb5-b644-062803bd0c19
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-zz6.91js.pw-10051
+    server: zz6.91js.pw
+    port: 10051
+    type: trojan
+    password: a13820c547fa34c5c45515c12f0cd576
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-ygzyd.sub-nthu.com-35000
+    server: ygzyd.sub-nthu.com
+    port: 35000
+    type: trojan
+    password: eda8a8e5-1076-4d7b-b1d0-5003a0350073
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-cn2hn.sub-nthu.com-35003
+    server: cn2hn.sub-nthu.com
+    port: 35003
+    type: trojan
+    password: eda8a8e5-1076-4d7b-b1d0-5003a0350073
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-cn2hn.sub-nthu.com-35000
+    server: cn2hn.sub-nthu.com
+    port: 35000
+    type: trojan
+    password: eda8a8e5-1076-4d7b-b1d0-5003a0350073
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-tw.tcpbbr.net-443
+    server: tw.tcpbbr.net
     port: 443
     type: trojan
-    password: 9c7a49a2-ddff-4654-925b-baa7913dbc56
+    password: 280a1162-00cb-11ec-a8bf-f23c91cfbbc9
     skip-cert-verify: true
     udp: true
-  - name: ss-149.202.82.172-6697
-    server: 149.202.82.172
+  - name: trojan-2.58.242.43-443
+    server: 2.58.242.43
+    port: 443
+    type: trojan
+    password: YWVzLTI1Ni1nY206eHBRd3lWNFc1RmRBNk5NQU5KSng3M1VT
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-pastry.taiwanesefood.link-443
+    server: pastry.taiwanesefood.link
+    port: 443
+    type: trojan
+    password: NnvKNoUu3uaud9Sp6ugzYvX92bwr6emJ
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-download1tw.windowsupdate1.com-28443
+    server: download1tw.windowsupdate1.com
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: ss-fn600mlines021.fnline.info-443
+    server: fn600mlines021.fnline.info
+    port: 443
     type: ss
-    country: 🇫🇷FR
-    port: 6697
-    password: TEzjfAYq2IjtuoS
-    cipher: aes-256-gcm
-  - name: ss-145.239.1.100-8080
-    server: 145.239.1.100
-    type: ss
-    country: 🇫🇷 FR
+    cipher: chacha20-ietf-poly1305
+    password: 0ac84efef442
+    udp: true
+  - name: trojan-194.233.171.25-28443
+    server: 194.233.171.25
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-89.163.220.99-28443
+    server: 89.163.220.99
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-80.78.132.177-28443
+    server: 80.78.132.177
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-sg8-trojan.bonds.id-443
+    server: sg8-trojan.bonds.id
+    port: 443
+    type: trojan
+    password: a2940130-1c92-11ed-aebe-1239d0255272
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-138.68.90.231-8080
+    server: 138.68.90.231
     port: 8080
-    password: KixLvKzwjekG00rm
-    cipher: aes-256-gcm
-  - name: ss-145.239.1.100-8888
-    server: 145.239.1.100
-    type: ss
-    country: 🇫🇷 FR
-    port: 8888
-    password: Y6R9pAtvxxzmGC
-    cipher: aes-256-gcm
-  - name: ss-149.202.82.172-8080
-    server: 149.202.82.172
-    type: ss
-    country: 🇫🇷FR
-    port: 8080
-    password: KixLvKzwjekG00rm
-    cipher: aes-256-gcm
+    type: vmess
+    uuid: 294ffdc3-5942-45ae-a154-dc6c92eacf1d
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /cctv13/hd.m3u8
+      headers:
+        Host: "%7B%22Host%22:%22138.68.90.231%22%7D"
+    udp: true
+  - name: trojan-51.161.118.38-443
+    server: 51.161.118.38
+    port: 443
+    type: trojan
+    password: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpHIXlCd1BXSDNWYW8
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-ca-trojan.bonds.id-443
+    server: ca-trojan.bonds.id
+    port: 443
+    type: trojan
+    password: ac5a3ef0-b4ab-11eb-b65e-1239d0255272
+    skip-cert-verify: true
+    udp: true
   - name: trojan-fr-trojan.bonds.id-443
     server: fr-trojan.bonds.id
     port: 443
     type: trojan
     password: 7c9b7560-b0f7-11eb-a397-1239d0255272
-    sni: fr-trojan.bonds.id
     skip-cert-verify: true
     udp: true
-  - name: trojan-sp.llbb.cf-8443
-    server: sp.llbb.cf
+  - name: trojan-62.210.254.72-28443
+    server: 62.210.254.72
+    port: 28443
     type: trojan
-    country: 🇬🇧 GB
-    port: 8443
-    password: 5713b236-0e0d-4efd-ad60-eb14e6ff9162
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
     skip-cert-verify: true
     udp: true
   - name: trojan-qt19.shenseven.xyz-443
@@ -11091,6 +11558,37 @@ proxies:
     port: 443
     type: trojan
     password: 107b0481-8181-47cc-9324-a178047cd8e4
+    sni: qt19.shenseven.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jgwcc1.gaox.ml-443
+    server: jgwcc1.gaox.ml
+    port: 443
+    type: trojan
+    password: 7118b5f4-0ea4-4c11-be7f-11471cb91e4a
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-144.24.87.99-28443
+    server: 144.24.87.99
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-zf2.windowsupdate1.com-30010
+    server: zf2.windowsupdate1.com
+    port: 30010
+    type: trojan
+    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
+    sni: glc.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-solink.ga-443
+    server: solink.ga
+    port: 443
+    type: trojan
+    password: b3f3d494-d74d-4c03-9931-5c7efb75d980
     skip-cert-verify: true
     udp: true
   - name: trojan-hk-gz-hk-hkt-tr-b.cdn.savoy.click-889
@@ -11107,20 +11605,66 @@ proxies:
     password: 80bcf4f2-12f7-11ed-bb74-f23c9164ca5d
     skip-cert-verify: true
     udp: true
-  - name: trojan-id2-trojan.bonds.id-443
-    server: id2-trojan.bonds.id
-    port: 443
+  - name: trojan-210.0.158.220-28443
+    server: 210.0.158.220
+    port: 28443
     type: trojan
-    password: 8d4ab0f0-79be-11eb-be0b-1239d0255272
-    sni: id2-trojan.bonds.id
+    password: 19e9475f-31ab-48e9-8642-1205b94fc5ce
+    sni: glc.hruqoaw.cn
     skip-cert-verify: true
     udp: true
-  - name: ss-52.197.66.243-443
-    server: 52.197.66.243
+  - name: trojan-zf2.windowsupdate1.com-30060
+    server: zf2.windowsupdate1.com
+    port: 30060
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-download1hkt.windowsupdate1.com-28443
+    server: download1hkt.windowsupdate1.com
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-zf2.windowsupdate1.com-30040
+    server: zf2.windowsupdate1.com
+    port: 30040
+    type: trojan
+    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
+    sni: glc.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-146.56.189.146-443
+    server: 146.56.189.146
     port: 443
-    type: ss
-    cipher: aes-256-cfb
-    password: amazonskr05
+    type: trojan
+    password: f2117e99-9b6e-47fd-b0a9-634a0b15b998
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-jp06-vm0.entry.rwesdhytjuftyhdafsdgfrh.club-449
+    server: jp06-vm0.entry.rwesdhytjuftyhdafsdgfrh.club
+    port: 449
+    type: vmess
+    uuid: 23476fb3-9fa9-3fab-9989-4f9c443ae92b
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: "%7B%22Host%22:%22jp06-vm0.entry.rwesdhytjuftyhdafsdgfrh.club%22%7D"
+    udp: true
+  - name: trojan-924hk02.tfzhc.top-44399
+    server: 924hk02.tfzhc.top
+    port: 44399
+    type: trojan
+    password: 3ad5547b-609b-4f59-916b-afebd85aba7d
+    skip-cert-verify: true
     udp: true
   - name: trojan-106.180.225.69-1443
     server: 106.180.225.69
@@ -11129,33 +11673,11 @@ proxies:
     password: 7x42LetRa0
     skip-cert-verify: true
     udp: true
-  - name: trojan-tky3.ssgnode.ga-443
-    server: tky3.ssgnode.ga
-    port: 443
-    type: trojan
-    password: 82a115db-6e59-4319-973lWNFc1RmRBNk5NQU5KSnga3fa58ac5a3ef0-b4ab-11eb-b65e-1239d0255272
-    sni: tky3.ssgnode.ga
-    skip-cert-verify: true
-    udp: true
   - name: trojan-45.66.134.219-443
     server: 45.66.134.219
     port: 443
     type: trojan
-    password: 28d98f761aca9d636f44db62544628eb
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-jgwdb3.gaox.ml-443
-    server: jgwdb3.gaox.ml
-    port: 443
-    type: trojan
-    password: 8d2d5953-d649-4034-94f2-72f2df2623da
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-qt26.shenseven.xyz-443
-    server: qt26.shenseven.xyz
-    port: 443
-    type: trojan
-    password: 107b0481-8181-47cc-9324-a178047cd8e4
+    password: 36ebef7d1b1d6205fd0c55f28800e674
     skip-cert-verify: true
     udp: true
   - name: trojan-yokohama.freetrade.link-443
@@ -11163,14 +11685,36 @@ proxies:
     port: 443
     type: trojan
     password: C3YS0KAq8x5jgpNnCeC3aa3DFXw9Aczu8DaeBpy6Fy34xSZEYORDTIZRlSl72O
-    sni: yokohama.freetrade.link
     skip-cert-verify: true
     udp: true
-  - name: trojan-jgw3.gaox.ml-443
-    server: jgw3.gaox.ml
-    port: 443
+  - name: ss-193.38.139.203-807
+    server: 193.38.139.203
+    port: 807
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: G!yBwPWH3Vao
+    udp: true
+  - name: ss-193.38.139.203-809
+    server: 193.38.139.203
+    port: 809
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: G!yBwPWH3Vao
+    udp: true
+  - name: trojan-13.125.227.134-28443
+    server: 13.125.227.134
+    port: 28443
     type: trojan
-    password: a1718180-d616-4b71-9bb6-3e96ba20f921
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-13.209.5.163-28443
+    server: 13.209.5.163
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
     skip-cert-verify: true
     udp: true
   - name: trojan-41.216.177.41-443
@@ -11180,27 +11724,36 @@ proxies:
     password: 274c1b23-2bfe-40ac-943c-ebc1aa044b22
     skip-cert-verify: true
     udp: true
-  - name: trojan-www.tokyo2023.ga-443
-    server: www.tokyo2023.ga
-    type: trojan
-    country: 🇳🇱 NL
+  - name: trojan-nl-trojan.bonds.id-443
+    server: nl-trojan.bonds.id
     port: 443
-    password: 4f7dc540-d244-4e64-af21-4b5bb300add3
+    type: trojan
+    password: 7e6256a0-b4ab-11eb-bc8f-1239d0255272
+    sni: nl-trojan.bonds.id
     skip-cert-verify: true
     udp: true
-  - name: trojan-138.124.183.216-443
-    server: 138.124.183.216
-    port: 443
+  - name: trojan-91.243.81.42-28443
+    server: 91.243.81.42
+    port: 28443
     type: trojan
-    password: xxoo
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
     skip-cert-verify: true
     udp: true
-  - name: trojan-185.126.116.235-443
-    server: 185.126.116.235
+  - name: vmess-pl1.vmess.tunnel.cx-443
+    server: pl1.vmess.tunnel.cx
     port: 443
-    type: trojan
-    password: 28d98f761aca9d636f44db62544628eb
+    type: vmess
+    uuid: d3b423b0-3e85-11ed-b91c-ff8e8bcf1521
+    alterId: 0
+    cipher: auto
+    tls: true
     skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /vmess
+      headers:
+        Host: "%7B%22Host%22:%22pl1.vmess.tunnel.cx%22%7D"
     udp: true
   - name: trojan-usa23.884899.cf-443
     server: usa23.884899.cf
@@ -11209,12 +11762,83 @@ proxies:
     password: 3df66137-a428-429c-a858-8b150721b354
     skip-cert-verify: true
     udp: true
+  - name: vmess-46.29.161.160-41443
+    server: 46.29.161.160
+    port: 41443
+    type: vmess
+    uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-88.210.37.106-41443
+    server: 88.210.37.106
+    port: 41443
+    type: vmess
+    uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-89.208.105.63-41443
+    server: 89.208.105.63
+    port: 41443
+    type: vmess
+    uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-trojan2.udpgw.com-443
+    server: trojan2.udpgw.com
+    port: 443
+    type: trojan
+    password: a79da040-2e7c-11ed-91c2-1239d0255272
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-hk31.ssgnode.ga-443
+    server: hk31.ssgnode.ga
+    port: 443
+    type: trojan
+    password: 41742_920c8caa
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-sg3-trojan.bonds.id-443
+    server: sg3-trojan.bonds.id
+    port: 443
+    type: trojan
+    password: 97fdf760-7bbf-11eb-8e14-1239d0255272
+    skip-cert-verify: true
+    udp: true
   - name: trojan-sg1-trojan.bonds.id-443
     server: sg1-trojan.bonds.id
     port: 443
     type: trojan
     password: 5c5ceb40-902b-11eb-945a-1239d0255272
-    sni: sg1-trojan.bonds.id
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-sgp.purecloud.ga-18888
+    server: sgp.purecloud.ga
+    port: 18888
+    type: trojan
+    password: 360c04ea-7509-4300-aed9-2d193732c99b
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-sg2-trojan.bonds.id-443
+    server: sg2-trojan.bonds.id
+    port: 443
+    type: trojan
+    password: f1a23bf0-1c92-11ed-b6d8-1239d0255272
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-sg6-trojan.bonds.id-443
+    server: sg6-trojan.bonds.id
+    port: 443
+    type: trojan
+    password: 81e9f5f0-1c92-11ed-8d18-1239d0255272
     skip-cert-verify: true
     udp: true
   - name: trojan-81.90.189.85-443
@@ -11231,343 +11855,11 @@ proxies:
     password: 08964210-e7b8-11ec-95aa-1239d0255272
     skip-cert-verify: true
     udp: true
-  - name: trojan-sg6-trojan.bonds.id-443
-    server: sg6-trojan.bonds.id
-    port: 443
-    type: trojan
-    password: 81e9f5f0-1c92-11ed-8d18-1239d0255272
-    skip-cert-verify: true
-    udp: true
   - name: trojan-sgt-1.opensvr.net-443
     server: sgt-1.opensvr.net
     port: 443
     type: trojan
     password: opentunnel.net-1l1tdr1hmcq7g32ndx7g
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-sg2-trojan.bonds.id-443
-    server: sg2-trojan.bonds.id
-    port: 443
-    type: trojan
-    password: f1a23bf0-1c92-11ed-b6d8-1239d0255272
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-sgp.purecloud.ga-18888
-    server: sgp.purecloud.ga
-    port: 18888
-    type: trojan
-    password: 360c04ea-7509-4300-aed9-2d193732c99b
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-sg3-trojan.bonds.id-443
-    server: sg3-trojan.bonds.id
-    port: 443
-    type: trojan
-    password: 97fdf760-7bbf-11eb-8e14-1239d0255272
-    sni: sg3-trojan.bonds.id
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-mv-tw05.link-443
-    server: mv-tw05.link
-    port: 443
-    type: trojan
-    password: s6rIg1Mkke73fwZU
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-2.58.242.43-443
-    server: 2.58.242.43
-    type: trojan
-    country: 🇹🇼 TW
-    port: 443
-    password: YWVzLTI1Ni1nY206eHBRd3lWNFc1RmRBNk5NQU5KSng3M1VT
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-tw.tcpbbr.net-443
-    server: tw.tcpbbr.net
-    type: trojan
-    country: 🇹🇼 TW
-    port: 443
-    password: 280a1162-00cb-11ec-a8bf-f23c91cfbbc9
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-pastry.taiwanesefood.link-443
-    server: pastry.taiwanesefood.link
-    port: 443
-    type: trojan
-    password: NnvKNoUu3uaud9Sp6ugzYvX92bwr6emJ
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-tw-oo-01.click-443
-    server: tw-oo-01.click
-    port: 443
-    type: trojan
-    password: q8uTrVmj95aTrFAa
-    skip-cert-verify: true
-    udp: true
-  - name: ss-mf01.xmss.vip-18888
-    server: mf01.xmss.vip
-    type: ss
-    country: 🇺🇦 UA
-    port: 18888
-    password: 35b0f578-8961-4a2b-99a1-db9555e522e4
-    cipher: chacha20-ietf-poly1305
-  - name: ss-172.99.190.39-5500
-    server: 172.99.190.39
-    type: ss
-    country: 🇺🇸US
-    port: 5500
-    password: KixLvKzwjekG00rm
-    cipher: aes-256-gcm
-  - name: ss-167.88.61.175-8080
-    server: 167.88.61.175
-    type: ss
-    country: 🇺🇸US
-    port: 8080
-    password: KixLvKzwjekG00rm
-    cipher: aes-256-gcm
-  - name: ss-38.121.43.71-8882
-    server: 38.121.43.71
-    type: ss
-    country: 🇺🇸US
-    port: 8882
-    password: kDWvXYZoTBcGkC4
-    cipher: aes-256-gcm
-  - name: ss-167.88.63.79-3306
-    server: 167.88.63.79
-    type: ss
-    country: 🇺🇸US
-    port: 3306
-    password: Y6R9pAtvxxzmGC
-    cipher: aes-256-gcm
-  - name: ss-38.68.134.85-6679
-    server: 38.68.134.85
-    type: ss
-    country: 🇺🇸US
-    port: 6679
-    password: TEzjfAYq2IjtuoS
-    cipher: aes-256-gcm
-  - name: ss-38.64.138.145-8080
-    server: 38.64.138.145
-    type: ss
-    country: 🇺🇸US
-    port: 8080
-    password: KixLvKzwjekG00rm
-    cipher: aes-256-gcm
-  - name: ss-172.99.190.39-5003
-    server: 172.99.190.39
-    type: ss
-    country: 🇺🇸US
-    port: 5003
-    password: g5MeD6Ft3CWlJId
-    cipher: aes-256-gcm
-  - name: ss-38.75.136.21-5003
-    server: 38.75.136.21
-    type: ss
-    country: 🇺🇸US
-    port: 5003
-    password: g5MeD6Ft3CWlJId
-    cipher: aes-256-gcm
-  - name: ss-38.75.136.21-5001
-    server: 38.75.136.21
-    type: ss
-    country: 🇺🇸US
-    port: 5001
-    password: Y6R9pAtvxxzmGC
-    cipher: aes-256-gcm
-  - name: ss-38.114.114.19-5601
-    server: 38.114.114.19
-    type: ss
-    country: 🇺🇸US
-    port: 5601
-    password: Y6R9pAtvxxzmGC
-    cipher: aes-256-gcm
-  - name: ss-38.75.136.21-8080
-    server: 38.75.136.21
-    type: ss
-    country: 🇺🇸US
-    port: 8080
-    password: KixLvKzwjekG00rm
-    cipher: aes-256-gcm
-  - name: ss-38.114.114.67-6697
-    server: 38.114.114.67
-    type: ss
-    country: 🇺🇸US
-    port: 6697
-    password: TEzjfAYq2IjtuoS
-    cipher: aes-256-gcm
-  - name: ss-38.121.43.71-8119
-    server: 38.121.43.71
-    type: ss
-    country: 🇺🇸US
-    port: 8119
-    password: cdBIDV42DCwnfIN
-    cipher: aes-256-gcm
-  - name: vmess-152.69.197.60-1069
-    server: 152.69.197.60
-    type: vmess
-    country: 🇺🇸US
-    port: 1069
-    uuid: ac8e26fe-8150-4b60-ae64-82fc77eba2cf
-    alterId: 0
-    cipher: auto
-    network: tcp
-    ws-path: /
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
-  - name: vmess-168.138.171.65-443
-    server: 168.138.171.65
-    type: vmess
-    country: 🇺🇸US
-    port: 443
-    uuid: 4af6fd9a-e8b4-46f2-da3a-207f4577656c
-    alterId: 0
-    cipher: auto
-    network: tcp
-    ws-path: /
-    http-opts: {}
-    h2-opts: {}
-    tls: true
-    skip-cert-verify: true
-  - name: vmess-51.81.223.22-443
-    server: 51.81.223.22
-    type: vmess
-    country: 🇺🇸US
-    port: 443
-    uuid: c0156451-4efb-45e2-84fc-8d315c4650db
-    alterId: 32
-    cipher: auto
-    network: tcp
-    ws-path: /
-    http-opts: {}
-    h2-opts: {}
-    skip-cert-verify: true
-  - name: vmess-51.81.223.20-443
-    server: 51.81.223.20
-    port: 443
-    type: vmess
-    uuid: c0156451-4efb-45e2-84fc-8d315c4650db
-    alterId: 0
-    cipher: auto
-    network: tcp
-    http-opts: {}
-    ws-path: /
-    skip-cert-verify: true
-    servername: 51.81.223.20
-  - name: vmess-137.175.5.161-443
-    server: 137.175.5.161
-    port: 443
-    type: vmess
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /path/350432191028
-      headers:
-        Host: "%7B%22Host%22:%22www.69135978.xyz%22%7D"
-    udp: true
-  - name: trojan-jgwhdlb2.gaox.ml-443
-    server: jgwhdlb2.gaox.ml
-    port: 443
-    type: trojan
-    password: 54080134-2cba-4535-8599-95650bd9aa54
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-t03.ssrsub.com.xyz-443
-    server: t03.ssrsub.com.xyz
-    port: 443
-    type: trojan
-    password: 640e3ef0-9c44-49a8-98f6-0895b11eecd6
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-lsj02.wangxd.life-3052
-    server: lsj02.wangxd.life
-    port: 3052
-    type: trojan
-    password: 3a2c0c6c-9ee5-c05f-c951-fcd73831983e
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-jpa.llbb.cf-8443
-    server: jpa.llbb.cf
-    port: 8443
-    type: trojan
-    password: 5713b236-0e0d-4efd-ad60-eb14e6ff9162
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-150.230.249.42-443
-    server: 150.230.249.42
-    port: 443
-    type: trojan
-    password: 0Y9gOHSdRt
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-fhcamd2.gaox.ml-443
-    server: fhcamd2.gaox.ml
-    port: 443
-    type: trojan
-    password: dbf9bf9c-2c3f-474a-8031-d4c00666a989
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-167.88.61.2-443
-    server: 167.88.61.2
-    port: 443
-    type: trojan
-    password: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpHIXlCd1BXSDNWYW8
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-cd.rutracker-cn.com-443
-    server: cd.rutracker-cn.com
-    type: trojan
-    country: 🇺🇸 US
-    port: 443
-    password: ukMzuFSmIXDvgW0h
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-fhcamd1.gaox.ml-443
-    server: fhcamd1.gaox.ml
-    type: trojan
-    country: 🇺🇸US
-    port: 443
-    password: e23f408a-012e-4030-8b31-02022031cb50
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-jgwhdlb1.gaox.ml-443
-    server: jgwhdlb1.gaox.ml
-    type: trojan
-    country: 🇺🇸US
-    port: 443
-    password: e05c749b-7c6b-41b8-9c71-9dcf685edf4a
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-jgwdj4.gaox.ml-443
-    server: jgwdj4.gaox.ml
-    port: 443
-    type: trojan
-    password: c09eb137-bf68-4658-84e0-102d94b74168
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-31.s7.gay-443
-    server: 31.s7.gay
-    port: 443
-    type: trojan
-    password: 107b0481-8181-47cc-9324-a178047cd8e4
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-qt42.shenseven.xyz-443
-    server: qt42.shenseven.xyz
-    port: 443
-    type: trojan
-    password: 107b0481-8181-47cc-9324-a178047cd8e4
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-qt16.shenseven.xyz-443
-    server: qt16.shenseven.xyz
-    port: 443
-    type: trojan
-    password: 107b0481-8181-47cc-9324-a178047cd8e4
     skip-cert-verify: true
     udp: true
   - name: trojan-sky998dmit3.xyz-443
@@ -11577,19 +11869,76 @@ proxies:
     password: RRy34GGwsPt47SuC
     skip-cert-verify: true
     udp: true
-  - name: trojan-us-trojan.bonds.id-443
-    server: us-trojan.bonds.id
+  - name: trojan-jgwhdlb2.gaox.ml-443
+    server: jgwhdlb2.gaox.ml
     port: 443
     type: trojan
-    password: 38239dd0-902b-11eb-afc1-1239d0255272
-    sni: us-trojan.bonds.id
+    password: 54080134-2cba-4535-8599-95650bd9aa54
     skip-cert-verify: true
     udp: true
-  - name: trojan-ld.usa01.yuiuingkig.icu-50032
-    server: ld.usa01.yuiuingkig.icu
-    port: 50032
+  - name: trojan-qt16.shenseven.xyz-443
+    server: qt16.shenseven.xyz
+    port: 443
     type: trojan
-    password: 6fb475b9-1b10-4225-ba57-5b01eb392bdd
+    password: 107b0481-8181-47cc-9324-a178047cd8e4
+    sni: qt16.shenseven.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-wangqifei.ga-41477
+    server: wangqifei.ga
+    port: 41477
+    type: trojan
+    password: 3oquVrpxPg
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-45.82.253.234-28443
+    server: 45.82.253.234
+    port: 28443
+    type: trojan
+    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
+    sni: glc.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jgwdb4.gaox.ml-443
+    server: jgwdb4.gaox.ml
+    port: 443
+    type: trojan
+    password: d06a3f01-1ff0-4792-9b8e-a5a604bc74a2
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jgwdb3.gaox.ml-443
+    server: jgwdb3.gaox.ml
+    port: 443
+    type: trojan
+    password: 8d2d5953-d649-4034-94f2-72f2df2623da
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-fhcamd2.gaox.ml-443
+    server: fhcamd2.gaox.ml
+    port: 443
+    type: trojan
+    password: dbf9bf9c-2c3f-474a-8031-d4c00666a989
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-fhcamd1.gaox.ml-443
+    server: fhcamd1.gaox.ml
+    port: 443
+    type: trojan
+    password: e23f408a-012e-4030-8b31-02022031cb50
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-150.230.217.213-443
+    server: 150.230.217.213
+    port: 443
+    type: trojan
+    password: c09eb137-bf68-4658-84e0-102d94b74168
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jgw3.gaox.ml-443
+    server: jgw3.gaox.ml
+    port: 443
+    type: trojan
+    password: a1718180-d616-4b71-9bb6-3e96ba20f921
     skip-cert-verify: true
     udp: true
   - name: trojan-singapore.anthoncloud.com-3306
@@ -11599,11 +11948,11 @@ proxies:
     password: 6589ce99-9ff7-3c1b-a744-ca3f4abfe386
     skip-cert-verify: true
     udp: true
-  - name: trojan-tw.softbank.mjj-home.com-443
-    server: tw.softbank.mjj-home.com
+  - name: trojan-184.168.127.50-443
+    server: 184.168.127.50
     port: 443
     type: trojan
-    password: share.mjj-home.com
+    password: 28d98f761aca9d636f44db62544628eb
     skip-cert-verify: true
     udp: true
   - name: trojan-www.anloao.cf-9053
@@ -11613,18 +11962,87 @@ proxies:
     password: b64b0f9c-23df-3112-a790-d8aa068aa2fe
     skip-cert-verify: true
     udp: true
-  - name: trojan-184.168.127.50-443
-    server: 184.168.127.50
+  - name: trojan-tw.softbank.mjj-home.com-443
+    server: tw.softbank.mjj-home.com
     port: 443
     type: trojan
-    password: 28d98f761aca9d636f44db62544628eb
+    password: share.mjj-home.com
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jp.useanlo.cf-6523
+    server: jp.useanlo.cf
+    port: 6523
+    type: trojan
+    password: b64b0f9c-23df-3112-a790-d8aa068aa2fe
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jpo.llbb.cf-8443
+    server: jpo.llbb.cf
+    port: 8443
+    type: trojan
+    password: 5713b236-0e0d-4efd-ad60-eb14e6ff9162
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-167.88.61.2-443
+    server: 167.88.61.2
+    port: 443
+    type: trojan
+    password: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpHIXlCd1BXSDNWYW8
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-us-trojan.bonds.id-443
+    server: us-trojan.bonds.id
+    port: 443
+    type: trojan
+    password: 38239dd0-902b-11eb-afc1-1239d0255272
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jp.iamnotagoodman.com-443
+    server: jp.iamnotagoodman.com
+    port: 443
+    type: trojan
+    password: 8aab51da-6b67-4bd2-b6e6-5ab3008cf53e
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-138.2.45.243-443
+    server: 138.2.45.243
+    port: 443
+    type: trojan
+    password: c19d1432-8b3e-4818-8837-3d160cf65908
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-56789.gq-443
+    server: 56789.gq
+    port: 443
+    type: trojan
+    password: dc1453e4-e5c4-4b30-bee3-6ed2adce9ee3
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jgw4.gaox.ml-443
+    server: jgw4.gaox.ml
+    port: 443
+    type: trojan
+    password: b7e0e71f-070c-437a-9826-6e23caeb0307
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-hg.053111.xyz-443
+    server: hg.053111.xyz
+    port: 443
+    type: trojan
+    password: d4435b69-3d08-d58a-919f-7f1707150ecb
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-ld.usa01.yuiuingkig.icu-50032
+    server: ld.usa01.yuiuingkig.icu
+    port: 50032
+    type: trojan
+    password: 6fb475b9-1b10-4225-ba57-5b01eb392bdd
     skip-cert-verify: true
     udp: true
   - name: trojan-music.missionsec.us-443
     server: music.missionsec.us
-    type: trojan
-    country: 🇺🇸 US
     port: 443
+    type: trojan
     password: oxcgPpS7rXEGZJ7sQe8BpbQ1LHfIKlDw
     skip-cert-verify: true
     udp: true
@@ -11635,56 +12053,25 @@ proxies:
     password: a1e12464-9208-4583-bd21-ab6889fdd242
     skip-cert-verify: true
     udp: true
-  - name: trojan-jp.useanlo.cf-6523
-    server: jp.useanlo.cf
-    port: 6523
+  - name: trojan-173.82.192.61-443
+    server: 173.82.192.61
+    port: 443
     type: trojan
-    password: b64b0f9c-23df-3112-a790-d8aa068aa2fe
+    password: 7NzqVeVxSEsrdvgsdvsdsafcsdgvdfbgSDGFVDGVDSG
     skip-cert-verify: true
     udp: true
   - name: trojan-209.141.47.137-443
     server: 209.141.47.137
     port: 443
     type: trojan
-    password: 03f9d1c7-40f9-475c-bf46-e3883ee7da5f
+    password: b3d27d09-77fe-431d-9829-6eba7dce20b0
     skip-cert-verify: true
     udp: true
-  - name: trojan-56789.gq-443
-    server: 56789.gq
-    type: trojan
-    country: 🇺🇸 US
-    port: 443
-    password: dc1453e4-e5c4-4b30-bee3-6ed2adce9ee3
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-jpo.llbb.cf-8443
-    server: jpo.llbb.cf
-    port: 8443
-    type: trojan
-    password: 5713b236-0e0d-4efd-ad60-eb14e6ff9162
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-listener.freetrade.link-443
-    server: listener.freetrade.link
+  - name: trojan-72.167.45.6-443
+    server: 72.167.45.6
     port: 443
     type: trojan
-    password: Z9TS0AeB8S5ZlpFNRea3aypDaXISOyzY67xCO33lF4gKq38jw2uDEnDYRCCxAc
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-xioix.gq-443
-    server: xioix.gq
-    type: trojan
-    country: 🇺🇸 US
-    port: 443
-    password: 9b7195ba-f029-4d7d-a728-ece6e0fdc363
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-173.82.192.61-443
-    server: 173.82.192.61
-    type: trojan
-    country: 🇺🇸 US
-    port: 443
-    password: 7NzqVeVxSEsrdvgsdvsdsafcsdgvdfbgSDGFVDGVDSG
+    password: 28d98f761aca9d636f44db62544628eb
     skip-cert-verify: true
     udp: true
   - name: trojan-trojan.wefuckgfw.gq-443
@@ -11694,54 +12081,18 @@ proxies:
     password: bHzDpuel
     skip-cert-verify: true
     udp: true
-  - name: trojan-150.230.217.213-443
-    server: 150.230.217.213
+  - name: trojan-byw.h99xbwg.xyz-443
+    server: byw.h99xbwg.xyz
     port: 443
     type: trojan
-    password: c09eb137-bf68-4658-84e0-102d94b74168
+    password: cf29d373-cf69-4346-b31a-ab9d224f60f2
     skip-cert-verify: true
     udp: true
-  - name: trojan-72.167.45.6-443
-    server: 72.167.45.6
-    type: trojan
-    country: 🇺🇸 US
-    port: 443
-    password: 28d98f761aca9d636f44db62544628eb
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-trus.moonfree.top-443
-    server: trus.moonfree.top
+  - name: trojan-listener.freetrade.link-443
+    server: listener.freetrade.link
     port: 443
     type: trojan
-    password: 4863e1b2-ec2f-4c71-b862-ce533028e57e
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-permissions.freetrade.link-443
-    server: permissions.freetrade.link
-    port: 443
-    type: trojan
-    password: lCYI0KOB8exTgp736ac3ZR3DnXwaOFS5pACRuZzSyeYy4N3j2D8qAxF9alDSEC
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-jgw4.gaox.ml-443
-    server: jgw4.gaox.ml
-    port: 443
-    type: trojan
-    password: b7e0e71f-070c-437a-9826-6e23caeb0307
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-jp.iamnotagoodman.com-443
-    server: jp.iamnotagoodman.com
-    port: 443
-    type: trojan
-    password: 8aab51da-6b67-4bd2-b6e6-5ab3008cf53e
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-hg.053111.xyz-443
-    server: hg.053111.xyz
-    port: 443
-    type: trojan
-    password: d4435b69-3d08-d58a-919f-7f1707150ecb
+    password: Z9TS0AeB8S5ZlpFNRea3aypDaXISOyzY67xCO33lF4gKq38jw2uDEnDYRCCxAc
     skip-cert-verify: true
     udp: true
   - name: trojan-hacks.missionsec.us-443
@@ -11749,13 +12100,6 @@ proxies:
     port: 443
     type: trojan
     password: ZVqSTHcLasKIKGnzjnr8aHRPATiaTj5U
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-byw.h99xbwg.xyz-443
-    server: byw.h99xbwg.xyz
-    port: 443
-    type: trojan
-    password: cf29d373-cf69-4346-b31a-ab9d224f60f2
     skip-cert-verify: true
     udp: true
   - name: trojan-purchases.freetrade.link-443
@@ -11772,12 +12116,305 @@ proxies:
     password: 6fb475b9-1b10-4225-ba57-5b01eb392bdd
     skip-cert-verify: true
     udp: true
-  - name: vmess-4.hk.zz.xxxxx.x-t-fuckword.network-36676
-    server: 4.hk.zz.xxxxx.x-t-fuckword.network
+  - name: trojan-t03.ssrsub.com.xyz-443
+    server: t03.ssrsub.com.xyz
+    port: 443
+    type: trojan
+    password: 640e3ef0-9c44-49a8-98f6-0895b11eecd6
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-xioix.gq-443
+    server: xioix.gq
+    port: 443
+    type: trojan
+    password: 9b7195ba-f029-4d7d-a728-ece6e0fdc363
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-youtube-bai-piao-wang-zhe-usa.98848.xyz-17449
+    server: youtube-bai-piao-wang-zhe-usa.98848.xyz
+    port: 17449
+    type: trojan
+    password: yBq0efi1j7
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-45.88.148.234-28443
+    server: 45.88.148.234
+    port: 28443
+    type: trojan
+    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
+    sni: glc.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-155.248.172.87-28443
+    server: 155.248.172.87
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-212.90.123.130-28443
+    server: 212.90.123.130
+    port: 28443
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-zf1.windowsupdate1.com-30030
+    server: zf1.windowsupdate1.com
+    port: 30030
+    type: trojan
+    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
+    sni: mzy.hruqoaw.cn
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-150.230.249.42-443
+    server: 150.230.249.42
+    port: 443
+    type: trojan
+    password: 0Y9gOHSdRt
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-simpang.freetrade.link-443
+    server: simpang.freetrade.link
+    port: 443
+    type: trojan
+    password: XEyN0OZ28xxCDO7C83DeAa3YcSjYKTgFA5n9IRpFwuB3qSz4aZClSapy3eRl6D
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-nice-se01.tiktokcdn.buzz-8443
+    server: nice-se01.tiktokcdn.buzz
+    port: 8443
+    type: trojan
+    password: ab1e9bdd-6f92-42b7-b4ac-f476802a2aa1
+    sni: nice-se01.tiktokcdn.buzz
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-sg-01.tiktokcdn.top-443
+    server: sg-01.tiktokcdn.top
+    port: 443
+    type: trojan
+    password: bb5b1337-fa9e-4e00-b8c6-1110e626171d
+    sni: sg-01.tiktokcdn.top
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-150.230.96.103-443
+    server: 150.230.96.103
+    port: 443
+    type: trojan
+    password: da777aae-defb-41d0-a183-2c27da2b4677
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-129.146.190.42-443
+    server: 129.146.190.42
+    port: 443
+    type: trojan
+    password: dbf9bf9c-2c3f-474a-8031-d4c00666a989
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-144.126.211.35-12340
+    server: 144.126.211.35
+    port: 12340
+    type: trojan
+    password: dfbf0d67-f03d-4184-a224-c2d64a571f99
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-s2.hass.win-12340
+    server: s2.hass.win
+    port: 12340
+    type: trojan
+    password: dfbf0d67-f03d-4184-a224-c2d64a571f99
+    sni: static.dingtalk.com
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-31.s7.gay-443
+    server: 31.s7.gay
+    port: 443
+    type: trojan
+    password: 107b0481-8181-47cc-9324-a178047cd8e4
+    sni: 31.s7.gay
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-s2.hazz.win-12340
+    server: s2.hazz.win
+    port: 12340
+    type: trojan
+    password: dfbf0d67-f03d-4184-a224-c2d64a571f99
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-qt26.shenseven.xyz-443
+    server: qt26.shenseven.xyz
+    port: 443
+    type: trojan
+    password: 107b0481-8181-47cc-9324-a178047cd8e4
+    sni: qt26.shenseven.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-nicekr-02.tiktokcdn.buzz-20531
+    server: nicekr-02.tiktokcdn.buzz
+    port: 20531
+    type: trojan
+    password: e4a0f5c9-70d4-41f1-82ae-2ecd48d98408
+    sni: nicekr-02.tiktokcdn.buzz
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-16.163.140.21-443
+    server: 16.163.140.21
+    port: 443
+    type: trojan
+    password: f62b3d55-66e5-4a2e-9ddc-a294bbce7b13
+    sni: inf-hk2.qchwnd.moe
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-159.223.32.230-8080
+    server: 159.223.32.230
+    port: 8080
     type: vmess
+    uuid: 7002330d-fe27-4b56-b22f-d7e3eb825fdb
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /cctv13/hd.m3u8
+      headers:
+        Host: "%7B%22Host%22:%22159.223.32.230%22%7D"
+    udp: true
+  - name: vmess-137.175.5.161-443
+    server: 137.175.5.161
+    port: 443
+    type: vmess
+    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /path/350432191028
+      headers:
+        Host: "%7B%22Host%22:%22www.69135978.xyz%22%7D"
+    udp: true
+  - name: vmess-68.183.129.197-8080
+    server: 68.183.129.197
+    port: 8080
+    type: vmess
+    uuid: 7002330d-fe27-4b56-b22f-d7e3eb825fdb
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /cctv13/hd.m3u8
+      headers:
+        Host: "%7B%22Host%22:%2268.183.129.197%22%7D"
+    udp: true
+  - name: vmess-157.254.193.68-10020
+    server: 157.254.193.68
+    port: 10020
+    type: vmess
+    uuid: f1f45005-f074-430b-a4db-7109f50c3bce
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /
+    udp: true
+  - name: trojan-qt42.shenseven.xyz-443
+    server: qt42.shenseven.xyz
+    port: 443
+    type: trojan
+    password: 107b0481-8181-47cc-9324-a178047cd8e4
+    sni: qt42.shenseven.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-cf.naixii.top-443
+    server: cf.naixii.top
+    port: 443
+    type: vmess
+    uuid: 3fad3b4c-8691-42f2-a46d-9875cacaeeb2
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /b472f/
+      headers:
+        Host: "%7B%22Host%22:%22linode.sharecentre.xyz%22%7D"
+    udp: true
+  - name: trojan-lsj02.wangxd.life-3052
+    server: lsj02.wangxd.life
+    port: 3052
+    type: trojan
+    password: 3a2c0c6c-9ee5-c05f-c951-fcd73831983e
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jgwxn3.gaox.ml-443
+    server: jgwxn3.gaox.ml
+    type: trojan
+    country: 🇦🇺 AU
+    port: 443
+    password: cb43b7c2-b744-41c5-bcc2-fd7467b332cf
+    skip-cert-verify: true
+    udp: true
+  - name: ss-14.29.124.174-11009
+    server: 14.29.124.174
+    type: ss
     country: 🇨🇳CN
-    port: 36676
-    uuid: 244effd9-0204-3c4a-8537-0dca4e5fd9b5
+    port: 11009
+    password: QazEdcTgb159@$*
+    cipher: aes-128-cfb
+  - name: ss-14.29.124.174-11035
+    server: 14.29.124.174
+    type: ss
+    country: 🇨🇳 CN
+    port: 11035
+    password: QazEdcTgb159@$*
+    cipher: aes-128-cfb
+  - name: trojan-sp.llbb.cf-8443
+    server: sp.llbb.cf
+    type: trojan
+    country: 🇬🇧 GB
+    port: 8443
+    password: 5713b236-0e0d-4efd-ad60-eb14e6ff9162
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-tky3.ssgnode.ga-443
+    server: tky3.ssgnode.ga
+    type: trojan
+    country: 🇯🇵 JP
+    port: 443
+    password: 82a115db-6e59-4319-973lWNFc1RmRBNk5NQU5KSnga3fa58ac5a3ef0-b4ab-11eb-b65e-1239d0255272
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-www.tokyo2023.ga-443
+    server: www.tokyo2023.ga
+    type: trojan
+    country: 🇳🇱 NL
+    port: 443
+    password: 4f7dc540-d244-4e64-af21-4b5bb300add3
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-138.124.183.216-443
+    server: 138.124.183.216
+    type: trojan
+    country: 🇳🇴 NO
+    port: 443
+    password: xxoo
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-139.162.29.179-18231
+    server: 139.162.29.179
+    type: vmess
+    country: 🇸🇬 SG
+    port: 18231
+    uuid: cb185001-85ed-4186-e391-fdeb7b624403
     alterId: 0
     cipher: auto
     network: tcp
@@ -11785,13 +12422,90 @@ proxies:
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
-  - name: ss-134.195.196.149-7307
-    server: 134.195.196.149
+  - name: trojan-tw-oo-01.click-443
+    server: tw-oo-01.click
+    type: trojan
+    country: 🇹🇼 TW
+    port: 443
+    password: q8uTrVmj95aTrFAa
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-mv-tw05.link-443
+    server: mv-tw05.link
+    type: trojan
+    country: 🇹🇼 TW
+    port: 443
+    password: s6rIg1Mkke73fwZU
+    skip-cert-verify: true
+    udp: true
+  - name: ss-mf01.xmss.vip-18888
+    server: mf01.xmss.vip
     type: ss
-    country: 🏁ZZ
-    port: 7307
-    password: FoOiGlkAA9yPEGP
-    cipher: aes-256-gcm
+    country: 🇺🇦 UA
+    port: 18888
+    password: 35b0f578-8961-4a2b-99a1-db9555e522e4
+    cipher: chacha20-ietf-poly1305
+  - name: trojan-ce.rutracker-cn.com-443
+    server: ce.rutracker-cn.com
+    type: trojan
+    country: 🇺🇦 UA
+    port: 443
+    password: 5y8y3CwxRVYhyfSY
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-152.69.197.60-1069
+    server: 152.69.197.60
+    type: vmess
+    country: 🇺🇸US
+    port: 1069
+    uuid: ac8e26fe-8150-4b60-ae64-82fc77eba2cf
+    alterId: 0
+    cipher: auto
+    network: tcp
+    ws-path: /
+    http-opts: {}
+    h2-opts: {}
+    skip-cert-verify: true
+  - name: trojan-s162.s2022.xyz-23802
+    server: s162.s2022.xyz
+    type: trojan
+    country: 🇺🇸 US
+    port: 23802
+    password: d724e4d0-841b-3b92-ac0d-70fcbbb7e934
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-trus.moonfree.top-443
+    server: trus.moonfree.top
+    type: trojan
+    country: 🇺🇸 US
+    port: 443
+    password: 4863e1b2-ec2f-4c71-b862-ce533028e57e
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-permissions.freetrade.link-443
+    server: permissions.freetrade.link
+    type: trojan
+    country: 🇺🇸 US
+    port: 443
+    password: lCYI0KOB8exTgp736ac3ZR3DnXwaOFS5pACRuZzSyeYy4N3j2D8qAxF9alDSEC
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jgwhdlb1.gaox.ml-443
+    server: jgwhdlb1.gaox.ml
+    type: trojan
+    country: 🇺🇸US
+    port: 443
+    password: e05c749b-7c6b-41b8-9c71-9dcf685edf4a
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jgwdj4.gaox.ml-443
+    server: jgwdj4.gaox.ml
+    type: trojan
+    country: 🇺🇸 US
+    port: 443
+    password: c09eb137-bf68-4658-84e0-102d94b74168
+    skip-cert-verify: true
+    udp: true
   - name: vmess-cf.731808.tk-443
     server: cf.731808.tk
     port: 443
@@ -11806,20 +12520,761 @@ proxies:
       path: /xpkbvws
       headers:
         Host: 2.731808.tk
-  - name: vmess-cf.naixii.top-443
-    server: cf.naixii.top
+  - name: trojan-jgwld2.gaox.ml-443
+    server: jgwld2.gaox.ml
+    port: 443
+    type: trojan
+    password: d7fd8aaa-4581-4281-80aa-4b63e5e1f157
+    sni: jgwld2.gaox.ml
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-aicoo6du.com-443
+    server: aicoo6du.com
     port: 443
     type: vmess
-    uuid: 3fad3b4c-8691-42f2-a46d-9875cacaeeb2
+    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
+    alterId: 4
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /ws
+    ws-headers:
+      Host: aicoo6du.com
+    udp: true
+  - name: vmess-129.227.201.234-443
+    server: 129.227.201.234
+    port: 443
+    type: vmess
+    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
+    alterId: 4
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /ws
+    ws-headers:
+      Host: aicoo6du.com
+    udp: true
+  - name: vmess-120.240.48.20-38101
+    server: 120.240.48.20
+    port: 38101
+    type: vmess
+    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: t.me/vpnhat
+    udp: true
+  - name: vmess-119.147.20.236-38201
+    server: 119.147.20.236
+    port: 38201
+    type: vmess
+    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /hls/cctv5phd.m3u8
+      headers:
+        Host: aweikeji-YouTube-TG
+    udp: true
+  - name: vmess-120.240.48.19-38106
+    server: 120.240.48.19
+    port: 38106
+    type: vmess
+    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: 120.240.48.19
+    udp: true
+  - name: vmess-101.230.149.29-38106
+    server: 101.230.149.29
+    port: 38106
+    type: vmess
+    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: www.ivpnpro.net
+    udp: true
+  - name: vmess-sg2603.cloudmatrix.xyz-2603
+    server: sg2603.cloudmatrix.xyz
+    port: 2603
+    type: vmess
+    uuid: a992be42-bed4-3037-8788-9e860cd635d3
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: t.me/vpnhat
+    udp: true
+  - name: vmess-120.240.48.20-38106
+    server: 120.240.48.20
+    port: 38106
+    type: vmess
+    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: 120.240.48.20
+    udp: true
+  - name: vmess-ingress-i1.onebox6.org-38106
+    server: ingress-i1.onebox6.org
+    port: 38106
+    type: vmess
+    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: www.ivpnpro.net
+    udp: true
+  - name: vmess-120.240.48.20-38102
+    server: 120.240.48.20
+    port: 38102
+    type: vmess
+    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: t.me/vpnhat
+    udp: true
+  - name: vmess-85.209.159.107-20403
+    server: 85.209.159.107
+    port: 20403
+    type: vmess
+    uuid: b3b08b1c-c0a4-11ec-8151-00163c3fe0cd
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /Asq7j5Mb/
+    ws-headers:
+      Host: 85.209.159.107
+    udp: true
+  - name: vmess-sg3.31vpn.com-443
+    server: sg3.31vpn.com
+    port: 443
+    type: vmess
+    uuid: ff382d09-becd-41cb-8e4f-3e256b27de47
     alterId: 0
     cipher: auto
     tls: true
-    servername: linode.sharecentre.xyz
+    skip-cert-verify: true
     network: ws
     ws-opts:
-      path: /b472f/
+      path: /fastssh/ntmdq/6267584ee4988/
       headers:
-        Host: linode.sharecentre.xyz
+        Host: sg3.31vpn.com
+    udp: true
+  - name: vmess-sg3.31vpn.com-80
+    server: sg3.31vpn.com
+    port: 80
+    type: vmess
+    uuid: ff382d09-becd-41cb-8e4f-3e256b27de47
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /fastssh/ntmdq/6267584ee4988/
+      headers:
+        Host: aweikeji-YouTube-TG
+    udp: true
+  - name: vmess-x.laoyouv2.top-10080
+    server: x.laoyouv2.top
+    port: 10080
+    type: vmess
+    uuid: 29430b3d-f83f-3c74-94a2-e8c1a459219f
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-hkaz3.xmrth-node.xyz-12568
+    server: hkaz3.xmrth-node.xyz
+    port: 12568
+    type: vmess
+    uuid: ececdd8d-d257-3e9b-a770-9abaf61e4920
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /index
+    ws-headers:
+      Host: www.baidu.com
+    udp: true
+  - name: vmess-hkaz3.xmrth-node.xyz-12567
+    server: hkaz3.xmrth-node.xyz
+    port: 12567
+    type: vmess
+    uuid: ececdd8d-d257-3e9b-a770-9abaf61e4920
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /index
+    ws-headers:
+      Host: www.baidu.com
+    udp: true
+  - name: vmess-331tw.fans8.xyz-443
+    server: 331tw.fans8.xyz
+    port: 443
+    type: vmess
+    uuid: 93bdaed5-13c5-3927-93d7-a6877c5ac8d2
+    alterId: 2
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /ray
+      headers:
+        Host: 331tw.fans8.xyz
+    udp: true
+  - name: ss-172.105.244.165-8091
+    server: 172.105.244.165
+    port: 8091
+    type: ss
+    cipher: aes-256-gcm
+    password: PCnnH6SQSnfoS27
+    udp: true
+  - name: ss-cn1.relay.iepl.pw-50300
+    server: cn1.relay.iepl.pw
+    port: 50300
+    type: ss
+    cipher: aes-128-gcm
+    password: df87f3f2-f2a7-4fae-ae7d-507cea790c95
+    udp: true
+  - name: ss-172.105.244.165-3389
+    server: 172.105.244.165
+    port: 3389
+    type: ss
+    cipher: aes-256-gcm
+    password: Y6R9pAtvxxzmGC
+    udp: true
+  - name: ss-172.105.244.165-7307
+    server: 172.105.244.165
+    port: 7307
+    type: ss
+    cipher: aes-256-gcm
+    password: FoOiGlkAA9yPEGP
+    udp: true
+  - name: ss-172.105.244.165-5004
+    server: 172.105.244.165
+    port: 5004
+    type: ss
+    cipher: aes-256-gcm
+    password: g5MeD6Ft3CWlJId
+    udp: true
+  - name: ss-172.105.244.165-7306
+    server: 172.105.244.165
+    port: 7306
+    type: ss
+    cipher: aes-256-gcm
+    password: FoOiGlkAA9yPEGP
+    udp: true
+  - name: ss-172.105.244.165-8080
+    server: 172.105.244.165
+    port: 8080
+    type: ss
+    cipher: aes-256-gcm
+    password: KixLvKzwjekG00rm
+    udp: true
+  - name: ss-172.105.244.165-2376
+    server: 172.105.244.165
+    port: 2376
+    type: ss
+    cipher: aes-256-gcm
+    password: faBAoD54k87UJG7
+    udp: true
+  - name: vmess-jp03-vm0.ikuuu.casa-449
+    server: jp03-vm0.ikuuu.casa
+    port: 449
+    type: vmess
+    uuid: 8581d15e-ae94-3fda-9de5-e8dff1c05e23
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: jp03-vm0.ikuuu.casa
+    udp: true
+  - name: ss-172.105.244.165-8090
+    server: 172.105.244.165
+    port: 8090
+    type: ss
+    cipher: aes-256-gcm
+    password: PCnnH6SQSnfoS27
+    udp: true
+  - name: vmess-in-v1.sdgdn.com-50207
+    server: in-v1.sdgdn.com
+    port: 50207
+    type: vmess
+    uuid: b1478e24-4916-3abe-8f17-15931012ecbe
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: in-v1.sdgdn.com
+    udp: true
+  - name: vmess-in-v1.sdgdn.com-50206
+    server: in-v1.sdgdn.com
+    port: 50206
+    type: vmess
+    uuid: b1478e24-4916-3abe-8f17-15931012ecbe
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: telegram.channel.p2psharing
+    udp: true
+  - name: vmess-in-v1.sdgdn.com-50701
+    server: in-v1.sdgdn.com
+    port: 50701
+    type: vmess
+    uuid: b1478e24-4916-3abe-8f17-15931012ecbe
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: telegram.channel.ripaojiedian
+    udp: true
+  - name: ss-169.197.142.99-8090
+    server: 169.197.142.99
+    port: 8090
+    type: ss
+    cipher: aes-256-gcm
+    password: PCnnH6SQSnfoS27
+    udp: true
+  - name: ss-172.105.58.152-8119
+    server: 172.105.58.152
+    port: 8119
+    type: ss
+    cipher: aes-256-gcm
+    password: cdBIDV42DCwnfIN
+    udp: true
+  - name: ss-193.108.118.182-8009
+    server: 193.108.118.182
+    port: 8009
+    type: ss
+    cipher: aes-256-gcm
+    password: XKFKl2rULjIp74
+    udp: true
+  - name: vmess-in-v1.sdgdn.com-50205
+    server: in-v1.sdgdn.com
+    port: 50205
+    type: vmess
+    uuid: b1478e24-4916-3abe-8f17-15931012ecbe
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: telegram.channel.ripaojiedian
+    udp: true
+  - name: vmess-cm1-sg.hutaod.me-12335
+    server: cm1-sg.hutaod.me
+    port: 12335
+    type: vmess
+    uuid: 6954c760-6c9c-3f2a-bec0-1348296177e5
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-154.23.191.201-443
+    server: 154.23.191.201
+    port: 443
+    type: vmess
+    uuid: b9984674-f771-4e67-a198-c7e60720ba2c
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /
+    ws-headers:
+      Host: 154.23.191.201
+    udp: true
+  - name: vmess-lu1.gogogoo.cyou-443
+    server: lu1.gogogoo.cyou
+    port: 443
+    type: vmess
+    uuid: db5d1aa3-908b-44d1-be0a-4e6a8d4e4cda
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /go
+    ws-headers:
+      Host: lu1.gogogoo.cyou
+    udp: true
+  - name: trojan-jgwcc3.gaox.ml-443
+    server: jgwcc3.gaox.ml
+    type: trojan
+    country: 🇺🇸US
+    port: 443
+    password: b291d129-ee55-4801-a9b8-b5316e5c37b7
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-sg1.qingyun123.xyz-10001
+    server: sg1.qingyun123.xyz
+    port: 10001
+    type: trojan
+    password: 4337dfb9-bc77-4c08-8672-1f12f4d6f7fb
+    sni: sg1.qingyun123.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-jp1.qingyun123.xyz-10100
+    server: jp1.qingyun123.xyz
+    port: 10100
+    type: trojan
+    password: 4337dfb9-bc77-4c08-8672-1f12f4d6f7fb
+    sni: jp1.qingyun123.xyz
+    skip-cert-verify: true
+    udp: true
+  - name: ss-38.68.135.19-5004
+    server: 38.68.135.19
+    type: ss
+    country: 🇺🇸US
+    port: 5004
+    password: g5MeD6Ft3CWlJId
+    cipher: aes-256-gcm
+  - name: vmess-in-v1.sdgdn.com-50401
+    server: in-v1.sdgdn.com
+    port: 50401
+    type: vmess
+    uuid: b1478e24-4916-3abe-8f17-15931012ecbe
+    alterId: 1
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /hls/cctv5phd.m3u8
+    ws-headers:
+      Host: in-v1.sdgdn.com
+    udp: true
+  - name: vmess-cm1-us.hutaod.me-12234
+    server: cm1-us.hutaod.me
+    port: 12234
+    type: vmess
+    uuid: 6954c760-6c9c-3f2a-bec0-1348296177e5
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-cm1-us.hutaod.me-12231
+    server: cm1-us.hutaod.me
+    port: 12231
+    type: vmess
+    uuid: 6954c760-6c9c-3f2a-bec0-1348296177e5
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: ss-38.68.135.19-5500
+    server: 38.68.135.19
+    type: ss
+    country: 🇺🇸US
+    port: 5500
+    password: KixLvKzwjekG00rm
+    cipher: aes-256-gcm
+  - name: vmess-hkaz4.xmrth-node.xyz-13302
+    server: hkaz4.xmrth-node.xyz
+    port: 13302
+    type: vmess
+    uuid: ececdd8d-d257-3e9b-a770-9abaf61e4920
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /index
+    ws-headers:
+      Host: hkaz4.xmrth-node.xyz
+    udp: true
+  - name: ss-c39s1.jamjams.net-32567
+    server: c39s1.jamjams.net
+    port: 32567
+    type: ss
+    cipher: aes-256-gcm
+    password: m35yfEjtbS
+    udp: true
+  - name: ss-38.68.135.19-7306
+    server: 38.68.135.19
+    type: ss
+    country: 🇺🇸US
+    port: 7306
+    password: FoOiGlkAA9yPEGP
+    cipher: aes-256-gcm
+  - name: trojan-o7cx6bd6t4yjiqsm.xiongsonglin.com-443
+    server: o7cx6bd6t4yjiqsm.xiongsonglin.com
+    port: 443
+    type: trojan
+    password: e5d46365e25e31d94279c2bcf93390a2
+    sni: o7cx6bd6t4yjiqsm.xiongsonglin.com
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-usa-sr-106.mitoption.com-443
+    server: usa-sr-106.mitoption.com
+    port: 443
+    type: trojan
+    password: e5d46365e25e31d94279c2bcf93390a2
+    sni: usa-sr-106.mitoption.com
+    skip-cert-verify: true
+    udp: true
+  - name: trojan-sg-sr-114.mitoption.com-443
+    server: sg-sr-114.mitoption.com
+    port: 443
+    type: trojan
+    password: e5d46365e25e31d94279c2bcf93390a2
+    sni: sg-sr-114.mitoption.com
+    skip-cert-verify: true
+    udp: true
+  - name: ss-38.68.135.19-5003
+    server: 38.68.135.19
+    type: ss
+    country: 🇺🇸US
+    port: 5003
+    password: g5MeD6Ft3CWlJId
+    cipher: aes-256-gcm
+  - name: trojan-zones.defun.us-443
+    server: zones.defun.us
+    port: 443
+    type: trojan
+    password: lpmMwDKeBbKKPq8K
+    sni: zones.defun.us
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-104.16.162.16-2053
+    server: 104.16.162.16
+    port: 2053
+    type: vmess
+    uuid: bf67437e-6c90-45ca-abc2-c7240a5ce2aa
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /eisasqa
+      headers:
+        Host: foxus.fovi.tk
+    udp: true
+  - name: vmess-104.166.135.10-443
+    server: 104.166.135.10
+    port: 443
+    type: vmess
+    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
+    alterId: 4
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /ws
+    ws-headers:
+      Host: ahdaeph8.com
+    udp: true
+  - name: vmess-streaming-1-route.teacher2050.com-31222
+    server: streaming-1-route.teacher2050.com
+    port: 31222
+    type: vmess
+    uuid: B8AAA6E1-F0B3-B9EC-3DFC-BB226C167B33
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-gy.sharecentrepro.tk-10001
+    server: gy.sharecentrepro.tk
+    port: 10001
+    type: vmess
+    uuid: 6731a7a4-cac0-4218-d3e7-a4fe8c933b5a
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /xrenblog
+    ws-headers:
+      Host: sgp.xrenblog.com
+    udp: true
+  - name: vmess-top.njiang.tk-443
+    server: top.njiang.tk
+    port: 443
+    type: vmess
+    uuid: b2d062be-1912-4523-96c9-4f0f101c931b
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /wivhvws
+    ws-headers:
+      Host: top.njiang.tk
+    udp: true
+  - name: vmess-fr1t.moonfree.top-8443
+    server: fr1t.moonfree.top
+    port: 8443
+    type: vmess
+    uuid: 122f166c-537e-4e8f-9310-4e50652fa7e9
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /
+    ws-headers:
+      Host: fr1t.moonfree.top
+    udp: true
+  - name: vmess-hkaz1.xmrth-node.xyz-10033
+    server: hkaz1.xmrth-node.xyz
+    port: 10033
+    type: vmess
+    uuid: ececdd8d-d257-3e9b-a770-9abaf61e4920
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    network: ws
+    ws-path: /index
+    ws-headers:
+      Host: hkaz1.xmrth-node.xyz
+    udp: true
+  - name: vmess-ahdaeph8.com-443
+    server: ahdaeph8.com
+    port: 443
+    type: vmess
+    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
+    alterId: 4
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /ws
+    ws-headers:
+      Host: ahdaeph8.com
+    udp: true
+  - name: vmess-v2.ssrsub.com-8443
+    server: v2.ssrsub.com
+    port: 8443
+    type: vmess
+    uuid: b7c70df3-f92f-4800-a8e1-67e6dc833256
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /ssrsub
+    ws-headers:
+      Host: v2.ssrsub.com
+    udp: true
+  - name: vmess-cm1-us.hutaod.me-12232
+    server: cm1-us.hutaod.me
+    port: 12232
+    type: vmess
+    uuid: 6954c760-6c9c-3f2a-bec0-1348296177e5
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-cm1-us.hutaod.me-12233
+    server: cm1-us.hutaod.me
+    port: 12233
+    type: vmess
+    uuid: 6954c760-6c9c-3f2a-bec0-1348296177e5
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: true
+    udp: true
+  - name: vmess-v1.ssrsub.com-8443
+    server: v1.ssrsub.com
+    port: 8443
+    type: vmess
+    uuid: b7c70df3-f92f-4800-a8e1-67e6dc833256
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /ssrsub
+    ws-headers:
+      Host: v1.ssrsub.com
+    udp: true
+  - name: ss-92.38.184.228-55231
+    server: 92.38.184.228
+    port: 55231
+    type: ss
+    cipher: chacha20-ietf-poly1305
+    password: zidKl2rcLVBm
+    udp: true
+  - name: vmess-v4.ssrsub.com-8443
+    server: v4.ssrsub.com
+    port: 8443
+    type: vmess
+    uuid: b7c70df3-f92f-4800-a8e1-67e6dc833256
+    alterId: 0
+    cipher: auto
+    tls: true
+    skip-cert-verify: true
+    network: ws
+    ws-path: /ssrsub
+    ws-headers:
+      Host: v4.ssrsub.com
+    udp: true
   - name: ss-213.183.53.177-9007
     server: 213.183.53.177
     port: 9007
@@ -12102,13 +13557,6 @@ proxies:
     sni: fmus2.shanjun.me
     skip-cert-verify: true
     udp: true
-  - name: ss-169.197.142.99-8090
-    server: 169.197.142.99
-    port: 8090
-    type: ss
-    cipher: aes-256-gcm
-    password: PCnnH6SQSnfoS27
-    udp: true
   - name: ss-169.197.142.99-3306
     server: 169.197.142.99
     port: 3306
@@ -12116,13 +13564,6 @@ proxies:
     cipher: aes-256-gcm
     password: Y6R9pAtvxxzmGC
     udp: true
-  - name: ss-38.68.135.19-5003
-    server: 38.68.135.19
-    type: ss
-    country: 🇺🇸US
-    port: 5003
-    password: g5MeD6Ft3CWlJId
-    cipher: aes-256-gcm
   - name: ss-169.197.142.99-3389
     server: 169.197.142.99
     port: 3389
@@ -12158,26 +13599,12 @@ proxies:
     cipher: aes-256-gcm
     password: 5AsJpT36WpdWbv5r
     udp: true
-  - name: ss-38.68.135.19-5004
-    server: 38.68.135.19
-    type: ss
-    country: 🇺🇸US
-    port: 5004
-    password: g5MeD6Ft3CWlJId
-    cipher: aes-256-gcm
   - name: ss-38.68.135.19-3389
     server: 38.68.135.19
     type: ss
     country: 🇺🇸US
     port: 3389
     password: Y6R9pAtvxxzmGC
-    cipher: aes-256-gcm
-  - name: ss-38.68.135.19-7306
-    server: 38.68.135.19
-    type: ss
-    country: 🇺🇸US
-    port: 7306
-    password: FoOiGlkAA9yPEGP
     cipher: aes-256-gcm
   - name: ss-38.68.135.19-2376
     server: 38.68.135.19
@@ -12242,26 +13669,6 @@ proxies:
     tls: false
     skip-cert-verify: true
     udp: true
-  - name: vmess-cm1-us.hutaod.me-12233
-    server: cm1-us.hutaod.me
-    port: 12233
-    type: vmess
-    uuid: 6954c760-6c9c-3f2a-bec0-1348296177e5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-cm1-us.hutaod.me-12231
-    server: cm1-us.hutaod.me
-    port: 12231
-    type: vmess
-    uuid: 6954c760-6c9c-3f2a-bec0-1348296177e5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
   - name: vmess-4.ezydfdd.com-443
     server: 4.ezydfdd.com
     port: 443
@@ -12276,20 +13683,6 @@ proxies:
       path: /qwe
       headers:
         Host: 4.ezydfdd.com
-    udp: true
-  - name: vmess-104.16.162.16-2053
-    server: 104.16.162.16
-    port: 2053
-    type: vmess
-    uuid: bf67437e-6c90-45ca-abc2-c7240a5ce2aa
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /eisasqa
-    ws-headers:
-      Host: foxus.fovi.tk
     udp: true
   - name: vmess-152.70.88.168-49081
     server: 152.70.88.168
@@ -12423,42 +13816,6 @@ proxies:
     cipher: aes-128-gcm
     password: df87f3f2-f2a7-4fae-ae7d-507cea790c95
     udp: true
-  - name: vmess-331tw.fans8.xyz-443
-    server: 331tw.fans8.xyz
-    port: 443
-    type: vmess
-    uuid: 93bdaed5-13c5-3927-93d7-a6877c5ac8d2
-    alterId: 2
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /ray
-    ws-headers:
-      Host: 331tw.fans8.xyz
-    udp: true
-  - name: vmess-119.147.20.236-38201
-    server: 119.147.20.236
-    port: 38201
-    type: vmess
-    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: ingress-i1.onebox6.org
-    udp: true
-  - name: trojan-sg1.qingyun123.xyz-10001
-    server: sg1.qingyun123.xyz
-    port: 10001
-    type: trojan
-    password: 4337dfb9-bc77-4c08-8672-1f12f4d6f7fb
-    sni: sg1.qingyun123.xyz
-    skip-cert-verify: true
-    udp: true
   - name: ss-cn1.relay.iepl.pw-50500
     server: cn1.relay.iepl.pw
     port: 50500
@@ -12475,34 +13832,6 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: true
-    udp: true
-  - name: vmess-sg3.31vpn.com-80
-    server: sg3.31vpn.com
-    port: 80
-    type: vmess
-    uuid: ff382d09-becd-41cb-8e4f-3e256b27de47
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /fastssh/ntmdq/6267584ee4988/
-    ws-headers:
-      Host: sg3.31vpn.com
-    udp: true
-  - name: vmess-sg3.31vpn.com-443
-    server: sg3.31vpn.com
-    port: 443
-    type: vmess
-    uuid: ff382d09-becd-41cb-8e4f-3e256b27de47
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /fastssh/ntmdq/6267584ee4988/
-    ws-headers:
-      Host: sg3.31vpn.com
     udp: true
   - name: ss-cn1.relay.iepl.pw-50700
     server: cn1.relay.iepl.pw
@@ -12551,14 +13880,6 @@ proxies:
     alterId: 0
     cipher: auto
     tls: false
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-jp1.qingyun123.xyz-10100
-    server: jp1.qingyun123.xyz
-    port: 10100
-    type: trojan
-    password: 4337dfb9-bc77-4c08-8672-1f12f4d6f7fb
-    sni: jp1.qingyun123.xyz
     skip-cert-verify: true
     udp: true
   - name: vmess-cm1-jp.hutaod.me-12035
@@ -12829,622 +14150,6 @@ proxies:
       headers:
         Host: aweikeji-YouTube-TG
     udp: true
-  - name: trojan-jgwld2.gaox.ml-443
-    server: jgwld2.gaox.ml
-    port: 443
-    type: trojan
-    password: d7fd8aaa-4581-4281-80aa-4b63e5e1f157
-    sni: jgwld2.gaox.ml
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-aicoo6du.com-443
-    server: aicoo6du.com
-    port: 443
-    type: vmess
-    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-    alterId: 4
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /ws
-    ws-headers:
-      Host: aicoo6du.com
-    udp: true
-  - name: vmess-129.227.201.234-443
-    server: 129.227.201.234
-    port: 443
-    type: vmess
-    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-    alterId: 4
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /ws
-    ws-headers:
-      Host: aicoo6du.com
-    udp: true
-  - name: vmess-120.240.48.20-38101
-    server: 120.240.48.20
-    port: 38101
-    type: vmess
-    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: t.me/vpnhat
-    udp: true
-  - name: vmess-120.240.48.19-38106
-    server: 120.240.48.19
-    port: 38106
-    type: vmess
-    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: 120.240.48.19
-    udp: true
-  - name: vmess-101.230.149.29-38106
-    server: 101.230.149.29
-    port: 38106
-    type: vmess
-    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: www.ivpnpro.net
-    udp: true
-  - name: vmess-sg2603.cloudmatrix.xyz-2603
-    server: sg2603.cloudmatrix.xyz
-    port: 2603
-    type: vmess
-    uuid: a992be42-bed4-3037-8788-9e860cd635d3
-    alterId: 2
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: t.me/vpnhat
-    udp: true
-  - name: vmess-120.240.48.20-38106
-    server: 120.240.48.20
-    port: 38106
-    type: vmess
-    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: 120.240.48.20
-    udp: true
-  - name: vmess-ingress-i1.onebox6.org-38106
-    server: ingress-i1.onebox6.org
-    port: 38106
-    type: vmess
-    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: www.ivpnpro.net
-    udp: true
-  - name: vmess-120.240.48.20-38102
-    server: 120.240.48.20
-    port: 38102
-    type: vmess
-    uuid: 79386685-16da-327c-9e14-aa6d702d86bc
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: t.me/vpnhat
-    udp: true
-  - name: vmess-85.209.159.107-20403
-    server: 85.209.159.107
-    port: 20403
-    type: vmess
-    uuid: b3b08b1c-c0a4-11ec-8151-00163c3fe0cd
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /Asq7j5Mb/
-    ws-headers:
-      Host: 85.209.159.107
-    udp: true
-  - name: vmess-x.laoyouv2.top-10080
-    server: x.laoyouv2.top
-    port: 10080
-    type: vmess
-    uuid: 29430b3d-f83f-3c74-94a2-e8c1a459219f
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-hkaz3.xmrth-node.xyz-12568
-    server: hkaz3.xmrth-node.xyz
-    port: 12568
-    type: vmess
-    uuid: ececdd8d-d257-3e9b-a770-9abaf61e4920
-    alterId: 2
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /index
-    ws-headers:
-      Host: www.baidu.com
-    udp: true
-  - name: vmess-hkaz3.xmrth-node.xyz-12567
-    server: hkaz3.xmrth-node.xyz
-    port: 12567
-    type: vmess
-    uuid: ececdd8d-d257-3e9b-a770-9abaf61e4920
-    alterId: 2
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /index
-    ws-headers:
-      Host: www.baidu.com
-    udp: true
-  - name: ss-172.105.244.165-8091
-    server: 172.105.244.165
-    port: 8091
-    type: ss
-    cipher: aes-256-gcm
-    password: PCnnH6SQSnfoS27
-    udp: true
-  - name: ss-cn1.relay.iepl.pw-50300
-    server: cn1.relay.iepl.pw
-    port: 50300
-    type: ss
-    cipher: aes-128-gcm
-    password: df87f3f2-f2a7-4fae-ae7d-507cea790c95
-    udp: true
-  - name: ss-172.105.244.165-3389
-    server: 172.105.244.165
-    port: 3389
-    type: ss
-    cipher: aes-256-gcm
-    password: Y6R9pAtvxxzmGC
-    udp: true
-  - name: ss-172.105.244.165-7307
-    server: 172.105.244.165
-    port: 7307
-    type: ss
-    cipher: aes-256-gcm
-    password: FoOiGlkAA9yPEGP
-    udp: true
-  - name: ss-172.105.244.165-5004
-    server: 172.105.244.165
-    port: 5004
-    type: ss
-    cipher: aes-256-gcm
-    password: g5MeD6Ft3CWlJId
-    udp: true
-  - name: ss-172.105.244.165-7306
-    server: 172.105.244.165
-    port: 7306
-    type: ss
-    cipher: aes-256-gcm
-    password: FoOiGlkAA9yPEGP
-    udp: true
-  - name: ss-172.105.244.165-8080
-    server: 172.105.244.165
-    port: 8080
-    type: ss
-    cipher: aes-256-gcm
-    password: KixLvKzwjekG00rm
-    udp: true
-  - name: ss-172.105.244.165-2376
-    server: 172.105.244.165
-    port: 2376
-    type: ss
-    cipher: aes-256-gcm
-    password: faBAoD54k87UJG7
-    udp: true
-  - name: vmess-jp03-vm0.ikuuu.casa-449
-    server: jp03-vm0.ikuuu.casa
-    port: 449
-    type: vmess
-    uuid: 8581d15e-ae94-3fda-9de5-e8dff1c05e23
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: jp03-vm0.ikuuu.casa
-    udp: true
-  - name: ss-172.105.244.165-8090
-    server: 172.105.244.165
-    port: 8090
-    type: ss
-    cipher: aes-256-gcm
-    password: PCnnH6SQSnfoS27
-    udp: true
-  - name: vmess-in-v1.sdgdn.com-50207
-    server: in-v1.sdgdn.com
-    port: 50207
-    type: vmess
-    uuid: b1478e24-4916-3abe-8f17-15931012ecbe
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: in-v1.sdgdn.com
-    udp: true
-  - name: vmess-in-v1.sdgdn.com-50206
-    server: in-v1.sdgdn.com
-    port: 50206
-    type: vmess
-    uuid: b1478e24-4916-3abe-8f17-15931012ecbe
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: telegram.channel.p2psharing
-    udp: true
-  - name: vmess-in-v1.sdgdn.com-50701
-    server: in-v1.sdgdn.com
-    port: 50701
-    type: vmess
-    uuid: b1478e24-4916-3abe-8f17-15931012ecbe
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: telegram.channel.ripaojiedian
-    udp: true
-  - name: ss-172.105.58.152-8119
-    server: 172.105.58.152
-    port: 8119
-    type: ss
-    cipher: aes-256-gcm
-    password: cdBIDV42DCwnfIN
-    udp: true
-  - name: ss-193.108.118.182-8009
-    server: 193.108.118.182
-    port: 8009
-    type: ss
-    cipher: aes-256-gcm
-    password: XKFKl2rULjIp74
-    udp: true
-  - name: vmess-in-v1.sdgdn.com-50205
-    server: in-v1.sdgdn.com
-    port: 50205
-    type: vmess
-    uuid: b1478e24-4916-3abe-8f17-15931012ecbe
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: telegram.channel.ripaojiedian
-    udp: true
-  - name: vmess-cm1-sg.hutaod.me-12335
-    server: cm1-sg.hutaod.me
-    port: 12335
-    type: vmess
-    uuid: 6954c760-6c9c-3f2a-bec0-1348296177e5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-154.23.191.201-443
-    server: 154.23.191.201
-    port: 443
-    type: vmess
-    uuid: b9984674-f771-4e67-a198-c7e60720ba2c
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /
-    ws-headers:
-      Host: 154.23.191.201
-    udp: true
-  - name: vmess-lu1.gogogoo.cyou-443
-    server: lu1.gogogoo.cyou
-    port: 443
-    type: vmess
-    uuid: db5d1aa3-908b-44d1-be0a-4e6a8d4e4cda
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /go
-    ws-headers:
-      Host: lu1.gogogoo.cyou
-    udp: true
-  - name: trojan-jgwcc3.gaox.ml-443
-    server: jgwcc3.gaox.ml
-    type: trojan
-    country: 🇺🇸US
-    port: 443
-    password: b291d129-ee55-4801-a9b8-b5316e5c37b7
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-in-v1.sdgdn.com-50401
-    server: in-v1.sdgdn.com
-    port: 50401
-    type: vmess
-    uuid: b1478e24-4916-3abe-8f17-15931012ecbe
-    alterId: 1
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /hls/cctv5phd.m3u8
-    ws-headers:
-      Host: in-v1.sdgdn.com
-    udp: true
-  - name: vmess-cm1-us.hutaod.me-12234
-    server: cm1-us.hutaod.me
-    port: 12234
-    type: vmess
-    uuid: 6954c760-6c9c-3f2a-bec0-1348296177e5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
-  - name: ss-38.68.135.19-5500
-    server: 38.68.135.19
-    type: ss
-    country: 🇺🇸US
-    port: 5500
-    password: KixLvKzwjekG00rm
-    cipher: aes-256-gcm
-  - name: vmess-hkaz4.xmrth-node.xyz-13302
-    server: hkaz4.xmrth-node.xyz
-    port: 13302
-    type: vmess
-    uuid: ececdd8d-d257-3e9b-a770-9abaf61e4920
-    alterId: 2
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /index
-    ws-headers:
-      Host: hkaz4.xmrth-node.xyz
-    udp: true
-  - name: ss-c39s1.jamjams.net-32567
-    server: c39s1.jamjams.net
-    port: 32567
-    type: ss
-    cipher: aes-256-gcm
-    password: m35yfEjtbS
-    udp: true
-  - name: trojan-o7cx6bd6t4yjiqsm.xiongsonglin.com-443
-    server: o7cx6bd6t4yjiqsm.xiongsonglin.com
-    port: 443
-    type: trojan
-    password: e5d46365e25e31d94279c2bcf93390a2
-    sni: o7cx6bd6t4yjiqsm.xiongsonglin.com
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-usa-sr-106.mitoption.com-443
-    server: usa-sr-106.mitoption.com
-    port: 443
-    type: trojan
-    password: e5d46365e25e31d94279c2bcf93390a2
-    sni: usa-sr-106.mitoption.com
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-sg-sr-114.mitoption.com-443
-    server: sg-sr-114.mitoption.com
-    port: 443
-    type: trojan
-    password: e5d46365e25e31d94279c2bcf93390a2
-    sni: sg-sr-114.mitoption.com
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-zones.defun.us-443
-    server: zones.defun.us
-    port: 443
-    type: trojan
-    password: lpmMwDKeBbKKPq8K
-    sni: zones.defun.us
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-104.166.135.10-443
-    server: 104.166.135.10
-    port: 443
-    type: vmess
-    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-    alterId: 4
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /ws
-    ws-headers:
-      Host: ahdaeph8.com
-    udp: true
-  - name: vmess-streaming-1-route.teacher2050.com-31222
-    server: streaming-1-route.teacher2050.com
-    port: 31222
-    type: vmess
-    uuid: B8AAA6E1-F0B3-B9EC-3DFC-BB226C167B33
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-gy.sharecentrepro.tk-10001
-    server: gy.sharecentrepro.tk
-    port: 10001
-    type: vmess
-    uuid: 6731a7a4-cac0-4218-d3e7-a4fe8c933b5a
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /xrenblog
-    ws-headers:
-      Host: sgp.xrenblog.com
-    udp: true
-  - name: vmess-top.njiang.tk-443
-    server: top.njiang.tk
-    port: 443
-    type: vmess
-    uuid: b2d062be-1912-4523-96c9-4f0f101c931b
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /wivhvws
-    ws-headers:
-      Host: top.njiang.tk
-    udp: true
-  - name: vmess-fr1t.moonfree.top-8443
-    server: fr1t.moonfree.top
-    port: 8443
-    type: vmess
-    uuid: 122f166c-537e-4e8f-9310-4e50652fa7e9
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /
-    ws-headers:
-      Host: fr1t.moonfree.top
-    udp: true
-  - name: vmess-hkaz1.xmrth-node.xyz-10033
-    server: hkaz1.xmrth-node.xyz
-    port: 10033
-    type: vmess
-    uuid: ececdd8d-d257-3e9b-a770-9abaf61e4920
-    alterId: 2
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-path: /index
-    ws-headers:
-      Host: hkaz1.xmrth-node.xyz
-    udp: true
-  - name: vmess-ahdaeph8.com-443
-    server: ahdaeph8.com
-    port: 443
-    type: vmess
-    uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-    alterId: 4
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /ws
-    ws-headers:
-      Host: ahdaeph8.com
-    udp: true
-  - name: vmess-v2.ssrsub.com-8443
-    server: v2.ssrsub.com
-    port: 8443
-    type: vmess
-    uuid: b7c70df3-f92f-4800-a8e1-67e6dc833256
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /ssrsub
-    ws-headers:
-      Host: v2.ssrsub.com
-    udp: true
-  - name: vmess-cm1-us.hutaod.me-12232
-    server: cm1-us.hutaod.me
-    port: 12232
-    type: vmess
-    uuid: 6954c760-6c9c-3f2a-bec0-1348296177e5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-v1.ssrsub.com-8443
-    server: v1.ssrsub.com
-    port: 8443
-    type: vmess
-    uuid: b7c70df3-f92f-4800-a8e1-67e6dc833256
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /ssrsub
-    ws-headers:
-      Host: v1.ssrsub.com
-    udp: true
-  - name: ss-92.38.184.228-55231
-    server: 92.38.184.228
-    port: 55231
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: zidKl2rcLVBm
-    udp: true
-  - name: vmess-v4.ssrsub.com-8443
-    server: v4.ssrsub.com
-    port: 8443
-    type: vmess
-    uuid: b7c70df3-f92f-4800-a8e1-67e6dc833256
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-path: /ssrsub
-    ws-headers:
-      Host: v4.ssrsub.com
-    udp: true
   - name: ss-213.183.59.229-9020
     server: 213.183.59.229
     type: ss
@@ -13630,39 +14335,18 @@ proxies:
     port: 806
     password: G!yBwPWH3Vao
     cipher: chacha20-ietf-poly1305
-  - name: ss-14.29.124.174-11004
-    server: 14.29.124.174
-    port: 11004
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
-  - name: ss-14.29.124.174-11038
-    server: 14.29.124.174
-    port: 11038
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
   - name: ss-14.29.124.174-11039
-    server: 14.29.124.174
-    port: 11039
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
-  - name: ss-14.29.124.174-11049
-    server: 14.29.124.174
-    port: 11049
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
-  - name: ss-14.29.124.174-11015
     server: 14.29.124.174
     type: ss
     country: 🇨🇳 CN
-    port: 11015
+    port: 11039
+    password: QazEdcTgb159@$*
+    cipher: aes-128-cfb
+  - name: ss-14.29.124.174-11049
+    server: 14.29.124.174
+    type: ss
+    country: 🇨🇳 CN
+    port: 11049
     password: QazEdcTgb159@$*
     cipher: aes-128-cfb
   - name: ss-14.29.124.174-11032
@@ -13672,13 +14356,6 @@ proxies:
     port: 11032
     password: QazEdcTgb159@$*
     cipher: aes-128-cfb
-  - name: ss-14.29.124.174-11036
-    server: 14.29.124.174
-    port: 11036
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
   - name: vmess-106.55.234.95-31372
     server: 106.55.234.95
     type: vmess
@@ -13692,20 +14369,6 @@ proxies:
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
-  - name: ss-14.29.124.174-11050
-    server: 14.29.124.174
-    type: ss
-    country: 🇨🇳CN
-    port: 11050
-    password: QazEdcTgb159@$*
-    cipher: aes-128-cfb
-  - name: ss-14.29.124.174-11048
-    server: 14.29.124.174
-    type: ss
-    country: 🇨🇳CN
-    port: 11048
-    password: QazEdcTgb159@$*
-    cipher: aes-128-cfb
   - name: trojan-v2cross.com.05.v2ce.com-443
     server: v2cross.com.05.v2ce.com
     type: trojan
@@ -14360,13 +15023,6 @@ proxies:
     port: 5001
     password: Y6R9pAtvxxzmGC
     cipher: aes-256-gcm
-  - name: trojan-jgwcc1.gaox.ml-443
-    server: jgwcc1.gaox.ml
-    port: 443
-    type: trojan
-    password: 7118b5f4-0ea4-4c11-be7f-11471cb91e4a
-    skip-cert-verify: true
-    udp: true
   - name: vmess-23.91.100.243-30862
     server: 23.91.100.243
     type: vmess
@@ -14393,13 +15049,6 @@ proxies:
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
-  - name: trojan-solink.ga-443
-    server: solink.ga
-    port: 443
-    type: trojan
-    password: b3f3d494-d74d-4c03-9931-5c7efb75d980
-    skip-cert-verify: true
-    udp: true
   - name: ss-185.162.125.91-50004
     server: 185.162.125.91
     type: ss
@@ -14433,17 +15082,10 @@ proxies:
     skip-cert-verify: true
   - name: trojan-99jp.tfzhc.top-44311
     server: 99jp.tfzhc.top
-    port: 44311
-    type: trojan
-    password: 3ad5547b-609b-4f59-916b-afebd85aba7d
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-146.56.189.146-443
-    server: 146.56.189.146
     type: trojan
     country: 🇯🇵 JP
-    port: 443
-    password: f2117e99-9b6e-47fd-b0a9-634a0b15b998
+    port: 44311
+    password: 3ad5547b-609b-4f59-916b-afebd85aba7d
     skip-cert-verify: true
     udp: true
   - name: ss-45.66.134.176-809
@@ -15043,23 +15685,6 @@ proxies:
     port: 9043
     password: HSZuyJQcWe8dxNdF
     cipher: aes-256-cfb
-  - name: vmess-139.162.29.179-18231
-    server: 139.162.29.179
-    port: 18231
-    type: vmess
-    uuid: cb185001-85ed-4186-e391-fdeb7b624403
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-trojan2.udpgw.com-443
-    server: trojan2.udpgw.com
-    port: 443
-    type: trojan
-    password: a79da040-2e7c-11ed-91c2-1239d0255272
-    skip-cert-verify: true
-    udp: true
   - name: ss-217.197.161.136-807
     server: 217.197.161.136
     type: ss
@@ -15533,14 +16158,20 @@ proxies:
     http-opts: {}
     h2-opts: {}
     skip-cert-verify: true
-  - name: trojan-youtube-bai-piao-wang-zhe-usa.98848.xyz-17449
-    server: youtube-bai-piao-wang-zhe-usa.98848.xyz
-    type: trojan
+  - name: vmess-168.138.171.65-443
+    server: 168.138.171.65
+    type: vmess
     country: 🇺🇸 US
-    port: 17449
-    password: yBq0efi1j7
+    port: 443
+    uuid: 4af6fd9a-e8b4-46f2-da3a-207f4577656c
+    alterId: 0
+    cipher: auto
+    network: tcp
+    ws-path: /
+    http-opts: {}
+    h2-opts: {}
+    tls: true
     skip-cert-verify: true
-    udp: true
   - name: ss-38.114.114.67-7307
     server: 38.114.114.67
     type: ss
@@ -18645,899 +19276,18 @@ proxies:
     obfs: http_simple
     protocol-param: 1596:vsqvobohcqs
     obfs-param: t.me/vpnhat
-  - name: trojan-141.147.191.85-28443
-    server: 141.147.191.85
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-ce.rutracker-cn.com-443
-    server: ce.rutracker-cn.com
-    port: 443
-    type: trojan
-    password: 5y8y3CwxRVYhyfSY
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-103.195.236.24-28443
-    server: 103.195.236.24
-    port: 28443
-    type: trojan
-    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
-    sni: glc.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-202.8.9.67-28443
-    server: 202.8.9.67
-    port: 28443
-    type: trojan
-    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
-    sni: glc.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-202.8.9.27-28443
-    server: 202.8.9.27
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-927tw.tfzhc.top-44312
-    server: 927tw.tfzhc.top
-    port: 44312
-    type: trojan
-    password: 3ad5547b-609b-4f59-916b-afebd85aba7d
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-14.215.107.23-28124
-    server: 14.215.107.23
-    port: 28124
-    type: trojan
-    password: Mb6124ef
-    sni: i23.t3v.fun
-    skip-cert-verify: true
-    udp: true
-  - name: ss-180.101.193.226-10068
-    server: 180.101.193.226
-    port: 10068
-    type: ss
-    cipher: aes-256-cfb
-    password: RsDk3peCSuo76B68
-    udp: true
-  - name: trojan-120.232.132.120-25682
-    server: 120.232.132.120
-    port: 25682
-    type: trojan
-    password: Md530834
-    sni: cdnt24.dt1.fun
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-54.223.72.133-14018
-    server: 54.223.72.133
-    port: 14018
-    type: trojan
-    password: M8ac84c9
-    sni: e15e.ft3.us
-    skip-cert-verify: true
-    udp: true
-  - name: ss-14.29.124.168-24002
-    server: 14.29.124.168
-    port: 24002
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
-  - name: ss-14.29.124.168-24000
-    server: 14.29.124.168
-    port: 24000
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
-  - name: ss-gzhk-iplc-hc-1.akijp.net-9004
-    server: gzhk-iplc-hc-1.akijp.net
-    port: 9004
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 8ea90f5b-fefb-47e9-a9c1-4420f8a2f428
-    udp: true
-  - name: ss-gzhk-iplc-hyoc-1.akijp.net-9003
-    server: gzhk-iplc-hyoc-1.akijp.net
-    port: 9003
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 8ea90f5b-fefb-47e9-a9c1-4420f8a2f428
-    udp: true
-  - name: ss-gtm.i809.ml-32053
-    server: gtm.i809.ml
-    port: 32053
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 107b0481-8181-47cc-9324-a178047cd8e4
-    udp: true
-  - name: vmess-4.3.1.fuckppppp.today-58418
-    server: 4.3.1.fuckppppp.today
-    port: 58418
+  - name: vmess-92.38.171.97-21008
+    server: 92.38.171.97
     type: vmess
-    uuid: 244effd9-0204-3c4a-8537-0dca4e5fd9b5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-111.45.22.239-50002
-    server: 111.45.22.239
-    port: 50002
-    type: vmess
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-210.75.24.222-443
-    server: 210.75.24.222
-    type: vmess
-    country: 🇨🇳CN
-    port: 443
-    uuid: 1bbf1ef7-3056-4160-9cab-491e024de705
-    alterId: 0
-    cipher: auto
-    network: ws
-    ws-path: /123
-    servername: sgamd.ptuu.ga
-    ws-headers:
-      HOST: sgamd.ptuu.ga
-    http-opts: {}
-    h2-opts: {}
-    tls: true
-    skip-cert-verify: true
-  - name: vmess-210.75.24.220-443
-    server: 210.75.24.220
-    port: 443
-    type: vmess
-    uuid: a928a26c-2adb-45fe-e57d-8a27dade309e
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /ray
-      headers:
-        Host: "%7B%22Host%22:%22sgarm.ptuu.cf%22%7D"
-    udp: true
-  - name: vmess-gtm-cn-7mz2vfdwc01.gtm-a3b6.com-27387
-    server: gtm-cn-7mz2vfdwc01.gtm-a3b6.com
-    port: 27387
-    type: vmess
-    uuid: 11c69bcb-8950-41e4-872f-7177ccd3de50
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /ffatunvws
-      headers:
-        Host: "%7B%22Host%22:%22nice-us01.nicevpn.top%22%7D"
-    udp: true
-  - name: ss-14.29.124.174-11008
-    server: 14.29.124.174
-    port: 11008
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
-  - name: ss-14.29.124.174-11035
-    server: 14.29.124.174
-    port: 11035
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
-  - name: ss-14.29.124.174-11043
-    server: 14.29.124.174
-    port: 11043
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
-  - name: ss-14.29.124.174-11044
-    server: 14.29.124.174
-    port: 11044
-    type: ss
-    cipher: aes-128-cfb
-    password: QazEdcTgb159@$*
-    udp: true
-  - name: trojan-cn2hn.sub-nthu.com-35002
-    server: cn2hn.sub-nthu.com
-    port: 35002
-    type: trojan
-    password: 87d5ee80-9dfa-4cb5-b644-062803bd0c19
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-117.164.185.220-61001
-    server: 117.164.185.220
-    port: 61001
-    type: trojan
-    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-ygzyd.sub-nthu.com-35005
-    server: ygzyd.sub-nthu.com
-    port: 35005
-    type: trojan
-    password: 87d5ee80-9dfa-4cb5-b644-062803bd0c19
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-ygzyd.sub-nthu.com-35001
-    server: ygzyd.sub-nthu.com
-    port: 35001
-    type: trojan
-    password: 87d5ee80-9dfa-4cb5-b644-062803bd0c19
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-cn2hn.sub-nthu.com-35007
-    server: cn2hn.sub-nthu.com
-    port: 35007
-    type: trojan
-    password: eda8a8e5-1076-4d7b-b1d0-5003a0350073
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-117.164.185.220-11002
-    server: 117.164.185.220
-    port: 11002
-    type: trojan
-    password: 623e1900-473d-4b72-8d6b-c3a2e3223e3e
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-ygzyd.sub-nthu.com-35003
-    server: ygzyd.sub-nthu.com
-    port: 35003
-    type: trojan
-    password: 87d5ee80-9dfa-4cb5-b644-062803bd0c19
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-ygzyd.sub-nthu.com-35000
-    server: ygzyd.sub-nthu.com
-    port: 35000
-    type: trojan
-    password: eda8a8e5-1076-4d7b-b1d0-5003a0350073
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-cn2hn.sub-nthu.com-35003
-    server: cn2hn.sub-nthu.com
-    port: 35003
-    type: trojan
-    password: eda8a8e5-1076-4d7b-b1d0-5003a0350073
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-cn2hn.sub-nthu.com-35000
-    server: cn2hn.sub-nthu.com
-    port: 35000
-    type: trojan
-    password: eda8a8e5-1076-4d7b-b1d0-5003a0350073
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-download1tw.windowsupdate1.com-28443
-    server: download1tw.windowsupdate1.com
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: ss-fn600mliness018.fnline.xyz-443
-    server: fn600mliness018.fnline.xyz
-    port: 443
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 55011c8548ff
-    udp: true
-  - name: ss-fn600mlines020.fnline.info-443
-    server: fn600mlines020.fnline.info
-    port: 443
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 5dac918f6134
-    udp: true
-  - name: ss-fn600mliness017.fnline.xyz-443
-    server: fn600mliness017.fnline.xyz
-    port: 443
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 8812c0e4e2b0
-    udp: true
-  - name: ss-fn600mlines021.fnline.info-443
-    server: fn600mlines021.fnline.info
-    port: 443
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: 0ac84efef442
-    udp: true
-  - name: trojan-194.233.171.25-28443
-    server: 194.233.171.25
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-80.78.132.177-28443
-    server: 80.78.132.177
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-89.163.220.99-28443
-    server: 89.163.220.99
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-sg8-trojan.bonds.id-443
-    server: sg8-trojan.bonds.id
-    port: 443
-    type: trojan
-    password: a2940130-1c92-11ed-aebe-1239d0255272
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-141.95.33.146-443
-    server: 141.95.33.146
-    port: 443
-    type: vmess
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /path/350432191028
-      headers:
-        Host: "%7B%22Host%22:%22www.26745512.xyz%22%7D"
-    udp: true
-  - name: vmess-138.68.90.231-8080
-    server: 138.68.90.231
-    port: 8080
-    type: vmess
-    uuid: 294ffdc3-5942-45ae-a154-dc6c92eacf1d
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /cctv13/hd.m3u8
-      headers:
-        Host: "%7B%22Host%22:%22138.68.90.231%22%7D"
-    udp: true
-  - name: vmess-141.95.33.212-443
-    server: 141.95.33.212
-    port: 443
-    type: vmess
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /path/350432191028
-      headers:
-        Host: "%7B%22Host%22:%22www.22284376.xyz%22%7D"
-    udp: true
-  - name: vmess-213.226.71.174-41443
-    server: 213.226.71.174
-    port: 41443
-    type: vmess
-    uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-185.194.30.40-41443
-    server: 185.194.30.40
-    port: 41443
-    type: vmess
-    uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-62.210.254.72-28443
-    server: 62.210.254.72
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-51.38.48.107-80
-    server: 51.38.48.107
-    port: 80
-    type: vmess
-    uuid: 2c294d59-f28c-4930-88ce-b68b24f1e8db
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /vmess
-      headers:
-        Host: "%7B%22Host%22:%2251.38.48.107%22%7D"
-    udp: true
-  - name: trojan-144.24.87.99-28443
-    server: 144.24.87.99
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-zf2.windowsupdate1.com-30010
-    server: zf2.windowsupdate1.com
-    port: 30010
-    type: trojan
-    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
-    sni: glc.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-210.0.158.220-28443
-    server: 210.0.158.220
-    port: 28443
-    type: trojan
-    password: 19e9475f-31ab-48e9-8642-1205b94fc5ce
-    sni: glc.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-zf2.windowsupdate1.com-30060
-    server: zf2.windowsupdate1.com
-    port: 30060
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-download1hkt.windowsupdate1.com-28443
-    server: download1hkt.windowsupdate1.com
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-zf2.windowsupdate1.com-30040
-    server: zf2.windowsupdate1.com
-    port: 30040
-    type: trojan
-    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
-    sni: glc.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-nice-jp02.tiktokcdn.buzz-13944
-    server: nice-jp02.tiktokcdn.buzz
-    port: 13944
-    type: vmess
-    uuid: 6c6ab0e8-a26c-48d2-994a-7ade314d4281
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-43.155.114.162-34716
-    server: 43.155.114.162
-    port: 34716
-    type: vmess
-    uuid: a8d3fceb-d4c3-4fa3-a7b3-8410e57c95d8
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-43.134.199.221-443
-    server: 43.134.199.221
-    port: 443
-    type: vmess
-    uuid: e5af0cad-295c-37b2-b601-f35d13f6b1bb
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-    udp: true
-  - name: vmess-jp06-vm0.entry.rwesdhytjuftyhdafsdgfrh.club-449
-    server: jp06-vm0.entry.rwesdhytjuftyhdafsdgfrh.club
-    port: 449
-    type: vmess
-    uuid: 23476fb3-9fa9-3fab-9989-4f9c443ae92b
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /hls/cctv5phd.m3u8
-      headers:
-        Host: "%7B%22Host%22:%22jp06-vm0.entry.rwesdhytjuftyhdafsdgfrh.club%22%7D"
-    udp: true
-  - name: trojan-13.125.227.134-28443
-    server: 13.125.227.134
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-13.209.5.163-28443
-    server: 13.209.5.163
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-nl-trojan.bonds.id-443
-    server: nl-trojan.bonds.id
-    port: 443
-    type: trojan
-    password: 94af0550-902b-11eb-b135-1239d0255272
-    sni: nl-trojan.bonds.id
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-91.243.81.42-28443
-    server: 91.243.81.42
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-pl1.vmess.tunnel.cx-443
-    server: pl1.vmess.tunnel.cx
-    port: 443
-    type: vmess
-    uuid: d3b423b0-3e85-11ed-b91c-ff8e8bcf1521
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /vmess
-      headers:
-        Host: "%7B%22Host%22:%22%257B%2522Host%2522:%2522pl1.vmess.tunnel.cx%2522%257D%\
-          22%7D"
-    udp: true
-  - name: vmess-ru.nuker.biz-443
-    server: ru.nuker.biz
-    port: 443
-    type: vmess
-    uuid: 09acf9f3-3b90-4dbe-9c47-16a58bc1bf62
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: "%7B%22Host%22:%22ru.nuker.biz%22%7D"
-    udp: true
-  - name: vmess-88.210.37.106-41443
-    server: 88.210.37.106
-    port: 41443
-    type: vmess
-    uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-89.208.105.63-41443
-    server: 89.208.105.63
-    port: 41443
-    type: vmess
-    uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: ss-sg6-ss.sshstores.net-8388
-    server: sg6-ss.sshstores.net
-    port: 8388
-    type: ss
-    cipher: chacha20-ietf-poly1305
-    password: ziuMb
-    udp: true
-  - name: trojan-sg1.elknode.top-10000
-    server: sg1.elknode.top
-    port: 10000
-    type: trojan
-    password: c79f055a-aec9-3dc3-8cc7-a21e5e820599
-    sni: sg1.elknode.top
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-s351.okggnode.top-39503
-    server: s351.okggnode.top
-    port: 39503
-    type: vmess
-    uuid: e4832ca0-d6f6-32c8-87da-f3eccffe73c0
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /panelmyadmin
-      headers:
-        Host: "%7B%22Host%22:%22s351.okggnode.top%22%7D"
-    udp: true
-  - name: vmess-nice9ab7.xn--8lt534m.tk-20320
-    server: nice9ab7.xn--8lt534m.tk
-    port: 20320
-    type: vmess
-    uuid: 6170c668-a796-46fc-8527-f6fcf9410eae
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /wkbtvws
-      headers:
-        Host: "%7B%22Host%22:%22nice9ab7.xn--8lt534m.tk%22%7D"
-    udp: true
-  - name: vmess-s354.okggnode.top-33954
-    server: s354.okggnode.top
-    port: 33954
-    type: vmess
-    uuid: e4832ca0-d6f6-32c8-87da-f3eccffe73c0
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /panelmyadmin
-      headers:
-        Host: "%7B%22Host%22:%22s354.okggnode.top%22%7D"
-    udp: true
-  - name: trojan-www.sxsy88.tk-44150
-    server: www.sxsy88.tk
-    port: 44150
-    type: trojan
-    password: zFyLKH62WN
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-45.82.253.234-28443
-    server: 45.82.253.234
-    port: 28443
-    type: trojan
-    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
-    sni: glc.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-simpang.freetrade.link-443
-    server: simpang.freetrade.link
-    port: 443
-    type: trojan
-    password: XEyN0OZ28xxCDO7C83DeAa3YcSjYKTgFA5n9IRpFwuB3qSz4aZClSapy3eRl6D
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-45.88.148.234-28443
-    server: 45.88.148.234
-    port: 28443
-    type: trojan
-    password: 564f0597-8e7c-4aa9-95cc-51eb9480a4f3
-    sni: glc.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-155.248.172.87-28443
-    server: 155.248.172.87
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-212.90.123.130-28443
-    server: 212.90.123.130
-    port: 28443
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-zf1.windowsupdate1.com-30030
-    server: zf1.windowsupdate1.com
-    port: 30030
-    type: trojan
-    password: c14bf6d2-be4b-4446-b6d2-c6a0bed19f9d
-    sni: mzy.hruqoaw.cn
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-16.163.140.21-443
-    server: 16.163.140.21
-    port: 443
-    type: trojan
-    password: f62b3d55-66e5-4a2e-9ddc-a294bbce7b13
-    sni: inf-hk2.qchwnd.moe
-    skip-cert-verify: true
-    udp: true
-  - name: trojan-138.2.8.227-44150
-    server: 138.2.8.227
-    port: 44150
-    type: trojan
-    password: zFyLKH62WN
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-185.112.83.35-42443
-    server: 185.112.83.35
-    port: 42443
-    type: vmess
-    uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-ex-us.vxtrans.com-2749
-    server: ex-us.vxtrans.com
-    port: 2749
-    type: vmess
-    uuid: 6abc636f-14bf-3ea9-a363-29b735f93529
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-sg.vmess8.xservs.xyz-80
-    server: sg.vmess8.xservs.xyz
-    port: 80
-    type: vmess
-    uuid: e8c7f5ce-318c-4e43-9e60-3f12f798ec33
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /vmess
-      headers:
-        Host: "%7B%22Host%22:%22sg.vmess8.xservs.xyz%22%7D"
-    udp: true
-  - name: vmess-xiao.miaoge.gay-443
-    server: xiao.miaoge.gay
-    port: 443
-    type: vmess
-    uuid: 4893ed3e-8a5f-48dc-aa1e-bbc2e67a065b
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: "%7B%22Host%22:%22xiao.miaoge.gay%22%7D"
-    udp: true
-  - name: vmess-194.35.15.91-443
-    server: 194.35.15.91
-    port: 443
-    type: vmess
-    uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /path/350432191028
-      headers:
-        Host: "%7B%22Host%22:%22www.67143273.xyz%22%7D"
-    udp: true
-  - name: vmess-secondsite.auth123.email-46933
-    server: secondsite.auth123.email
-    port: 46933
-    type: vmess
-    uuid: 7446e9a8-2428-4663-bfbc-581dedd1b2cb
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-149.57.218.16-41443
-    server: 149.57.218.16
-    port: 41443
-    type: vmess
-    uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-157.254.193.68-10020
-    server: 157.254.193.68
-    port: 10020
-    type: vmess
-    uuid: f1f45005-f074-430b-a4db-7109f50c3bce
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-    udp: true
-  - name: vmess-68.183.129.197-8080
-    server: 68.183.129.197
-    port: 8080
-    type: vmess
-    uuid: 7002330d-fe27-4b56-b22f-d7e3eb825fdb
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /cctv13/hd.m3u8
-      headers:
-        Host: "%7B%22Host%22:%2268.183.129.197%22%7D"
-    udp: true
-  - name: vmess-13.212.219.4-46933
-    server: 13.212.219.4
-    port: 46933
-    type: vmess
-    uuid: 7446e9a8-2428-4663-bfbc-581dedd1b2cb
-    alterId: 0
-    cipher: auto
-    tls: true
-    skip-cert-verify: true
-    udp: true
-  - name: vmess-80.66.64.17-41443
-    server: 80.66.64.17
-    type: vmess
-    country: 🇷🇺RU
-    port: 41443
-    uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+    country: 🇪🇸ES
+    port: 21008
+    uuid: 80b5645a-86b7-48af-9252-977ba807a338
     alterId: 0
     cipher: auto
     network: tcp
     ws-path: /
     http-opts: {}
     h2-opts: {}
-    tls: true
-    skip-cert-verify: true
-  - name: vmess-172.67.165.92-443
-    server: 172.67.165.92
-    type: vmess
-    country: 🇺🇸US
-    port: 443
-    uuid: b71e3784-f171-4035-987a-df0ff4b4cd61
-    alterId: 0
-    cipher: auto
-    network: ws
-    ws-path: /ceatvws
-    servername: 1.731808.tk
-    ws-headers:
-      HOST: 1.731808.tk
-    http-opts: {}
-    h2-opts: {}
-    tls: true
     skip-cert-verify: true
 proxy-groups:
   - name: 所有节点
@@ -20953,6 +20703,31 @@ proxy-groups:
       - vmess-51.81.223.19-443
       - ss-107.182.177.136-256
       - vmess-51.81.223.12-443
+      - ss-196.247.59.154-800
+      - vmess-4.hk.zz.xxxxx.x-t-fuckword.network-36676
+      - ss-145.239.1.100-8888
+      - ss-149.202.82.172-6697
+      - ss-149.202.82.172-8080
+      - ss-145.239.1.100-8080
+      - ss-38.75.136.21-5001
+      - ss-38.68.134.85-6679
+      - ss-167.88.63.79-3306
+      - ss-172.99.190.39-5500
+      - ss-38.114.114.67-6697
+      - ss-167.88.61.175-8080
+      - ss-38.64.138.145-8080
+      - ss-38.68.135.18-5500
+      - ss-38.121.43.71-8882
+      - ss-38.121.43.71-8119
+      - ss-38.114.114.19-5601
+      - ss-38.75.136.21-8080
+      - ss-172.99.190.39-5003
+      - ss-38.75.136.21-5003
+      - vmess-51.81.223.26-443
+      - vmess-51.81.223.10-443
+      - vmess-51.81.223.20-443
+      - vmess-51.81.223.22-443
+      - ss-134.195.196.149-7307
       - ss-141.164.39.146-6697
       - vmess-61.222.202.140-33792
       - vmess-V104.bgpnet.top-26104
@@ -21006,7 +20781,6 @@ proxy-groups:
       - ss-217.30.10.67-9059
       - ss-217.30.10.67-9000
       - ss-217.30.10.67-9015
-      - ss-38.68.135.18-5500
       - ss-38.68.135.18-6697
       - ss-38.68.135.18-8090
       - ss-38.68.135.18-8009
@@ -21049,13 +20823,11 @@ proxy-groups:
       - vmess-bwg2.gushidawang.cc-57539
       - vmess-104.18.24.139-80
       - vmess-sg.guiqing.ml-43956
-      - vmess-51.81.223.10-443
       - vmess-xr-1.herokuapp.com-443
       - vmess-lms.uin-antasari.ac.id-80
       - vmess-api.qiscus.com-443
       - vmess-v116.v2dns.bar-80
       - vmess-hk15.bp777.buzz-21665
-      - vmess-51.81.223.26-443
       - vmess-powerservice.com-443
       - vmess-20.205.2.65-52335
       - vmess-v3.tgfaka.com-8443
@@ -21068,145 +20840,278 @@ proxy-groups:
       - trojan-sg-03.licom.ml-8443
       - trojan-v2cross.com.03.v2ce.com-443
       - trojan-trojan-daozhu-uallen-qbit-azure-hk.kinhproxy.com-443
-      - trojan-jgwxn3.gaox.ml-443
-      - trojan-wangqifei.ga-41477
-      - trojan-924hk02.tfzhc.top-44399
-      - ss-196.247.59.154-800
+      - trojan-cz.v212.fun-443
+      - trojan-id2-trojan.bonds.id-443
+      - trojan-185.126.116.235-443
+      - trojan-jpa.llbb.cf-8443
+      - trojan-141.147.191.85-28443
+      - trojan-103.195.236.24-28443
+      - trojan-202.8.9.67-28443
+      - trojan-202.8.9.27-28443
       - vmess-527hk1.fans8.xyz-443
       - vmess-165.154.244.100-443
+      - trojan-927tw.tfzhc.top-44312
       - trojan-165.154.226.108-443
-      - trojan-ca-trojan.bonds.id-443
-      - trojan-51.161.118.38-443
       - trojan-cat1.sshocean.net-443
-      - ss-14.29.124.174-11009
-      - ss-14.29.124.174-11007
-      - trojan-bauhinia01.abzoones.xyz-36501
-      - trojan-bauhinia02.abzoones.xyz-36606
-      - trojan-jp2.91js.pw-10051
-      - trojan-zz6.91js.pw-10051
-      - trojan-ct.91js.pw-10051
+      - ss-14.29.124.168-24005
       - trojan-bauhinia01.abzoones.xyz-36116
+      - ss-14.29.124.168-24004
+      - trojan-120.232.132.120-25682
+      - trojan-54.223.72.133-14018
+      - trojan-14.215.107.23-28124
+      - ss-180.101.193.226-10068
+      - trojan-58.16.188.36-233
+      - ss-14.29.124.168-24000
+      - ss-14.29.124.168-24002
+      - ss-14.29.124.174-11015
+      - ss-14.29.124.174-11050
+      - trojan-ffr1.awscn.buzz-35377
+      - trojan-ffr6.awscn.buzz-44651
       - trojan-bauhinia01.abzoones.xyz-36401
-      - trojan-bauhinia01.abzoones.xyz-36201
       - trojan-lion02.abzoones.xyz-36206
       - trojan-bauhinia01.abzoones.xyz-36601
+      - ss-14.29.124.174-11048
+      - trojan-jp2.91js.pw-10051
       - trojan-bauhinia01.abzoones.xyz-36301
-      - trojan-bauhinia01.abzoones.xyz-36701
-      - trojan-183.245.146.20-41001
+      - trojan-bauhinia01.abzoones.xyz-36501
+      - trojan-bauhinia01.abzoones.xyz-36201
+      - trojan-pull-cache-lu01.xyx-xylo.com-19701
       - trojan-sunmoon02.abzoones.xyz-36306
       - trojan-117.164.185.222-21005
-      - trojan-183.245.146.20-21002
       - trojan-117.164.185.222-21002
-      - trojan-117.164.185.222-61001
-      - trojan-bauhinia01.abzoones.xyz-36611
       - trojan-117.164.185.222-21003
+      - trojan-183.245.146.20-41001
+      - trojan-ct.91js.pw-10051
       - trojan-117.164.185.222-21001
+      - ss-14.29.124.174-11007
       - trojan-117.164.185.222-21004
+      - trojan-117.164.185.222-61001
+      - trojan-183.245.146.20-21002
+      - trojan-bauhinia01.abzoones.xyz-36701
+      - trojan-bauhinia02.abzoones.xyz-36606
+      - trojan-fujimount02.abzoones.xyz-36106
       - trojan-117.164.185.222-11002
       - trojan-183.245.146.20-21001
-      - trojan-fujimount02.abzoones.xyz-36106
-      - trojan-cz.v212.fun-443
-      - ss-149.202.82.172-6697
-      - ss-145.239.1.100-8080
-      - ss-145.239.1.100-8888
-      - ss-149.202.82.172-8080
+      - trojan-bauhinia01.abzoones.xyz-36611
+      - ss-14.29.124.174-11004
+      - ss-14.29.124.174-11038
+      - ss-14.29.124.174-11036
+      - ss-14.29.124.174-11044
+      - trojan-cn2hn.sub-nthu.com-35002
+      - ss-14.29.124.174-11008
+      - trojan-117.164.185.220-61001
+      - trojan-ygzyd.sub-nthu.com-35005
+      - trojan-ygzyd.sub-nthu.com-35001
+      - trojan-117.164.185.220-11002
+      - trojan-cn2hn.sub-nthu.com-35007
+      - trojan-ygzyd.sub-nthu.com-35003
+      - trojan-zz6.91js.pw-10051
+      - trojan-ygzyd.sub-nthu.com-35000
+      - trojan-cn2hn.sub-nthu.com-35003
+      - trojan-cn2hn.sub-nthu.com-35000
+      - trojan-tw.tcpbbr.net-443
+      - trojan-2.58.242.43-443
+      - trojan-pastry.taiwanesefood.link-443
+      - trojan-download1tw.windowsupdate1.com-28443
+      - ss-fn600mlines021.fnline.info-443
+      - trojan-194.233.171.25-28443
+      - trojan-89.163.220.99-28443
+      - trojan-80.78.132.177-28443
+      - trojan-sg8-trojan.bonds.id-443
+      - vmess-138.68.90.231-8080
+      - trojan-51.161.118.38-443
+      - trojan-ca-trojan.bonds.id-443
       - trojan-fr-trojan.bonds.id-443
-      - trojan-sp.llbb.cf-8443
+      - trojan-62.210.254.72-28443
       - trojan-qt19.shenseven.xyz-443
+      - trojan-jgwcc1.gaox.ml-443
+      - trojan-144.24.87.99-28443
+      - trojan-zf2.windowsupdate1.com-30010
+      - trojan-solink.ga-443
       - trojan-hk-gz-hk-hkt-tr-b.cdn.savoy.click-889
       - trojan-api.tcpbbr.net-18443
-      - trojan-id2-trojan.bonds.id-443
-      - ss-52.197.66.243-443
+      - trojan-210.0.158.220-28443
+      - trojan-zf2.windowsupdate1.com-30060
+      - trojan-download1hkt.windowsupdate1.com-28443
+      - trojan-zf2.windowsupdate1.com-30040
+      - trojan-146.56.189.146-443
+      - vmess-jp06-vm0.entry.rwesdhytjuftyhdafsdgfrh.club-449
+      - trojan-924hk02.tfzhc.top-44399
       - trojan-106.180.225.69-1443
-      - trojan-tky3.ssgnode.ga-443
       - trojan-45.66.134.219-443
-      - trojan-jgwdb3.gaox.ml-443
-      - trojan-qt26.shenseven.xyz-443
       - trojan-yokohama.freetrade.link-443
-      - trojan-jgw3.gaox.ml-443
+      - ss-193.38.139.203-807
+      - ss-193.38.139.203-809
+      - trojan-13.125.227.134-28443
+      - trojan-13.209.5.163-28443
       - trojan-41.216.177.41-443
-      - trojan-www.tokyo2023.ga-443
-      - trojan-138.124.183.216-443
-      - trojan-185.126.116.235-443
+      - trojan-nl-trojan.bonds.id-443
+      - trojan-91.243.81.42-28443
+      - vmess-pl1.vmess.tunnel.cx-443
       - trojan-usa23.884899.cf-443
+      - vmess-46.29.161.160-41443
+      - vmess-88.210.37.106-41443
+      - vmess-89.208.105.63-41443
+      - trojan-trojan2.udpgw.com-443
+      - trojan-hk31.ssgnode.ga-443
+      - trojan-sg3-trojan.bonds.id-443
       - trojan-sg1-trojan.bonds.id-443
+      - trojan-sgp.purecloud.ga-18888
+      - trojan-sg2-trojan.bonds.id-443
+      - trojan-sg6-trojan.bonds.id-443
       - trojan-81.90.189.85-443
       - trojan-w12.udpgw.com-443
-      - trojan-sg6-trojan.bonds.id-443
       - trojan-sgt-1.opensvr.net-443
-      - trojan-sg2-trojan.bonds.id-443
-      - trojan-sgp.purecloud.ga-18888
-      - trojan-sg3-trojan.bonds.id-443
-      - trojan-mv-tw05.link-443
-      - trojan-2.58.242.43-443
-      - trojan-tw.tcpbbr.net-443
-      - trojan-pastry.taiwanesefood.link-443
-      - trojan-tw-oo-01.click-443
-      - ss-mf01.xmss.vip-18888
-      - ss-172.99.190.39-5500
-      - ss-167.88.61.175-8080
-      - ss-38.121.43.71-8882
-      - ss-167.88.63.79-3306
-      - ss-38.68.134.85-6679
-      - ss-38.64.138.145-8080
-      - ss-172.99.190.39-5003
-      - ss-38.75.136.21-5003
-      - ss-38.75.136.21-5001
-      - ss-38.114.114.19-5601
-      - ss-38.75.136.21-8080
-      - ss-38.114.114.67-6697
-      - ss-38.121.43.71-8119
-      - vmess-152.69.197.60-1069
-      - vmess-168.138.171.65-443
-      - vmess-51.81.223.22-443
-      - vmess-51.81.223.20-443
-      - vmess-137.175.5.161-443
-      - trojan-jgwhdlb2.gaox.ml-443
-      - trojan-t03.ssrsub.com.xyz-443
-      - trojan-lsj02.wangxd.life-3052
-      - trojan-jpa.llbb.cf-8443
-      - trojan-150.230.249.42-443
-      - trojan-fhcamd2.gaox.ml-443
-      - trojan-167.88.61.2-443
-      - trojan-cd.rutracker-cn.com-443
-      - trojan-fhcamd1.gaox.ml-443
-      - trojan-jgwhdlb1.gaox.ml-443
-      - trojan-jgwdj4.gaox.ml-443
-      - trojan-31.s7.gay-443
-      - trojan-qt42.shenseven.xyz-443
-      - trojan-qt16.shenseven.xyz-443
       - trojan-sky998dmit3.xyz-443
-      - trojan-us-trojan.bonds.id-443
-      - trojan-ld.usa01.yuiuingkig.icu-50032
+      - trojan-jgwhdlb2.gaox.ml-443
+      - trojan-qt16.shenseven.xyz-443
+      - trojan-wangqifei.ga-41477
+      - trojan-45.82.253.234-28443
+      - trojan-jgwdb4.gaox.ml-443
+      - trojan-jgwdb3.gaox.ml-443
+      - trojan-fhcamd2.gaox.ml-443
+      - trojan-fhcamd1.gaox.ml-443
+      - trojan-150.230.217.213-443
+      - trojan-jgw3.gaox.ml-443
       - trojan-singapore.anthoncloud.com-3306
-      - trojan-tw.softbank.mjj-home.com-443
-      - trojan-www.anloao.cf-9053
       - trojan-184.168.127.50-443
+      - trojan-www.anloao.cf-9053
+      - trojan-tw.softbank.mjj-home.com-443
+      - trojan-jp.useanlo.cf-6523
+      - trojan-jpo.llbb.cf-8443
+      - trojan-167.88.61.2-443
+      - trojan-us-trojan.bonds.id-443
+      - trojan-jp.iamnotagoodman.com-443
+      - trojan-138.2.45.243-443
+      - trojan-56789.gq-443
+      - trojan-jgw4.gaox.ml-443
+      - trojan-hg.053111.xyz-443
+      - trojan-ld.usa01.yuiuingkig.icu-50032
       - trojan-music.missionsec.us-443
       - trojan-170.187.182.212-443
-      - trojan-jp.useanlo.cf-6523
-      - trojan-209.141.47.137-443
-      - trojan-56789.gq-443
-      - trojan-jpo.llbb.cf-8443
-      - trojan-listener.freetrade.link-443
-      - trojan-xioix.gq-443
       - trojan-173.82.192.61-443
-      - trojan-trojan.wefuckgfw.gq-443
-      - trojan-150.230.217.213-443
+      - trojan-209.141.47.137-443
       - trojan-72.167.45.6-443
-      - trojan-trus.moonfree.top-443
-      - trojan-permissions.freetrade.link-443
-      - trojan-jgw4.gaox.ml-443
-      - trojan-jp.iamnotagoodman.com-443
-      - trojan-hg.053111.xyz-443
-      - trojan-hacks.missionsec.us-443
+      - trojan-trojan.wefuckgfw.gq-443
       - trojan-byw.h99xbwg.xyz-443
+      - trojan-listener.freetrade.link-443
+      - trojan-hacks.missionsec.us-443
       - trojan-purchases.freetrade.link-443
       - trojan-ld.mglsj.yuiuingkig.icu-50025
-      - vmess-4.hk.zz.xxxxx.x-t-fuckword.network-36676
-      - ss-134.195.196.149-7307
-      - vmess-cf.731808.tk-443
+      - trojan-t03.ssrsub.com.xyz-443
+      - trojan-xioix.gq-443
+      - trojan-youtube-bai-piao-wang-zhe-usa.98848.xyz-17449
+      - trojan-45.88.148.234-28443
+      - trojan-155.248.172.87-28443
+      - trojan-212.90.123.130-28443
+      - trojan-zf1.windowsupdate1.com-30030
+      - trojan-150.230.249.42-443
+      - trojan-simpang.freetrade.link-443
+      - trojan-nice-se01.tiktokcdn.buzz-8443
+      - trojan-sg-01.tiktokcdn.top-443
+      - trojan-150.230.96.103-443
+      - trojan-129.146.190.42-443
+      - trojan-144.126.211.35-12340
+      - trojan-s2.hass.win-12340
+      - trojan-31.s7.gay-443
+      - trojan-s2.hazz.win-12340
+      - trojan-qt26.shenseven.xyz-443
+      - trojan-nicekr-02.tiktokcdn.buzz-20531
+      - trojan-16.163.140.21-443
+      - vmess-159.223.32.230-8080
+      - vmess-137.175.5.161-443
+      - vmess-68.183.129.197-8080
+      - vmess-157.254.193.68-10020
+      - trojan-qt42.shenseven.xyz-443
       - vmess-cf.naixii.top-443
+      - trojan-lsj02.wangxd.life-3052
+      - trojan-jgwxn3.gaox.ml-443
+      - ss-14.29.124.174-11009
+      - ss-14.29.124.174-11035
+      - trojan-sp.llbb.cf-8443
+      - trojan-tky3.ssgnode.ga-443
+      - trojan-www.tokyo2023.ga-443
+      - trojan-138.124.183.216-443
+      - vmess-139.162.29.179-18231
+      - trojan-tw-oo-01.click-443
+      - trojan-mv-tw05.link-443
+      - ss-mf01.xmss.vip-18888
+      - trojan-ce.rutracker-cn.com-443
+      - vmess-152.69.197.60-1069
+      - trojan-s162.s2022.xyz-23802
+      - trojan-trus.moonfree.top-443
+      - trojan-permissions.freetrade.link-443
+      - trojan-jgwhdlb1.gaox.ml-443
+      - trojan-jgwdj4.gaox.ml-443
+      - vmess-cf.731808.tk-443
+      - trojan-jgwld2.gaox.ml-443
+      - vmess-aicoo6du.com-443
+      - vmess-129.227.201.234-443
+      - vmess-120.240.48.20-38101
+      - vmess-119.147.20.236-38201
+      - vmess-120.240.48.19-38106
+      - vmess-101.230.149.29-38106
+      - vmess-sg2603.cloudmatrix.xyz-2603
+      - vmess-120.240.48.20-38106
+      - vmess-ingress-i1.onebox6.org-38106
+      - vmess-120.240.48.20-38102
+      - vmess-85.209.159.107-20403
+      - vmess-sg3.31vpn.com-443
+      - vmess-sg3.31vpn.com-80
+      - vmess-x.laoyouv2.top-10080
+      - vmess-hkaz3.xmrth-node.xyz-12568
+      - vmess-hkaz3.xmrth-node.xyz-12567
+      - vmess-331tw.fans8.xyz-443
+      - ss-172.105.244.165-8091
+      - ss-cn1.relay.iepl.pw-50300
+      - ss-172.105.244.165-3389
+      - ss-172.105.244.165-7307
+      - ss-172.105.244.165-5004
+      - ss-172.105.244.165-7306
+      - ss-172.105.244.165-8080
+      - ss-172.105.244.165-2376
+      - vmess-jp03-vm0.ikuuu.casa-449
+      - ss-172.105.244.165-8090
+      - vmess-in-v1.sdgdn.com-50207
+      - vmess-in-v1.sdgdn.com-50206
+      - vmess-in-v1.sdgdn.com-50701
+      - ss-169.197.142.99-8090
+      - ss-172.105.58.152-8119
+      - ss-193.108.118.182-8009
+      - vmess-in-v1.sdgdn.com-50205
+      - vmess-cm1-sg.hutaod.me-12335
+      - vmess-154.23.191.201-443
+      - vmess-lu1.gogogoo.cyou-443
+      - trojan-jgwcc3.gaox.ml-443
+      - trojan-sg1.qingyun123.xyz-10001
+      - trojan-jp1.qingyun123.xyz-10100
+      - ss-38.68.135.19-5004
+      - vmess-in-v1.sdgdn.com-50401
+      - vmess-cm1-us.hutaod.me-12234
+      - vmess-cm1-us.hutaod.me-12231
+      - ss-38.68.135.19-5500
+      - vmess-hkaz4.xmrth-node.xyz-13302
+      - ss-c39s1.jamjams.net-32567
+      - ss-38.68.135.19-7306
+      - trojan-o7cx6bd6t4yjiqsm.xiongsonglin.com-443
+      - trojan-usa-sr-106.mitoption.com-443
+      - trojan-sg-sr-114.mitoption.com-443
+      - ss-38.68.135.19-5003
+      - trojan-zones.defun.us-443
+      - vmess-104.16.162.16-2053
+      - vmess-104.166.135.10-443
+      - vmess-streaming-1-route.teacher2050.com-31222
+      - vmess-gy.sharecentrepro.tk-10001
+      - vmess-top.njiang.tk-443
+      - vmess-fr1t.moonfree.top-8443
+      - vmess-hkaz1.xmrth-node.xyz-10033
+      - vmess-ahdaeph8.com-443
+      - vmess-v2.ssrsub.com-8443
+      - vmess-cm1-us.hutaod.me-12232
+      - vmess-cm1-us.hutaod.me-12233
+      - vmess-v1.ssrsub.com-8443
+      - ss-92.38.184.228-55231
+      - vmess-v4.ssrsub.com-8443
       - ss-213.183.53.177-9007
       - ss-152.89.210.105-9064
       - ss-152.89.210.105-9056
@@ -21239,17 +21144,13 @@ proxy-groups:
       - trojan-jp.tcpbbr.net-443
       - trojan-hk.omgwtf.website-443
       - trojan-45.137.97.205-58000
-      - ss-169.197.142.99-8090
       - ss-169.197.142.99-3306
-      - ss-38.68.135.19-5003
       - ss-169.197.142.99-3389
       - ss-169.197.142.99-8119
       - ss-169.197.142.99-8888
       - ss-169.197.142.99-6679
       - ss-104.194.77.123-57998
-      - ss-38.68.135.19-5004
       - ss-38.68.135.19-3389
-      - ss-38.68.135.19-7306
       - ss-38.68.135.19-2376
       - ss-45.78.5.173-57998
       - ss-45.78.8.236-29369
@@ -21257,10 +21158,7 @@ proxy-groups:
       - vmess-34.125.239.135-64609
       - vmess-119.147.20.236-38401
       - vmess-cm1-kr.hutaod.me-12134
-      - vmess-cm1-us.hutaod.me-12233
-      - vmess-cm1-us.hutaod.me-12231
       - vmess-4.ezydfdd.com-443
-      - vmess-104.16.162.16-2053
       - vmess-152.70.88.168-49081
       - vmess-e-gzcm.linkdns.xyz-40248
       - vmess-e-gzcm.linkdns.xyz-40247
@@ -21271,19 +21169,13 @@ proxy-groups:
       - vmess-yzhk.fly.dev-443
       - vmess-45.142.158.72-56482
       - ss-cn1.relay.iepl.pw-50200
-      - vmess-331tw.fans8.xyz-443
-      - vmess-119.147.20.236-38201
-      - trojan-sg1.qingyun123.xyz-10001
       - ss-cn1.relay.iepl.pw-50500
       - vmess-cm1-sg.hutaod.me-12336
-      - vmess-sg3.31vpn.com-80
-      - vmess-sg3.31vpn.com-443
       - ss-cn1.relay.iepl.pw-50700
       - vmess-ruvds.testx.eu.org-443
       - vmess-152.70.49.174-55988
       - ss-cn1.relay.iepl.pw-50400
       - vmess-cm1-kr.hutaod.me-12135
-      - trojan-jp1.qingyun123.xyz-10100
       - vmess-cm1-jp.hutaod.me-12035
       - vmess-cm1-jp.hutaod.me-12031
       - vmess-jp01-tls-vm0.entry.ikuuu.casa-892
@@ -21309,61 +21201,6 @@ proxy-groups:
       - ss-134.195.196.184-7306
       - ss-134.195.196.184-5004
       - vmess-129.154.54.75-33004
-      - trojan-jgwld2.gaox.ml-443
-      - vmess-aicoo6du.com-443
-      - vmess-129.227.201.234-443
-      - vmess-120.240.48.20-38101
-      - vmess-120.240.48.19-38106
-      - vmess-101.230.149.29-38106
-      - vmess-sg2603.cloudmatrix.xyz-2603
-      - vmess-120.240.48.20-38106
-      - vmess-ingress-i1.onebox6.org-38106
-      - vmess-120.240.48.20-38102
-      - vmess-85.209.159.107-20403
-      - vmess-x.laoyouv2.top-10080
-      - vmess-hkaz3.xmrth-node.xyz-12568
-      - vmess-hkaz3.xmrth-node.xyz-12567
-      - ss-172.105.244.165-8091
-      - ss-cn1.relay.iepl.pw-50300
-      - ss-172.105.244.165-3389
-      - ss-172.105.244.165-7307
-      - ss-172.105.244.165-5004
-      - ss-172.105.244.165-7306
-      - ss-172.105.244.165-8080
-      - ss-172.105.244.165-2376
-      - vmess-jp03-vm0.ikuuu.casa-449
-      - ss-172.105.244.165-8090
-      - vmess-in-v1.sdgdn.com-50207
-      - vmess-in-v1.sdgdn.com-50206
-      - vmess-in-v1.sdgdn.com-50701
-      - ss-172.105.58.152-8119
-      - ss-193.108.118.182-8009
-      - vmess-in-v1.sdgdn.com-50205
-      - vmess-cm1-sg.hutaod.me-12335
-      - vmess-154.23.191.201-443
-      - vmess-lu1.gogogoo.cyou-443
-      - trojan-jgwcc3.gaox.ml-443
-      - vmess-in-v1.sdgdn.com-50401
-      - vmess-cm1-us.hutaod.me-12234
-      - ss-38.68.135.19-5500
-      - vmess-hkaz4.xmrth-node.xyz-13302
-      - ss-c39s1.jamjams.net-32567
-      - trojan-o7cx6bd6t4yjiqsm.xiongsonglin.com-443
-      - trojan-usa-sr-106.mitoption.com-443
-      - trojan-sg-sr-114.mitoption.com-443
-      - trojan-zones.defun.us-443
-      - vmess-104.166.135.10-443
-      - vmess-streaming-1-route.teacher2050.com-31222
-      - vmess-gy.sharecentrepro.tk-10001
-      - vmess-top.njiang.tk-443
-      - vmess-fr1t.moonfree.top-8443
-      - vmess-hkaz1.xmrth-node.xyz-10033
-      - vmess-ahdaeph8.com-443
-      - vmess-v2.ssrsub.com-8443
-      - vmess-cm1-us.hutaod.me-12232
-      - vmess-v1.ssrsub.com-8443
-      - ss-92.38.184.228-55231
-      - vmess-v4.ssrsub.com-8443
       - ss-213.183.59.229-9020
       - ss-38.114.114.69-8000
       - ss-139.99.238.179-50004
@@ -21388,16 +21225,10 @@ proxy-groups:
       - ss-51.161.118.38-800
       - ss-196.247.59.154-803
       - ss-196.247.59.156-806
-      - ss-14.29.124.174-11004
-      - ss-14.29.124.174-11038
       - ss-14.29.124.174-11039
       - ss-14.29.124.174-11049
-      - ss-14.29.124.174-11015
       - ss-14.29.124.174-11032
-      - ss-14.29.124.174-11036
       - vmess-106.55.234.95-31372
-      - ss-14.29.124.174-11050
-      - ss-14.29.124.174-11048
       - trojan-v2cross.com.05.v2ce.com-443
       - trojan-v2cross.com.02.v2ce.com-443
       - ss-193.108.118.30-5500
@@ -21491,15 +21322,12 @@ proxy-groups:
       - ss-78.129.253.9-808
       - ss-163.172.110.153-809
       - ss-212.38.189.174-5001
-      - trojan-jgwcc1.gaox.ml-443
       - vmess-23.91.100.243-30862
       - vmess-128.1.134.126-6666
-      - trojan-solink.ga-443
       - ss-185.162.125.91-50004
       - ss-31.133.100.49-50004
       - vmess-jp2.tzccwz.fit-443
       - trojan-99jp.tfzhc.top-44311
-      - trojan-146.56.189.146-443
       - ss-45.66.134.176-809
       - ss-45.66.134.176-807
       - ss-45.66.134.176-805
@@ -21585,8 +21413,6 @@ proxy-groups:
       - ss-51.77.53.200-7306
       - ss-51.77.53.200-2376
       - ss-185.126.116.123-9043
-      - vmess-139.162.29.179-18231
-      - trojan-trojan2.udpgw.com-443
       - ss-217.197.161.136-807
       - ss-217.197.161.138-800
       - ss-217.197.161.136-801
@@ -21652,7 +21478,7 @@ proxy-groups:
       - ss-172.99.188.71-8008
       - ss-38.75.136.34-9101
       - vmess-v4.heduian.online-30866
-      - trojan-youtube-bai-piao-wang-zhe-usa.98848.xyz-17449
+      - vmess-168.138.171.65-443
       - ss-38.114.114.67-7307
       - ss-172.99.190.7-2376
       - ss-167.88.61.175-5001
@@ -22080,97 +21906,4 @@ proxy-groups:
       - vmess-103.186.148.106-80
       - vmess-103.186.149.132-80
       - ssr-120.233.10.181-15410
-      - trojan-141.147.191.85-28443
-      - trojan-ce.rutracker-cn.com-443
-      - trojan-103.195.236.24-28443
-      - trojan-202.8.9.67-28443
-      - trojan-202.8.9.27-28443
-      - trojan-927tw.tfzhc.top-44312
-      - trojan-14.215.107.23-28124
-      - ss-180.101.193.226-10068
-      - trojan-120.232.132.120-25682
-      - trojan-54.223.72.133-14018
-      - ss-14.29.124.168-24002
-      - ss-14.29.124.168-24000
-      - ss-gzhk-iplc-hc-1.akijp.net-9004
-      - ss-gzhk-iplc-hyoc-1.akijp.net-9003
-      - ss-gtm.i809.ml-32053
-      - vmess-4.3.1.fuckppppp.today-58418
-      - vmess-111.45.22.239-50002
-      - vmess-210.75.24.222-443
-      - vmess-210.75.24.220-443
-      - vmess-gtm-cn-7mz2vfdwc01.gtm-a3b6.com-27387
-      - ss-14.29.124.174-11008
-      - ss-14.29.124.174-11035
-      - ss-14.29.124.174-11043
-      - ss-14.29.124.174-11044
-      - trojan-cn2hn.sub-nthu.com-35002
-      - trojan-117.164.185.220-61001
-      - trojan-ygzyd.sub-nthu.com-35005
-      - trojan-ygzyd.sub-nthu.com-35001
-      - trojan-cn2hn.sub-nthu.com-35007
-      - trojan-117.164.185.220-11002
-      - trojan-ygzyd.sub-nthu.com-35003
-      - trojan-ygzyd.sub-nthu.com-35000
-      - trojan-cn2hn.sub-nthu.com-35003
-      - trojan-cn2hn.sub-nthu.com-35000
-      - trojan-download1tw.windowsupdate1.com-28443
-      - ss-fn600mliness018.fnline.xyz-443
-      - ss-fn600mlines020.fnline.info-443
-      - ss-fn600mliness017.fnline.xyz-443
-      - ss-fn600mlines021.fnline.info-443
-      - trojan-194.233.171.25-28443
-      - trojan-80.78.132.177-28443
-      - trojan-89.163.220.99-28443
-      - trojan-sg8-trojan.bonds.id-443
-      - vmess-141.95.33.146-443
-      - vmess-138.68.90.231-8080
-      - vmess-141.95.33.212-443
-      - vmess-213.226.71.174-41443
-      - vmess-185.194.30.40-41443
-      - trojan-62.210.254.72-28443
-      - vmess-51.38.48.107-80
-      - trojan-144.24.87.99-28443
-      - trojan-zf2.windowsupdate1.com-30010
-      - trojan-210.0.158.220-28443
-      - trojan-zf2.windowsupdate1.com-30060
-      - trojan-download1hkt.windowsupdate1.com-28443
-      - trojan-zf2.windowsupdate1.com-30040
-      - vmess-nice-jp02.tiktokcdn.buzz-13944
-      - vmess-43.155.114.162-34716
-      - vmess-43.134.199.221-443
-      - vmess-jp06-vm0.entry.rwesdhytjuftyhdafsdgfrh.club-449
-      - trojan-13.125.227.134-28443
-      - trojan-13.209.5.163-28443
-      - trojan-nl-trojan.bonds.id-443
-      - trojan-91.243.81.42-28443
-      - vmess-pl1.vmess.tunnel.cx-443
-      - vmess-ru.nuker.biz-443
-      - vmess-88.210.37.106-41443
-      - vmess-89.208.105.63-41443
-      - ss-sg6-ss.sshstores.net-8388
-      - trojan-sg1.elknode.top-10000
-      - vmess-s351.okggnode.top-39503
-      - vmess-nice9ab7.xn--8lt534m.tk-20320
-      - vmess-s354.okggnode.top-33954
-      - trojan-www.sxsy88.tk-44150
-      - trojan-45.82.253.234-28443
-      - trojan-simpang.freetrade.link-443
-      - trojan-45.88.148.234-28443
-      - trojan-155.248.172.87-28443
-      - trojan-212.90.123.130-28443
-      - trojan-zf1.windowsupdate1.com-30030
-      - trojan-16.163.140.21-443
-      - trojan-138.2.8.227-44150
-      - vmess-185.112.83.35-42443
-      - vmess-ex-us.vxtrans.com-2749
-      - vmess-sg.vmess8.xservs.xyz-80
-      - vmess-xiao.miaoge.gay-443
-      - vmess-194.35.15.91-443
-      - vmess-secondsite.auth123.email-46933
-      - vmess-149.57.218.16-41443
-      - vmess-157.254.193.68-10020
-      - vmess-68.183.129.197-8080
-      - vmess-13.212.219.4-46933
-      - vmess-80.66.64.17-41443
-      - vmess-172.67.165.92-443
+      - vmess-92.38.171.97-21008
